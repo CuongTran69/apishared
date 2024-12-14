@@ -156,7 +156,7 @@ export default function Home() {
         <title>API Shared - AI Services Hub</title>
         <meta name="description" content="Access powerful AI APIs at discounted rates. Featuring OpenAI, Anthropic, and more." />
         <meta name="keywords" content="AI API, OpenAI, Anthropic, Claude, GPT-4, Machine Learning, API Integration" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/logo.png" />
       </Head>
 
       <main className="container mx-auto px-4 py-16 relative">
