@@ -2,43 +2,91 @@
 'use client';  // Add client directive for client-side components
 
 import Head from 'next/head'
-import Image from 'next/image'
 import { FaYoutube, FaFacebook, FaTelegram, FaCopy } from 'react-icons/fa'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+
+// Define translations
+const translations = {
+  en: {
+    title: 'API Shared - AI Services Hub',
+    description: 'Access powerful AI APIs at discounted rates. Featuring OpenAI, Anthropic, and more.',
+    youtubeSection: 'Featured API Shared Video Insights',
+    modelsSection: 'AI Models',
+    providersTitle: 'Providers',
+    modelCodeCopy: 'Copy Model Code',
+    socialConnect: 'Connect With Us',
+    tokenInformation: '🤖 Tokens và Tokenization: Nền Tảng Của AI Trong Xử Lý Dữ Liệu',
+    whatAreTokens: '📝 What is Tokens?',
+    tokenExamples: '🎯 Ví Dụ Cụ Thể Về Token',
+    tokenLimits: '📈 Giới Hạn Token của Các Mô Hình Phổ Biến',
+    tokenCorrespondence: '📊 Token Tương ứng bao nhiêu từ?',
+    futureTrends: '🔮 Xu Hướng Tương Lai',
+    modelPricing: 'Model Pricing',
+    footerText: 'Connect with us on social media',
+    copyrightText: '2024 API Shared. All rights reserved.'
+  },
+  vi: {
+    title: 'API Shared - Trung Tâm Dịch Vụ AI',
+    description: 'Truy cập các API AI mạnh mẽ với mức ưu đãi cực lớn. Được trang bị các models của OpenAI, Anthropic và nhiều hơn nữa.',
+    youtubeSection: 'Video Hướng dẫn sử dụng API Shared',
+    modelsSection: 'Bảng giá token models AI',
+    providersTitle: 'Nhà Cung Cấp',
+    modelCodeCopy: 'Sao Chép Mã Mô Hình',
+    socialConnect: 'Kết Nối Với Chúng Tôi',
+    tokenInformation: '🤖 Tokens và Tokenization: Nền Tảng Của AI Trong Xử Lý Dữ Liệu',
+    whatAreTokens: '📝 Tokens Là Gì?',
+    tokenExamples: '🎯 Ví Dụ Cụ Thể Về Token',
+    tokenLimits: '📈 Giới Hạn Token của Các Mô Hình Phổ Biến',
+    tokenCorrespondence: '📊 Token Tương ứng bao nhiêu từ?',
+    futureTrends: '🔮 Xu Hướng Tương Lai',
+    modelPricing: 'Giá Mô Hình',
+    footerText: 'Kết nối với chúng tôi trên mạng xã hội',
+    copyrightText: '2024 API Shared. All rights reserved.'
+  }
+}
 
 export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>('jjAwWP1R8jo')
-  const [copiedModel, setCopiedModel] = useState<string | null>(null)
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
+  const [copyNotification, setCopyNotification] = useState({
+    message: '',
+    visible: false
+  })
 
-  const youtubeLinks = [
-    {
-      title: 'API Shared',
-      description: 'Exploring the latest advancements in AI technology',
-      embedId: 'jjAwWP1R8jo'
-    }
-  ]
+  // Use a two-step state approach to avoid hydration issues
+  const [language, setLanguage] = useState<'en' | 'vi'>('en')
 
-  const aiModels = [
-    {
-      provider: 'Anthropic',
-      models: [
-        { name: 'Claude 3 Opus', code: 'anthropic:3-opus', description: 'Advanced AI with superior reasoning and task completion capabilities' },
-        { name: 'Claude 3.5 Sonnet', code: 'anthropic:3.5-sonnet', description: 'Balanced model for complex reasoning and creative tasks' },
-        { name: 'Claude 3.5 Sonnet (New)', code: 'anthropic:3.5-sonnet-20241022', description: 'Latest version with improved performance' },
-        { name: 'Claude Haiku', code: 'anthropic:3.5-haiku', description: 'Lightweight, fast model for quick interactions' }
-      ]
-    },
-    {
-      provider: 'OpenAI',
-      models: [
-        { name: 'GPT-4o', code: 'openai:gpt-4o', description: 'Multimodal AI with advanced language and vision capabilities' },
-        { name: 'GPT-4o Mini', code: 'openai:gpt-4o-mini', description: 'Compact, efficient version of GPT-4o' },
-        { name: 'GPT-4', code: 'openai:gpt-4', description: 'Powerful language model for complex reasoning' },
-        { name: 'GPT-3.5 Turbo', code: 'openai:gpt-3.5-turbo', description: 'Versatile model for general-purpose AI tasks' }
-      ]
+  // Effect to handle language from localStorage only on client-side
+  useEffect(() => {
+    // Retrieve language from localStorage
+    const savedLanguage = localStorage.getItem('appLanguage') as 'en' | 'vi'
+    if (savedLanguage && ['en', 'vi'].includes(savedLanguage)) {
+      setLanguage(savedLanguage)
     }
-  ]
+  }, [])
+
+  // Translation function
+  const t = (key: keyof typeof translations['en']) => {
+    return translations[language][key]
+  }
+
+  // Language toggle function with localStorage support
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'vi' : 'en'
+    setLanguage(newLanguage)
+    
+    // Save to localStorage
+    localStorage.setItem('appLanguage', newLanguage)
+  }
+
+  // Properly type the refs
+  const videoSectionRef = useRef<HTMLDivElement | null>(null)
+  const modelSectionRef = useRef<HTMLDivElement | null>(null)
+
+  // Scroll to section function
+  const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   const modelPricing = [
     {
@@ -124,11 +172,21 @@ export default function Home() {
     setSelectedVideo(embedId)
   }
 
-  const handleCopyCode = (modelCode: string) => {
+  const handleCopyCode = (code: string) => {
     if (navigator && navigator.clipboard) {
-      navigator.clipboard.writeText(modelCode).then(() => {
-        setCopiedCode(modelCode)
-        setTimeout(() => setCopiedCode(null), 2000)
+      navigator.clipboard.writeText(code).then(() => {
+        setCopiedCode(code)
+        setCopyNotification({
+          message: `Copied ${code} to clipboard!`,
+          visible: true
+        })
+
+        setTimeout(() => {
+          setCopyNotification({
+            message: '',
+            visible: false
+          })
+        }, 2000)
       }).catch(err => {
         console.error('Failed to copy: ', err)
       })
@@ -136,14 +194,24 @@ export default function Home() {
       // Fallback for browsers without clipboard API
       try {
         const textArea = document.createElement('textarea')
-        textArea.value = modelCode
+        textArea.value = code
         document.body.appendChild(textArea)
         textArea.select()
         document.execCommand('copy')
         document.body.removeChild(textArea)
         
-        setCopiedCode(modelCode)
-        setTimeout(() => setCopiedCode(null), 2000)
+        setCopiedCode(code)
+        setCopyNotification({
+          message: `Copied ${code} to clipboard!`,
+          visible: true
+        })
+
+        setTimeout(() => {
+          setCopyNotification({
+            message: '',
+            visible: false
+          })
+        }, 2000)
       } catch (err) {
         console.error('Fallback copy failed: ', err)
       }
@@ -151,10 +219,19 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A192F] p-4 overflow-hidden">
+    <div className="min-h-screen bg-[#0A192F] p-4 overflow-hidden relative">
+      {copyNotification.visible && (
+        <div 
+          className="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg 
+          animate-bounce z-50"
+        >
+          {copyNotification.message}
+        </div>
+      )}
+
       <Head>
-        <title>API Shared - AI Services Hub</title>
-        <meta name="description" content="Access powerful AI APIs at discounted rates. Featuring OpenAI, Anthropic, and more." />
+        <title>{t('title')}</title>
+        <meta name="description" content={t('description')} />
         <meta name="keywords" content="AI API, OpenAI, Anthropic, Claude, GPT-4, Machine Learning, API Integration" />
         <link rel="icon" href="/images/logo.png" />
       </Head>
@@ -181,27 +258,150 @@ export default function Home() {
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed
             animate-fade-in-up px-4">
-            Access powerful AI models at discounted rates. Integrate cutting-edge AI capabilities into your applications with our comprehensive API solutions.
+            {t('description')}
           </p>
+          
+          {/* Action Buttons */}
+          <div className="mt-8 flex justify-center space-x-4">
+            <button 
+              onClick={() => scrollToSection(videoSectionRef)}
+              className="px-6 py-3 bg-blue-600 text-white rounded-full 
+              hover:bg-blue-700 transition duration-300 
+              transform hover:scale-105 
+              flex items-center space-x-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+              </svg>
+              <span>{t('youtubeSection')}</span>
+            </button>
+            
+            <button 
+              onClick={() => scrollToSection(modelSectionRef)}
+              className="px-6 py-3 border border-blue-400 text-blue-400 
+              rounded-full hover:bg-blue-400 hover:text-white 
+              transition duration-300 
+              transform hover:scale-105 
+              flex items-center space-x-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13 7H7v6h6V7z" />
+                <path fillRule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h2V2zM5 5h10v12H5V5zm4 2a1 1 0 011 1v4a1 1 0 01-1 1H7a1 1 0 01-1-1V8a1 1 0 011-1h2zm6 0a1 1 0 00-1 1v4a1 1 0 001 1h2a1 1 0 001-1V8a1 1 0 00-1-1h-2z" clipRule="evenodd" />
+              </svg>
+              <span>{t('modelsSection')}</span>
+            </button>
+          </div>
         </div>
 
-        {/* Token Information Section */}
+        {/* Featured Video Section */}
+        <section ref={videoSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
+          <div className="">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-12 
+              animate-pulse-slow">
+              {t('youtubeSection')}
+            </h2>
+            
+            <div className="grid gap-2 md:gap-2 bg-white/5 rounded-xl backdrop-blur-lg shadow-xl">
+              <div className=" p-4 sm:p-6 rounded-xl 
+                transition duration-700 
+                max-w-5xl
+                mx-auto
+                w-full">
+                {selectedVideo && (
+                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden w-full max-w-5xl mx-auto">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${selectedVideo}`}
+                      title="YouTube video player"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope"
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Table Section */}
+        <div ref={modelSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-12 
+            animate-pulse-slow">
+            {t('modelPricing')}
+          </h2>
+          
+          <div className="overflow-x-auto bg-white/5 rounded-xl backdrop-blur-lg shadow-xl -mx-4 sm:mx-0">
+            <div className="min-w-[800px]">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-white/10 text-left">
+                    <th className="p-3 md:p-4 text-white font-semibold rounded-tl-lg text-sm md:text-base">Model Name (API)</th>
+                    <th className="p-3 md:p-4 text-white font-semibold text-sm md:text-base">Real Model Name</th>
+                    <th className="p-3 md:p-4 text-white font-semibold text-sm md:text-base">Input Price ($/1M tokens)</th>
+                    <th className="p-3 md:p-4 text-white font-semibold text-sm md:text-base">Output Price ($/1M tokens)</th>
+                    <th className="p-3 md:p-4 text-white font-semibold rounded-tr-lg text-sm md:text-base">Rate Limit (daily)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {modelPricing.map((model, index) => (
+                    <tr 
+                      key={index}
+                      className="
+                        border-b 
+                        border-white/10 
+                        hover:bg-white/5 
+                        transition-colors
+                        group
+                      "
+                    >
+                      <td className="p-3 md:p-4">
+                        <div className="flex items-center space-x-2">
+                          <code className="text-blue-400 text-xs md:text-sm break-all">{model.apiName}</code>
+                          <button 
+                            onClick={() => handleCopyCode(model.apiName)}
+                            className="opacity-0 group-hover:opacity-100 transition-opacity"
+                            title="Copy API Name"
+                          >
+                            <FaCopy className="text-blue-400 hover:text-blue-300 text-sm md:text-base" />
+                          </button>
+                        </div>
+                      </td>
+                      <td className="p-3 md:p-4 text-gray-300 text-sm md:text-base">{model.realName}</td>
+                      <td className="p-3 md:p-4">
+                        <div className="flex flex-col">
+                          <span className="text-gray-400 line-through text-xs md:text-sm">${model.inputPrice.original.toFixed(2)}</span>
+                          <span className="text-green-400 font-bold text-sm md:text-base">${model.inputPrice.discounted.toFixed(2)}</span>
+                        </div>
+                      </td>
+                      <td className="p-3 md:p-4">
+                        <div className="flex flex-col">
+                          <span className="text-gray-400 line-through text-xs md:text-sm">${model.outputPrice.original.toFixed(2)}</span>
+                          <span className="text-green-400 font-bold text-sm md:text-base">${model.outputPrice.discounted.toFixed(2)}</span>
+                        </div>
+                      </td>
+                      <td className="p-3 md:p-4 text-gray-300 text-sm md:text-base">{model.rateLimit}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Token Explanation Section */}
         <section className="mt-20 relative z-10">
           <div className="max-w-4xl mx-auto bg-white/5 rounded-2xl p-8 backdrop-blur-lg">
             <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              🤖 Tokens và Tokenization: Nền Tảng Của AI Trong Xử Lý Dữ Liệu
+              {t('tokenInformation')}
             </h2>
 
             {/* Introduction */}
-            <div className="mb-10 text-gray-300">
-              <p className="mb-4">
-                Khi nhắc đến các mô hình AI như GPT-4, Claude, cụm từ "token" thường xuất hiện. Nhưng token là gì, và tại sao nó lại quan trọng?
-              </p>
+            <div className="text-center mb-10 text-gray-300">
+              Hiểu sâu về cách AI xử lý và phân tích ngôn ngữ thông qua tokens.
             </div>
 
             {/* What are Tokens */}
             <div className="mb-10">
-              <h3 className="text-2xl font-semibold text-white mb-4">📝 Tokens Là Gì?</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4">{t('whatAreTokens')}</h3>
               <p className="text-gray-300 mb-4">
                 Tokens là các đơn vị nhỏ nhất mà mô hình AI sử dụng để hiểu và xử lý dữ liệu.
               </p>
@@ -216,7 +416,7 @@ export default function Home() {
 
             {/* Specific Token Examples */}
             <div className="mb-10">
-              <h3 className="text-2xl font-semibold text-white mb-4">🎯 Ví Dụ Cụ Thể Về Token</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4">{t('tokenExamples')}</h3>
               <div className="grid gap-6">
                 {/* Vietnamese Text Example */}
                 <div className="bg-white/10 rounded-lg p-6">
@@ -326,7 +526,7 @@ export default function Home() {
 
             {/* Token Limits */}
             <div className="mb-10">
-              <h3 className="text-2xl font-semibold text-white mb-4">📈 Giới Hạn Token của Các Mô Hình Phổ Biến</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4">{t('tokenLimits')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-blue-500/20 p-4 rounded-lg">
                   <h4 className="font-semibold text-white">GPT-4 🔵</h4>
@@ -345,7 +545,7 @@ export default function Home() {
 
             {/* Token Correspondence */}
             <div className="mb-10">
-              <h3 className="text-2xl font-semibold text-white mb-4">📊 Token Tương ứng bao nhiêu từ?</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4">{t('tokenCorrespondence')}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <span className="text-2xl">🇺🇸</span>
@@ -366,7 +566,7 @@ export default function Home() {
 
             {/* Future Trends */}
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">🔮 Xu Hướng Tương Lai</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4">{t('futureTrends')}</h3>
               <ul className="list-none space-y-2 text-gray-300">
                 <li className="flex items-center gap-2">🎯 Tokenization đa phương thức</li>
                 <li className="flex items-center gap-2">🌏 Tối ưu hóa cho ngôn ngữ đặc biệt</li>
@@ -377,105 +577,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Video Section */}
-        <section className="mt-12 md:mt-20 relative z-10 px-4">
-        <div className="">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-12 
-            animate-pulse-slow">
-            Featured API Shared Video Insights
-          </h2>
-          
-          <div className="grid gap-2 md:gap-2 bg-white/5 rounded-xl backdrop-blur-lg shadow-xl">
-            <div className=" p-4 sm:p-6 rounded-xl 
-              transition duration-700 
-              max-w-5xl
-              mx-auto
-              w-full">
-              {selectedVideo && (
-                <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden w-full max-w-5xl mx-auto">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${selectedVideo}`}
-                    title="YouTube video player"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope"
-                    className="w-full h-full"
-                  ></iframe>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-        </section>
-
-        {/* Pricing Table Section */}
-        <div className="mt-12 md:mt-20 relative z-10 px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-12 
-            animate-pulse-slow">
-            Model Pricing
-          </h2>
-          
-          <div className="overflow-x-auto bg-white/5 rounded-xl backdrop-blur-lg shadow-xl -mx-4 sm:mx-0">
-            <div className="min-w-[800px]">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-white/10 text-left">
-                    <th className="p-3 md:p-4 text-white font-semibold rounded-tl-lg text-sm md:text-base">Model Name (API)</th>
-                    <th className="p-3 md:p-4 text-white font-semibold text-sm md:text-base">Real Model Name</th>
-                    <th className="p-3 md:p-4 text-white font-semibold text-sm md:text-base">Input Price ($/1M tokens)</th>
-                    <th className="p-3 md:p-4 text-white font-semibold text-sm md:text-base">Output Price ($/1M tokens)</th>
-                    <th className="p-3 md:p-4 text-white font-semibold rounded-tr-lg text-sm md:text-base">Rate Limit (daily)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {modelPricing.map((model, index) => (
-                    <tr 
-                      key={index}
-                      className="
-                        border-b 
-                        border-white/10 
-                        hover:bg-white/5 
-                        transition-colors
-                        group
-                      "
-                    >
-                      <td className="p-3 md:p-4">
-                        <div className="flex items-center space-x-2">
-                          <code className="text-blue-400 text-xs md:text-sm break-all">{model.apiName}</code>
-                          <button 
-                            onClick={() => handleCopyCode(model.apiName)}
-                            className="opacity-0 group-hover:opacity-100 transition-opacity"
-                            title="Copy API Name"
-                          >
-                            <FaCopy className="text-blue-400 hover:text-blue-300 text-sm md:text-base" />
-                          </button>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4 text-gray-300 text-sm md:text-base">{model.realName}</td>
-                      <td className="p-3 md:p-4">
-                        <div className="flex flex-col">
-                          <span className="text-gray-400 line-through text-xs md:text-sm">${model.inputPrice.original.toFixed(2)}</span>
-                          <span className="text-green-400 font-bold text-sm md:text-base">${model.inputPrice.discounted.toFixed(2)}</span>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4">
-                        <div className="flex flex-col">
-                          <span className="text-gray-400 line-through text-xs md:text-sm">${model.outputPrice.original.toFixed(2)}</span>
-                          <span className="text-green-400 font-bold text-sm md:text-base">${model.outputPrice.discounted.toFixed(2)}</span>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4 text-gray-300 text-sm md:text-base">{model.rateLimit}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
         {/* Footer */}
         <footer className="text-center mt-12 md:mt-20 relative z-10 px-4">
-          <p className="text-gray-300 mb-4 text-sm md:text-base">
-            Connect with us on social media
-          </p>
+          <p className="text-gray-300 mb-4 text-sm md:text-base">{t('footerText')}</p>
           <div className="flex justify-center space-x-6 md:space-x-8">
             <a 
               href="https://www.youtube.com/@apishared" 
@@ -517,10 +621,18 @@ export default function Home() {
               <FaTelegram className="w-6 h-6 md:w-8 md:h-8" />
             </a>
           </div>
-          <p className="text-gray-400 mt-6 md:mt-8 text-xs md:text-sm">
-            {new Date().getFullYear()} API Shared. All rights reserved.
-          </p>
+          <p className="text-gray-400 mt-6 md:mt-8 text-xs md:text-sm">{t('copyrightText')}</p>
         </footer>
+
+        {/* Language Toggle Button */}
+        <div className="absolute top-1 right-4">
+          <button 
+            onClick={toggleLanguage} 
+            className="px-4 py-2 bg-white/10 text-white rounded hover:bg-white/20 transition flex items-center space-x-2"
+          >
+            {language === 'vi' ? '🇻🇳' : '🇬🇧'}
+          </button>
+        </div>
       </main>
     </div>
   )
