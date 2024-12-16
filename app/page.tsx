@@ -185,14 +185,207 @@ export default function Home() {
           </p>
         </div>
 
+        {/* Token Information Section */}
+        <section className="mt-20 relative z-10">
+          <div className="max-w-4xl mx-auto bg-white/5 rounded-2xl p-8 backdrop-blur-lg">
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+              🤖 Tokens và Tokenization: Nền Tảng Của AI Trong Xử Lý Dữ Liệu
+            </h2>
+
+            {/* Introduction */}
+            <div className="mb-10 text-gray-300">
+              <p className="mb-4">
+                Khi nhắc đến các mô hình AI như GPT-4, Claude, cụm từ "token" thường xuất hiện. Nhưng token là gì, và tại sao nó lại quan trọng?
+              </p>
+            </div>
+
+            {/* What are Tokens */}
+            <div className="mb-10">
+              <h3 className="text-2xl font-semibold text-white mb-4">📝 Tokens Là Gì?</h3>
+              <p className="text-gray-300 mb-4">
+                Tokens là các đơn vị nhỏ nhất mà mô hình AI sử dụng để hiểu và xử lý dữ liệu.
+              </p>
+              <ul className="list-none space-y-2 text-gray-300">
+                <li className="flex items-center gap-2">📚 Với văn bản: tokens có thể là từ, phần của từ, hoặc ký tự</li>
+                <li className="flex items-center gap-2">🖼️ Với hình ảnh: tokens là các mảnh nhỏ của ảnh, gọi là patches</li>
+                <li className="flex items-center gap-2">🎵 Với âm thanh: tokens là các khung thời gian hoặc đặc trưng âm thanh</li>
+                <li className="flex items-center gap-2">💻 Với code: tokens có thể là từ khóa, toán tử, biến số</li>
+                <li className="flex items-center gap-2">🎥 Với video: tokens có thể là các frame hoặc các phần của frame</li>
+              </ul>
+            </div>
+
+            {/* Specific Token Examples */}
+            <div className="mb-10">
+              <h3 className="text-2xl font-semibold text-white mb-4">🎯 Ví Dụ Cụ Thể Về Token</h3>
+              <div className="grid gap-6">
+                {/* Vietnamese Text Example */}
+                <div className="bg-white/10 rounded-lg p-6">
+                  <h4 className="text-xl text-white mb-3">🇻🇳 Ví dụ Tiếng Việt:</h4>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-gray-300 mb-2">Câu ngắn:</p>
+                        <div className="bg-gray-800/50 p-3 rounded">
+                          <p className="text-white mb-2">"Xin chào"</p>
+                          <div className="flex flex-wrap gap-2">
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">Xin</span>
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">chào</span>
+                            <span className="text-gray-400 ml-2">≈ 2 tokens</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-gray-300 mb-2">Câu dài:</p>
+                        <div className="bg-gray-800/50 p-3 rounded">
+                          <p className="text-white mb-2">"Trí tuệ nhân tạo đang phát triển"</p>
+                          <div className="flex flex-wrap gap-2">
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">Trí</span>
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">tuệ</span>
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">nhân</span>
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">tạo</span>
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">đang</span>
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">phát</span>
+                            <span className="bg-blue-500/20 px-3 py-1 rounded text-white">triển</span>
+                            <span className="text-gray-400 ml-2">≈ 7 tokens</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* English Text Example */}
+                <div className="bg-white/10 rounded-lg p-6">
+                  <h4 className="text-xl text-white mb-3">🇺🇸 Ví dụ Tiếng Anh:</h4>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-gray-300 mb-2">Từ ghép:</p>
+                        <div className="bg-gray-800/50 p-3 rounded">
+                          <p className="text-white mb-2">"artificial"</p>
+                          <div className="flex flex-wrap gap-2">
+                            <span className="bg-green-500/20 px-3 py-1 rounded text-white">art</span>
+                            <span className="bg-green-500/20 px-3 py-1 rounded text-white">ific</span>
+                            <span className="bg-green-500/20 px-3 py-1 rounded text-white">ial</span>
+                            <span className="text-gray-400 ml-2">≈ 3 tokens</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-gray-300 mb-2">Số và ký tự đặc biệt:</p>
+                        <div className="bg-gray-800/50 p-3 rounded">
+                          <p className="text-white mb-2">"AI-2024!"</p>
+                          <div className="flex flex-wrap gap-2">
+                            <span className="bg-green-500/20 px-3 py-1 rounded text-white">AI</span>
+                            <span className="bg-green-500/20 px-3 py-1 rounded text-white">-</span>
+                            <span className="bg-green-500/20 px-3 py-1 rounded text-white">2024</span>
+                            <span className="bg-green-500/20 px-3 py-1 rounded text-white">!</span>
+                            <span className="text-gray-400 ml-2">≈ 4 tokens</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Special Cases */}
+                <div className="bg-white/10 rounded-lg p-6">
+                  <h4 className="text-xl text-white mb-3">🔍 Trường Hợp Đặc Biệt:</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-gray-300 mb-2">Emoji:</p>
+                      <div className="bg-gray-800/50 p-3 rounded">
+                        <p className="text-white mb-2">"Hello 👋 World 🌍"</p>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">Hello</span>
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">👋</span>
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">World</span>
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">🌍</span>
+                          <span className="text-gray-400 ml-2">≈ 4-8 tokens</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-gray-300 mb-2">URL:</p>
+                      <div className="bg-gray-800/50 p-3 rounded">
+                        <p className="text-white mb-2">"https://example.com"</p>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">https</span>
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">://</span>
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">example</span>
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">.</span>
+                          <span className="bg-purple-500/20 px-3 py-1 rounded text-white">com</span>
+                          <span className="text-gray-400 ml-2">≈ 5 tokens</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Token Limits */}
+            <div className="mb-10">
+              <h3 className="text-2xl font-semibold text-white mb-4">📈 Giới Hạn Token của Các Mô Hình Phổ Biến</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-blue-500/20 p-4 rounded-lg">
+                  <h4 className="font-semibold text-white">GPT-4 🔵</h4>
+                  <p className="text-gray-300">128K tokens</p>
+                </div>
+                <div className="bg-green-500/20 p-4 rounded-lg">
+                  <h4 className="font-semibold text-white">GPT-3.5 🟢</h4>
+                  <p className="text-gray-300">16K tokens</p>
+                </div>
+                <div className="bg-purple-500/20 p-4 rounded-lg">
+                  <h4 className="font-semibold text-white">Claude 🟣</h4>
+                  <p className="text-gray-300">100K tokens</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Token Correspondence */}
+            <div className="mb-10">
+              <h3 className="text-2xl font-semibold text-white mb-4">📊 Token Tương ứng bao nhiêu từ?</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">🇺🇸</span>
+                  <div>
+                    <p className="text-white">Tiếng Anh</p>
+                    <p className="text-gray-300">1 token ≈ 4-5 ký tự</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">🇻🇳</span>
+                  <div>
+                    <p className="text-white">Tiếng Việt</p>
+                    <p className="text-gray-300">1 token ≈ 2-3 ký tự</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Future Trends */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4">🔮 Xu Hướng Tương Lai</h3>
+              <ul className="list-none space-y-2 text-gray-300">
+                <li className="flex items-center gap-2">🎯 Tokenization đa phương thức</li>
+                <li className="flex items-center gap-2">🌏 Tối ưu hóa cho ngôn ngữ đặc biệt</li>
+                <li className="flex items-center gap-2">💎 Giảm chi phí xử lý token</li>
+                <li className="flex items-center gap-2">⚡ Cải thiện hiệu suất mô hình</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Featured Video Section */}
+        <section className="mt-12 md:mt-20 relative z-10 px-4">
         <div className="">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8 md:mb-12 
             animate-pulse-slow">
             Featured API Shared Video Insights
           </h2>
           
-          <div className="grid gap-2 md:gap-2">
+          <div className="grid gap-2 md:gap-2 bg-white/5 rounded-xl backdrop-blur-lg shadow-xl">
             <div className=" p-4 sm:p-6 rounded-xl 
               transition duration-700 
               max-w-5xl
@@ -211,6 +404,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </section>
 
         {/* Pricing Table Section */}
         <div className="mt-12 md:mt-20 relative z-10 px-4">
