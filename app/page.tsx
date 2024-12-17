@@ -23,7 +23,18 @@ const translations = {
     futureTrends: ' Future Trend',
     modelPricing: 'Model Pricing',
     footerText: 'Connect with us on social media',
-    copyrightText: '2024 API Shared. All rights reserved.'
+    copyrightText: '2024 API Shared. All rights reserved.',
+    bonusCreditTiers: 'Bonus Credit Tiers',
+    fiftyPercentBonus: '50% Bonus',
+    tenPlusPurchase: '$10+ Purchase',
+    sixtyPercentBonus: '60% Bonus',
+    fiftyPlusPurchase: '$50+ Purchase',
+    getExtraTen: 'Get an extra $10 in credits when you spend over $10',
+    receiveExtraSeventyFive: 'Receive an extra $75 in credits when you spend over $50',
+    spend: 'Spend',
+    bonus: 'Bonus',
+    fiftyPlus: '$50+',
+    seventyFivePlus: '$75+'
   },
   vi: {
     title: 'API Shared - Trung Tâm Dịch Vụ AI',
@@ -41,7 +52,18 @@ const translations = {
     futureTrends: ' Xu Hướng Tương Lai',
     modelPricing: 'Giá Mô Hình',
     footerText: 'Kết nối với chúng tôi trên mạng xã hội',
-    copyrightText: '2024 API Shared. All rights reserved.'
+    copyrightText: '2024 API Shared. All rights reserved.',
+    bonusCreditTiers: 'Ưu Đãi Tín Dụng',
+    fiftyPercentBonus: 'Ưu Đãi 50%',
+    tenPlusPurchase: 'Mua Trên $10',
+    sixtyPercentBonus: 'Ưu Đãi 60%',
+    fiftyPlusPurchase: 'Mua Trên $50',
+    getExtraTen: 'Nhận thêm $10 khi chi tiêu trên $10',
+    receiveExtraSeventyFive: 'Nhận thêm $75 khi chi tiêu trên $50',
+    spend: 'Chi Tiêu',
+    bonus: 'Ưu Đãi',
+    fiftyPlus: '$50+',
+    seventyFivePlus: '$75+'
   }
 }
 
@@ -80,7 +102,7 @@ export default function Home() {
   }
 
   // Dark mode state
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true)
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
 
   // Effect to handle dark mode from localStorage only on client-side
   useEffect(() => {
@@ -93,10 +115,11 @@ export default function Home() {
       // Default to dark mode if no preference is set
       setIsDarkMode(true)
       document.documentElement.classList.add('dark')
+      localStorage.setItem('appTheme', 'dark')
     }
   }, [])
 
-  // Dark mode toggle function
+  // Toggle dark mode function
   const toggleDarkMode = () => {
     const newMode = !isDarkMode
     setIsDarkMode(newMode)
@@ -105,7 +128,11 @@ export default function Home() {
     localStorage.setItem('appTheme', newMode ? 'dark' : 'light')
     
     // Toggle dark class on html element
-    document.documentElement.classList.toggle('dark', newMode)
+    if (newMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
   }
 
   // Properly type the refs
@@ -426,6 +453,86 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Pricing Bonus Tiers */}
+        <section className="mt-20 relative z-10 px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-12 
+            animate-pulse-slow">
+            {t('bonusCreditTiers')}
+          </h2>
+          
+          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Tier 1: $10+ Purchase */}
+            <div className="bg-white/10 dark:bg-gray-800 rounded-2xl p-6 transform transition-all 
+              duration-300 hover:scale-105 hover:shadow-2xl">
+              <div className="flex items-center justify-between mb-4">
+                <div className="bg-blue-500/20 dark:bg-blue-400/20 p-3 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-500 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span className="text-2xl font-bold text-green-500 dark:text-green-300">
+                  {t('fiftyPercentBonus')}
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-white dark:text-gray-200 mb-2">
+                {t('tenPlusPurchase')}
+              </h3>
+              <p className="text-gray-300 dark:text-gray-500 mb-4">
+                {t('getExtraTen')}
+              </p>
+              <div className="bg-blue-500/10 dark:bg-blue-400/10 p-3 rounded-lg">
+                <div className="flex justify-between items-center">
+                  <span className="text-white dark:text-gray-200">
+                    {t('spend')}
+                  </span>
+                  <span className="font-bold text-blue-500 dark:text-blue-300">$10+</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-white dark:text-gray-200">
+                    {t('bonus')}
+                  </span>
+                  <span className="font-bold text-green-500 dark:text-green-300">+$10</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Tier 2: $50+ Purchase */}
+            <div className="bg-white/10 dark:bg-gray-800 rounded-2xl p-6 transform transition-all 
+              duration-300 hover:scale-105 hover:shadow-2xl">
+              <div className="flex items-center justify-between mb-4">
+                <div className="bg-purple-500/20 dark:bg-purple-400/20 p-3 rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-500 dark:text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <span className="text-2xl font-bold text-green-500 dark:text-green-300">
+                  {t('sixtyPercentBonus')}
+                </span>
+              </div>
+              <h3 className="text-xl font-semibold text-white dark:text-gray-200 mb-2">
+                {t('fiftyPlusPurchase')}
+              </h3>
+              <p className="text-gray-300 dark:text-gray-500 mb-4">
+                {t('receiveExtraSeventyFive')}
+              </p>
+              <div className="bg-purple-500/10 dark:bg-purple-400/10 p-3 rounded-lg">
+                <div className="flex justify-between items-center">
+                  <span className="text-white dark:text-gray-200">
+                    {t('spend')}
+                  </span>
+                  <span className="font-bold text-purple-500 dark:text-purple-300">$50+</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-white dark:text-gray-200">
+                    {t('bonus')}
+                  </span>
+                  <span className="font-bold text-green-500 dark:text-green-300">+$75</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Token Explanation Section */}
         <section className="mt-20 relative z-10">
           <div className="max-w-4xl mx-auto bg-white/5 dark:bg-gray-800 rounded-2xl p-8 backdrop-blur-lg">
@@ -567,15 +674,15 @@ export default function Home() {
             <div className="mb-10">
               <h3 className="text-2xl font-semibold text-white dark:text-gray-200 mb-4">{t('tokenLimits')}</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-blue-500/20 dark:bg-blue-200/20 p-4 rounded-lg">
+                <div className="bg-blue-500/20 dark:bg-blue-400/20 p-4 rounded-lg">
                   <h4 className="font-semibold text-white dark:text-gray-200">GPT-4 🔵</h4>
                   <p className="text-gray-300 dark:text-gray-500">128K tokens</p>
                 </div>
-                <div className="bg-green-500/20 dark:bg-green-200/20 p-4 rounded-lg">
+                <div className="bg-green-500/20 dark:bg-green-400/20 p-4 rounded-lg">
                   <h4 className="font-semibold text-white dark:text-gray-200">GPT-3.5 🟢</h4>
                   <p className="text-gray-300 dark:text-gray-500">16K tokens</p>
                 </div>
-                <div className="bg-purple-500/20 dark:bg-purple-200/20 p-4 rounded-lg">
+                <div className="bg-purple-500/20 dark:bg-purple-400/20 p-4 rounded-lg">
                   <h4 className="font-semibold text-white dark:text-gray-200">Claude 🟣</h4>
                   <p className="text-gray-300 dark:text-gray-500">100K tokens</p>
                 </div>
