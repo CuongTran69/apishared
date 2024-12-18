@@ -25,14 +25,15 @@ const translations = {
     footerText: 'Connect with us on social media',
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Bonus Credit Tiers',
-    fiftyPercentBonus: '100% Bonus',
     tenPlusPurchase: '$10+ Purchase',
-    sixtyPercentBonus: '150% Bonus',
     fiftyPlusPurchase: '$50+ Purchase',
-    getExtraTen: 'Get an extra $10 in credits when you spend over $10',
-    receiveExtraSeventyFive: 'Receive an extra $75 in credits when you spend over $50',
+    getExtraTen: 'Get an extra $10 in credits (100% bonus) when you spend over $10',
+    receiveExtraSeventyFive: 'Get an extra $75 in credits (150% bonus) when you spend over $50',
     spend: 'Spend',
     bonus: 'Bonus',
+    bonusPercentage: 'Bonus %',
+    tenDollarTier: '10$ Tier: 100% Bonus',
+    fiftyDollarTier: '50$ Tier: 150% Bonus',
     fiftyPlus: '$50+',
     seventyFivePlus: '$75+'
   },
@@ -54,14 +55,15 @@ const translations = {
     footerText: 'Kết nối với chúng tôi trên mạng xã hội',
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Ưu Đãi Tín Dụng',
-    fiftyPercentBonus: 'Ưu Đãi 50%',
     tenPlusPurchase: 'Mua Trên $10',
-    sixtyPercentBonus: 'Ưu Đãi 60%',
     fiftyPlusPurchase: 'Mua Trên $50',
-    getExtraTen: 'Nhận thêm $10 khi chi tiêu trên $10',
-    receiveExtraSeventyFive: 'Nhận thêm $75 khi chi tiêu trên $50',
+    getExtraTen: 'Nhận thêm $10 (ưu đãi 100%) khi chi tiêu trên $10',
+    receiveExtraSeventyFive: 'Nhận thêm $75 (ưu đãi 150%) khi chi tiêu trên $50',
     spend: 'Chi Tiêu',
     bonus: 'Ưu Đãi',
+    bonusPercentage: '% Ưu Đãi',
+    tenDollarTier: 'Mức $10: Ưu Đãi 100%',
+    fiftyDollarTier: 'Mức $50: Ưu Đãi 150%',
     fiftyPlus: '$50+',
     seventyFivePlus: '$75+'
   }
@@ -471,7 +473,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <span className="text-2xl font-bold text-green-500 dark:text-green-300">
-                  {t('fiftyPercentBonus')}
+                  {t('tenDollarTier')}
                 </span>
               </div>
               <h3 className="text-xl font-semibold text-white dark:text-gray-200 mb-2">
@@ -486,6 +488,12 @@ export default function Home() {
                     {t('spend')}
                   </span>
                   <span className="font-bold text-blue-500 dark:text-blue-300">$10+</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-white dark:text-gray-200">
+                    {t('bonusPercentage')}
+                  </span>
+                  <span className="font-bold text-green-500 dark:text-green-300">100%</span>
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-white dark:text-gray-200">
@@ -506,7 +514,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <span className="text-2xl font-bold text-green-500 dark:text-green-300">
-                  {t('sixtyPercentBonus')}
+                  {t('fiftyDollarTier')}
                 </span>
               </div>
               <h3 className="text-xl font-semibold text-white dark:text-gray-200 mb-2">
@@ -521,6 +529,12 @@ export default function Home() {
                     {t('spend')}
                   </span>
                   <span className="font-bold text-purple-500 dark:text-purple-300">$50+</span>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-white dark:text-gray-200">
+                    {t('bonusPercentage')}
+                  </span>
+                  <span className="font-bold text-green-500 dark:text-green-300">150%</span>
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-white dark:text-gray-200">
