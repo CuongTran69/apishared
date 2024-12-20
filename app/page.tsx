@@ -104,7 +104,7 @@ export default function Home() {
   }
 
   // Dark mode state
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false)
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true)
 
   // Effect to handle dark mode from localStorage only on client-side
   useEffect(() => {
