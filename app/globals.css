@@ -3,25 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #0070F3;
-}
-
-.dark {
-  --background: #0A192F;
-  --foreground: #E6F1FF;
-  --primary: #64FFDA;
+  color-scheme: dark;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Smooth dark mode transition for elements */
-.dark-mode-transition {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  @apply transition-colors duration-200;
 }

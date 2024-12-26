@@ -10,7 +10,7 @@ const translations = {
   en: {
     title: 'API Shared - AI Services Hub',
     description: 'Access powerful AI APIs at discounted rates. Featuring OpenAI, Anthropic, and more.',
-    youtubeSection: 'Featured API Shared Video Insights',
+    youtubeSection: 'API Shared Service Usage Guide Video',
     modelsSection: 'Prices tokenize AI Models',
     providersTitle: 'Providers',
     modelCodeCopy: 'Copy Model Code',
@@ -40,7 +40,7 @@ const translations = {
   vi: {
     title: 'API Shared - Trung Tâm Dịch Vụ AI',
     description: 'Truy cập các API AI mạnh mẽ với mức ưu đãi cực lớn. Được trang bị các models của OpenAI, Anthropic và nhiều hơn nữa.',
-    youtubeSection: 'Video Hướng dẫn sử dụng API Shared',
+    youtubeSection: 'Video Hướng dẫn sử dụng dịch vụ API Shared',
     modelsSection: 'Bảng giá token models AI',
     providersTitle: 'Nhà Cung Cấp',
     modelCodeCopy: 'Sao Chép Mã Mô Hình',
@@ -104,38 +104,42 @@ export default function Home() {
   }
 
   // Dark mode state
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true)
-
-  // Effect to handle dark mode from localStorage only on client-side
-  useEffect(() => {
-    // Check localStorage for saved theme preference
-    const savedTheme = localStorage.getItem('appTheme')
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === 'dark')
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-    } else {
-      // Default to dark mode if no preference is set
-      setIsDarkMode(true)
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('appTheme', 'dark')
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check if we're in a browser environment
+    if (typeof window !== 'undefined') {
+      // First, check if there's a saved preference in localStorage
+      const savedMode = localStorage.getItem('darkMode');
+      if (savedMode !== null) {
+        return savedMode === 'true';
+      }
     }
-  }, [])
+    // Default to true if no saved preference or not in browser
+    return true;
+  });
+
+  // Add this useEffect to run only once on client-side to ensure dark mode
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Force dark mode on first load if no preference is set
+      const savedMode = localStorage.getItem('darkMode');
+      if (savedMode === null) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('darkMode', 'true');
+        setIsDarkMode(true);
+      }
+    }
+  }, []);
 
   // Toggle dark mode function
   const toggleDarkMode = () => {
-    const newMode = !isDarkMode
-    setIsDarkMode(newMode)
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
     
-    // Update localStorage
-    localStorage.setItem('appTheme', newMode ? 'dark' : 'light')
-    
-    // Toggle dark class on html element
-    if (newMode) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
+    // Save preference to localStorage
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('darkMode', newMode.toString());
     }
-  }
+  };
 
   // Properly type the refs
   const videoSectionRef = useRef<HTMLDivElement | null>(null)
@@ -790,7 +794,7 @@ export default function Home() {
             onClick={toggleLanguage} 
             className="px-4 py-2 bg-white/10 dark:bg-gray-900 text-white dark:text-gray-200 rounded hover:bg-white/20 dark:hover:bg-gray-800 transition"
           >
-            {language === 'vi' ? '🇻🇳' : '🇬🇧'}
+            {language === 'vi' ? '🇬🇧' : '🇻🇳'}
           </button>
 
           <button 
@@ -798,7 +802,7 @@ export default function Home() {
             className="bg-white/10 dark:bg-gray-900 text-white dark:text-gray-200 p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-800 transition"
             title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
           >
-            {isDarkMode ? '🌙' : '🌞'}
+            {isDarkMode ? '🌞' : '🌙'}
           </button>
         </div>
       </main>
