@@ -392,73 +392,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Table Section */}
-        <div ref={modelSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-8 md:mb-12 
-            animate-pulse-slow">
-            {t('modelPricing')}
-          </h2>
-          
-          <div className="overflow-x-auto bg-white/5 dark:bg-gray-800 rounded-xl backdrop-blur-lg shadow-xl -mx-4 sm:mx-0">
-            <div className="min-w-[800px]">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-white/10 dark:bg-gray-900 text-left">
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tl-lg text-sm md:text-base">Model Name (API)</th>
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Real Model Name</th>
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Input Price ($/1M tokens)</th>
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Output Price ($/1M tokens)</th>
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tr-lg text-sm md:text-base">Rate Limit (daily)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {modelPricing.map((model, index) => (
-                    <tr 
-                      key={index}
-                      className="
-                        border-b 
-                        border-white/10 
-                        dark:border-gray-700 
-                        hover:bg-white/5 
-                        dark:hover:bg-gray-800 
-                        transition-colors
-                        group
-                      "
-                    >
-                      <td className="p-3 md:p-4">
-                        <div className="flex items-center space-x-2">
-                          <code className="text-blue-400 dark:text-blue-200 text-xs md:text-sm break-all">{model.apiName}</code>
-                          <button 
-                            onClick={() => handleCopyCode(model.apiName)}
-                            className="opacity-0 group-hover:opacity-100 transition-opacity"
-                            title="Copy API Name"
-                          >
-                            <FaCopy className="text-blue-400 dark:text-blue-200 hover:text-blue-300 text-sm md:text-base" />
-                          </button>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.realName}</td>
-                      <td className="p-3 md:p-4">
-                        <div className="flex flex-col">
-                          <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.inputPrice.original.toFixed(2)}</span>
-                          <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.inputPrice.discounted.toFixed(2)}</span>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4">
-                        <div className="flex flex-col">
-                          <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.outputPrice.original.toFixed(2)}</span>
-                          <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.outputPrice.discounted.toFixed(2)}</span>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.rateLimit}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
         {/* Pricing Bonus Tiers */}
         <section className="mt-20 relative z-10 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-12 
@@ -550,6 +483,73 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Pricing Table Section */}
+        <div ref={modelSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-8 md:mb-12 
+            animate-pulse-slow">
+            {t('modelPricing')}
+          </h2>
+          
+          <div className="overflow-x-auto bg-white/5 dark:bg-gray-800 rounded-xl backdrop-blur-lg shadow-xl -mx-4 sm:mx-0">
+            <div className="min-w-[800px]">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-white/10 dark:bg-gray-900 text-left">
+                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tl-lg text-sm md:text-base">Model Name (API)</th>
+                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Real Model Name</th>
+                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Input Price ($/1M tokens)</th>
+                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Output Price ($/1M tokens)</th>
+                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tr-lg text-sm md:text-base">Rate Limit (daily)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {modelPricing.map((model, index) => (
+                    <tr 
+                      key={index}
+                      className="
+                        border-b 
+                        border-white/10 
+                        dark:border-gray-700 
+                        hover:bg-white/5 
+                        dark:hover:bg-gray-800 
+                        transition-colors
+                        group
+                      "
+                    >
+                      <td className="p-3 md:p-4">
+                        <div className="flex items-center space-x-2">
+                          <code className="text-blue-400 dark:text-blue-200 text-xs md:text-sm break-all">{model.apiName}</code>
+                          <button 
+                            onClick={() => handleCopyCode(model.apiName)}
+                            className="opacity-0 group-hover:opacity-100 transition-opacity"
+                            title="Copy API Name"
+                          >
+                            <FaCopy className="text-blue-400 dark:text-blue-200 hover:text-blue-300 text-sm md:text-base" />
+                          </button>
+                        </div>
+                      </td>
+                      <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.realName}</td>
+                      <td className="p-3 md:p-4">
+                        <div className="flex flex-col">
+                          <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.inputPrice.original.toFixed(2)}</span>
+                          <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.inputPrice.discounted.toFixed(2)}</span>
+                        </div>
+                      </td>
+                      <td className="p-3 md:p-4">
+                        <div className="flex flex-col">
+                          <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.outputPrice.original.toFixed(2)}</span>
+                          <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.outputPrice.discounted.toFixed(2)}</span>
+                        </div>
+                      </td>
+                      <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.rateLimit}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
         {/* Token Explanation Section */}
         <section className="mt-20 relative z-10">
