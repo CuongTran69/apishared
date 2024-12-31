@@ -54,7 +54,7 @@ const translations = {
     modelPricing: 'Giá Mô Hình',
     footerText: 'Kết nối với chúng tôi trên mạng xã hội',
     copyrightText: '2024 API Shared. All rights reserved.',
-    bonusCreditTiers: 'Ưu Đãi Tín Dụng',
+    bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
     tenPlusPurchase: 'Mua Trên $10',
     fiftyPlusPurchase: 'Mua Trên $50',
     getExtraTen: 'Nhận thêm $10 (ưu đãi 100%) khi chi tiêu trên $10',
@@ -102,44 +102,6 @@ export default function Home() {
     // Save to localStorage
     localStorage.setItem('appLanguage', newLanguage)
   }
-
-  // Dark mode state
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check if we're in a browser environment
-    if (typeof window !== 'undefined') {
-      // First, check if there's a saved preference in localStorage
-      const savedMode = localStorage.getItem('darkMode');
-      if (savedMode !== null) {
-        return savedMode === 'true';
-      }
-    }
-    // Default to true if no saved preference or not in browser
-    return true;
-  });
-
-  // Add this useEffect to run only once on client-side to ensure dark mode
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Force dark mode on first load if no preference is set
-      const savedMode = localStorage.getItem('darkMode');
-      if (savedMode === null) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('darkMode', 'true');
-        setIsDarkMode(true);
-      }
-    }
-  }, []);
-
-  // Toggle dark mode function
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    
-    // Save preference to localStorage
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('darkMode', newMode.toString());
-    }
-  };
 
   // Properly type the refs
   const videoSectionRef = useRef<HTMLDivElement | null>(null)
@@ -236,10 +198,6 @@ export default function Home() {
     }
   ]
 
-  const handleVideoSelect = (embedId: string) => {
-    setSelectedVideo(embedId)
-  }
-
   const handleCopyCode = (code: string) => {
     if (navigator && navigator.clipboard) {
       navigator.clipboard.writeText(code).then(() => {
@@ -287,8 +245,7 @@ export default function Home() {
   }
 
   return (
-    <div className={`min-h-screen bg-[#0A192F] dark:bg-white p-4 overflow-hidden relative 
-      ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`min-h-screen bg-[#0A192F] dark:bg-white p-4 overflow-hidden relative`}>
       {copyNotification.visible && (
         <div 
           className="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg 
@@ -795,14 +752,6 @@ export default function Home() {
             className="px-4 py-2 bg-white/10 dark:bg-gray-900 text-white dark:text-gray-200 rounded hover:bg-white/20 dark:hover:bg-gray-800 transition"
           >
             {language === 'vi' ? '🇬🇧' : '🇻🇳'}
-          </button>
-
-          <button 
-            onClick={toggleDarkMode}
-            className="bg-white/10 dark:bg-gray-900 text-white dark:text-gray-200 p-2 rounded-full hover:bg-white/20 dark:hover:bg-gray-800 transition"
-            title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          >
-            {isDarkMode ? '🌞' : '🌙'}
           </button>
         </div>
       </main>
