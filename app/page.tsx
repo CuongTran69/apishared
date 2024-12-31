@@ -11,7 +11,7 @@ const translations = {
     title: 'API Shared - AI Services Hub',
     description: 'Access powerful AI APIs at discounted rates. Featuring OpenAI, Anthropic, and more.',
     youtubeSection: 'API Shared Service Usage Guide Video',
-    modelsSection: 'Prices tokenize AI Models',
+    modelsSection: 'Prices token AI Models',
     providersTitle: 'Providers',
     modelCodeCopy: 'Copy Model Code',
     socialConnect: 'Connect With Us',
@@ -21,6 +21,7 @@ const translations = {
     tokenLimits: ' Token Limit',
     tokenCorrespondence: ' Token Tương ứng bao nhiêu từ?',
     futureTrends: ' Future Trend',
+    bonusPricing: 'Bonus Recharge',
     modelPricing: 'Model Pricing',
     footerText: 'Connect with us on social media',
     copyrightText: '2024 API Shared. All rights reserved.',
@@ -41,7 +42,7 @@ const translations = {
     title: 'API Shared - Trung Tâm Dịch Vụ AI',
     description: 'Truy cập các API AI mạnh mẽ với mức ưu đãi cực lớn. Được trang bị các models của OpenAI, Anthropic và nhiều hơn nữa.',
     youtubeSection: 'Video Hướng dẫn sử dụng dịch vụ API Shared',
-    modelsSection: 'Bảng giá token models AI',
+    modelsSection: 'Giá token models AI',
     providersTitle: 'Nhà Cung Cấp',
     modelCodeCopy: 'Sao Chép Mã Mô Hình',
     socialConnect: 'Kết Nối Với Chúng Tôi',
@@ -51,14 +52,15 @@ const translations = {
     tokenLimits: ' Giới Hạn Token của Các Mô Hình Phổ Biến',
     tokenCorrespondence: ' Token Tương ứng bao nhiêu từ?',
     futureTrends: ' Xu Hướng Tương Lai',
+    bonusPricing: 'Ưu đãi nạp tiền',
     modelPricing: 'Giá Mô Hình',
     footerText: 'Kết nối với chúng tôi trên mạng xã hội',
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
     tenPlusPurchase: 'Mua Trên $10',
     fiftyPlusPurchase: 'Mua Trên $50',
-    getExtraTen: 'Nhận thêm $10 (ưu đãi 100%) khi chi tiêu trên $10',
-    receiveExtraSeventyFive: 'Nhận thêm $75 (ưu đãi 150%) khi chi tiêu trên $50',
+    getExtraTen: 'Nhận thêm $10 (ưu đãi 100%) khi nạp trên $10',
+    receiveExtraSeventyFive: 'Nhận thêm $75 (ưu đãi 150%) khi nạp trên $50',
     spend: 'Chi Tiêu',
     bonus: 'Ưu Đãi',
     bonusPercentage: '% Ưu Đãi',
@@ -106,6 +108,7 @@ export default function Home() {
   // Properly type the refs
   const videoSectionRef = useRef<HTMLDivElement | null>(null)
   const modelSectionRef = useRef<HTMLDivElement | null>(null)
+  const bonusSectionRef = useRef<HTMLDivElement | null>(null)
 
   // Scroll to section function
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
@@ -300,7 +303,21 @@ export default function Home() {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
               </svg>
-              <span>{t('youtubeSection')}</span>
+              <span>Guild Video</span>
+            </button>
+
+            <button 
+              onClick={() => scrollToSection(bonusSectionRef)}
+              className="px-4 py-2 sm:px-6 sm:py-3 bg-green-600 text-white
+              rounded-full hover:bg-green-700 transition duration-300 
+              transform hover:scale-105 
+              flex items-center justify-center space-x-2
+              w-full sm:w-auto text-sm sm:text-base"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              <span>{t('bonusPricing')}</span>
             </button>
             
             <button 
@@ -350,7 +367,7 @@ export default function Home() {
         </section>
 
         {/* Pricing Bonus Tiers */}
-        <section className="mt-20 relative z-10 px-4">
+        <section ref={bonusSectionRef} className="mt-20 relative z-10 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-12 
             animate-pulse-slow">
             {t('bonusCreditTiers')}
@@ -560,7 +577,7 @@ export default function Home() {
                         <div className="bg-gray-800/50 dark:bg-gray-700 p-3 rounded">
                           <p className="text-white dark:text-gray-200 mb-2">"Trí tuệ nhân tạo đang phát triển"</p>
                           <div className="flex flex-wrap gap-2">
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">Trí</span>
+                            <span className="bg-blue-500/20 bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">Trí</span>
                             <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">tuệ</span>
                             <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">nhân</span>
                             <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">tạo</span>
