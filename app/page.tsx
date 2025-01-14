@@ -28,8 +28,8 @@ const translations = {
     bonusCreditTiers: 'Bonus Credit Tiers',
     tenPlusPurchase: '$10+ Purchase',
     fiftyPlusPurchase: '$50+ Purchase',
-    getExtraTen: 'Get an extra $10 in credits (100% bonus) when you spend over $10',
-    receiveExtraSeventyFive: 'Get an extra $75 in credits (150% bonus) when you spend over $50',
+    getExtraTen: 'Get an extra 100% bonus when you spend over $10',
+    receiveExtraSeventyFive: 'Get an extra 150% bonus when you spend over $50',
     spend: 'Spend',
     bonus: 'Bonus',
     bonusPercentage: 'Bonus %',
@@ -59,13 +59,13 @@ const translations = {
     bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
     tenPlusPurchase: 'Mua Trên $10',
     fiftyPlusPurchase: 'Mua Trên $50',
-    getExtraTen: 'Nhận thêm $10 (ưu đãi 100%) khi nạp trên $10',
-    receiveExtraSeventyFive: 'Nhận thêm $75 (ưu đãi 150%) khi nạp trên $50',
+    getExtraTen: 'Nhận thêm ưu đãi 100% khi nạp trên $10',
+    receiveExtraSeventyFive: 'Nhận thêm ưu đãi 150% khi nạp trên $50',
     spend: 'Chi Tiêu',
     bonus: 'Ưu Đãi',
     bonusPercentage: '% Ưu Đãi',
-    tenDollarTier: 'Mức $10: Ưu Đãi 100%',
-    fiftyDollarTier: 'Mức $50: Ưu Đãi 150%',
+    tenDollarTier: 'Mức trên $10: Ưu Đãi 100%',
+    fiftyDollarTier: 'Mức trên $50: Ưu Đãi 150%',
     fiftyPlus: '$50+',
     seventyFivePlus: '$75+'
   }
@@ -123,6 +123,27 @@ export default function Home() {
 
   const modelPricing = [
     {
+      apiName: 'anthropic:3.5-sonnet-20241022-think-exp',
+      realName: 'claude-3.5-sonnet-20241022-think-exp',
+      inputPrice: { original: 3.00, discounted: 1.5 },
+      outputPrice: { original: 15.00, discounted: 7.5 },
+      rateLimit: '-'
+    },
+    {
+      apiName: 'anthropic:3.5-sonnet-20241022',
+      realName: 'claude-3.5-sonnet-20241022',
+      inputPrice: { original: 3.00, discounted: 1.5 },
+      outputPrice: { original: 15.00, discounted: 7.5 },
+      rateLimit: '-'
+    },
+    {
+      apiName: 'anthropic:3-opus-think-exp',
+      realName: 'claude-3-opus-think-exp',
+      inputPrice: { original: 15.00, discounted: 7.5 },
+      outputPrice: { original: 75.00, discounted: 37.5 },
+      rateLimit: '-'
+    },
+    {
       apiName: 'anthropic:3-opus',
       realName: 'claude-3-opus',
       inputPrice: { original: 15.00, discounted: 7.5 },
@@ -130,8 +151,8 @@ export default function Home() {
       rateLimit: '-'
     },
     {
-      apiName: 'anthropic:3.5-sonnet-20241022',
-      realName: 'claude-3.5-sonnet-20241022',
+      apiName: 'anthropic:3.5-sonnet-think-exp',
+      realName: 'claude-3.5-sonnet-think-exp',
       inputPrice: { original: 3.00, discounted: 1.5 },
       outputPrice: { original: 15.00, discounted: 7.5 },
       rateLimit: '-'
@@ -144,6 +165,13 @@ export default function Home() {
       rateLimit: '-'
     },
     {
+      apiName: 'anthropic:3.5-haiku-think-exp',
+      realName: 'claude-3.5-haiku-think-exp',
+      inputPrice: { original: 1.00, discounted: 0.5 },
+      outputPrice: { original: 5.00, discounted: 2.5 },
+      rateLimit: '-'
+    },
+    {
       apiName: 'anthropic:3.5-haiku',
       realName: 'claude-3.5-haiku',
       inputPrice: { original: 1.00, discounted: 0.5 },
@@ -151,8 +179,23 @@ export default function Home() {
       rateLimit: '-'
     },
     {
+      apiName: 'openai:gpt-4o-think-exp',
+      realName: 'gpt-4o-think-exp',
+      inputPrice: { original: 2.50, discounted: 1.75 },
+      outputPrice: { original: 10.00, discounted: 5 },
+      rateLimit: '-'
+    },
+    {
       apiName: 'openai:gpt-4o',
       realName: 'gpt-4o',
+      inputPrice: { original: 2.50, discounted: 1.75 },
+      outputPrice: { original: 10.00, discounted: 5 },
+      rateLimit: '-'
+    },
+
+    {
+      apiName: 'openai:gpt-4o-2024-08-06-think-exp',
+      realName: 'gpt-4o-2024-08-06-think-exp',
       inputPrice: { original: 2.50, discounted: 1.75 },
       outputPrice: { original: 10.00, discounted: 5 },
       rateLimit: '-'
@@ -165,10 +208,24 @@ export default function Home() {
       rateLimit: '-'
     },
     {
+      apiName: 'openai:gpt-4o-mini-think-exp',
+      realName: 'gpt-4o-mini-think-exp',
+      inputPrice: { original: 0.15, discounted: 0.25 },
+      outputPrice: { original: 0.60, discounted: 0.3 },
+      rateLimit: '-'
+    },
+    {
       apiName: 'openai:gpt-4o-mini',
       realName: 'gpt-4o-mini',
       inputPrice: { original: 0.15, discounted: 0.25 },
       outputPrice: { original: 0.60, discounted: 0.3 },
+      rateLimit: '-'
+    },
+    {
+      apiName: 'openai:o1-mini-think-exp',
+      realName: 'o1-mini-think-exp',
+      inputPrice: { original: 3.00, discounted: 1.5 },
+      outputPrice: { original: 12.00, discounted: 6 },
       rateLimit: '-'
     },
     {
@@ -179,6 +236,13 @@ export default function Home() {
       rateLimit: '-'
     },
     {
+      apiName: 'openai:gpt-3.5-turbo-think-exp',
+      realName: 'gpt-3.5-turbo-think-exp',
+      inputPrice: { original: 0.50, discounted: 0.25 },
+      outputPrice: { original: 1.50, discounted: 0.75 },
+      rateLimit: '-'
+    },
+    {
       apiName: 'openai:gpt-3.5-turbo',
       realName: 'gpt-3.5-turbo',
       inputPrice: { original: 0.50, discounted: 0.25 },
@@ -186,10 +250,24 @@ export default function Home() {
       rateLimit: '-'
     },
     {
+      apiName: 'openai:gpt-4-think-exp',
+      realName: 'gpt-4-think-exp',
+      inputPrice: { original: 30.00, discounted: 15 },
+      outputPrice: { original: 60.00, discounted: 30 },
+      rateLimit: '-'
+    },
+    {
       apiName: 'openai:gpt-4',
       realName: 'gpt-4',
       inputPrice: { original: 30.00, discounted: 15 },
       outputPrice: { original: 60.00, discounted: 30 },
+      rateLimit: '-'
+    },
+    {
+      apiName: 'openai:gpt-4-turbo-2024-04-09-think-exp',
+      realName: 'gpt-4-turbo-2024-04-09',
+      inputPrice: { original: 10.00, discounted: 5 },
+      outputPrice: { original: 30.00, discounted: 15 },
       rateLimit: '-'
     },
     {
@@ -410,7 +488,7 @@ export default function Home() {
                   <span className="text-white dark:text-gray-200">
                     {t('bonus')}
                   </span>
-                  <span className="font-bold text-green-500 dark:text-green-300">+$10</span>
+                  <span className="font-bold text-green-500 dark:text-green-300">x$10</span>
                 </div>
               </div>
             </div>
@@ -451,7 +529,7 @@ export default function Home() {
                   <span className="text-white dark:text-gray-200">
                     {t('bonus')}
                   </span>
-                  <span className="font-bold text-green-500 dark:text-green-300">+$75</span>
+                  <span className="font-bold text-green-500 dark:text-green-300">x$75</span>
                 </div>
               </div>
             </div>
