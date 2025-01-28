@@ -123,6 +123,20 @@ export default function Home() {
 
   const modelPricing = [
     {
+      apiName: 'deepseek:deepseek-reasoner',
+      realName: 'Deepseek Reasoner',
+      inputPrice: { original: 0.00, discounted: 0.00 },
+      outputPrice: { original: 0.00, discounted: 0.00 },
+      rateLimit: '-'
+    },
+    {
+      apiName: 'deepseek:deepseek-v3',
+      realName: 'Deepseek v3',
+      inputPrice: { original: 0.00, discounted: 0.00 },
+      outputPrice: { original: 0.00, discounted: 0.00 },
+      rateLimit: '-'
+    },
+    {
       apiName: 'anthropic:3.5-sonnet-20241022-think-exp',
       realName: 'claude-3.5-sonnet-20241022-think-exp',
       inputPrice: { original: 3.00, discounted: 1.5 },
@@ -178,13 +192,7 @@ export default function Home() {
       outputPrice: { original: 5.00, discounted: 2.5 },
       rateLimit: '-'
     },
-    {
-      apiName: 'openai:gpt-4o-think-exp',
-      realName: 'gpt-4o-think-exp',
-      inputPrice: { original: 2.50, discounted: 1.75 },
-      outputPrice: { original: 10.00, discounted: 5 },
-      rateLimit: '-'
-    },
+    
     {
       apiName: 'openai:gpt-4o',
       realName: 'gpt-4o',
@@ -193,13 +201,7 @@ export default function Home() {
       rateLimit: '-'
     },
 
-    {
-      apiName: 'openai:gpt-4o-2024-08-06-think-exp',
-      realName: 'gpt-4o-2024-08-06-think-exp',
-      inputPrice: { original: 2.50, discounted: 1.75 },
-      outputPrice: { original: 10.00, discounted: 5 },
-      rateLimit: '-'
-    },
+
     {
       apiName: 'openai:gpt-4o-2024-08-06',
       realName: 'gpt-4o-2024-08-06',
@@ -207,13 +209,7 @@ export default function Home() {
       outputPrice: { original: 10.00, discounted: 5 },
       rateLimit: '-'
     },
-    {
-      apiName: 'openai:gpt-4o-mini-think-exp',
-      realName: 'gpt-4o-mini-think-exp',
-      inputPrice: { original: 0.15, discounted: 0.25 },
-      outputPrice: { original: 0.60, discounted: 0.3 },
-      rateLimit: '-'
-    },
+    
     {
       apiName: 'openai:gpt-4o-mini',
       realName: 'gpt-4o-mini',
@@ -221,13 +217,7 @@ export default function Home() {
       outputPrice: { original: 0.60, discounted: 0.3 },
       rateLimit: '-'
     },
-    {
-      apiName: 'openai:o1-mini-think-exp',
-      realName: 'o1-mini-think-exp',
-      inputPrice: { original: 3.00, discounted: 1.5 },
-      outputPrice: { original: 12.00, discounted: 6 },
-      rateLimit: '-'
-    },
+    
     {
       apiName: 'openai:o1-mini',
       realName: 'o1-mini',
@@ -235,13 +225,7 @@ export default function Home() {
       outputPrice: { original: 12.00, discounted: 6 },
       rateLimit: '-'
     },
-    {
-      apiName: 'openai:gpt-3.5-turbo-think-exp',
-      realName: 'gpt-3.5-turbo-think-exp',
-      inputPrice: { original: 0.50, discounted: 0.25 },
-      outputPrice: { original: 1.50, discounted: 0.75 },
-      rateLimit: '-'
-    },
+    
     {
       apiName: 'openai:gpt-3.5-turbo',
       realName: 'gpt-3.5-turbo',
@@ -249,13 +233,7 @@ export default function Home() {
       outputPrice: { original: 1.50, discounted: 0.75 },
       rateLimit: '-'
     },
-    {
-      apiName: 'openai:gpt-4-think-exp',
-      realName: 'gpt-4-think-exp',
-      inputPrice: { original: 30.00, discounted: 15 },
-      outputPrice: { original: 60.00, discounted: 30 },
-      rateLimit: '-'
-    },
+    
     {
       apiName: 'openai:gpt-4',
       realName: 'gpt-4',
@@ -263,13 +241,7 @@ export default function Home() {
       outputPrice: { original: 60.00, discounted: 30 },
       rateLimit: '-'
     },
-    {
-      apiName: 'openai:gpt-4-turbo-2024-04-09-think-exp',
-      realName: 'gpt-4-turbo-2024-04-09',
-      inputPrice: { original: 10.00, discounted: 5 },
-      outputPrice: { original: 30.00, discounted: 15 },
-      rateLimit: '-'
-    },
+
     {
       apiName: 'openai:gpt-4-turbo-2024-04-09',
       realName: 'gpt-4-turbo-2024-04-09',
