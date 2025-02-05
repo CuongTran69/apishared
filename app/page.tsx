@@ -22,7 +22,7 @@ const translations = {
     tokenCorrespondence: ' Token Tương ứng bao nhiêu từ?',
     futureTrends: ' Future Trend',
     bonusPricing: 'Bonus Recharge',
-    modelPricing: 'Model Pricing',
+    modelPricing: 'AI Model Pricing',
     footerText: 'Connect with us on social media',
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Bonus Credit Tiers',
@@ -53,7 +53,7 @@ const translations = {
     tokenCorrespondence: ' Token Tương ứng bao nhiêu từ?',
     futureTrends: ' Xu Hướng Tương Lai',
     bonusPricing: 'Ưu đãi nạp tiền',
-    modelPricing: 'Giá Mô Hình',
+    modelPricing: 'Giá Các Mô Hình AI',
     footerText: 'Kết nối với chúng tôi trên mạng xã hội',
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
@@ -100,7 +100,7 @@ export default function Home() {
   const toggleLanguage = () => {
     const newLanguage = language === 'en' ? 'vi' : 'en'
     setLanguage(newLanguage)
-    
+
     // Save to localStorage
     localStorage.setItem('appLanguage', newLanguage)
   }
@@ -116,140 +116,145 @@ export default function Home() {
       const yOffset = -80; // Adjust this value based on your header height
       const element = sectionRef.current;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      
-      window.scrollTo({top: y, behavior: 'smooth'});
+
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   }
 
-  const modelPricing = [
-    {
-      apiName: 'deepseek:deepseek-reasoner',
-      realName: 'Deepseek Reasoner',
-      inputPrice: { original: 0.00, discounted: 0.00 },
-      outputPrice: { original: 0.00, discounted: 0.00 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'deepseek:deepseek-v3',
-      realName: 'Deepseek v3',
-      inputPrice: { original: 0.00, discounted: 0.00 },
-      outputPrice: { original: 0.00, discounted: 0.00 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'anthropic:3.5-sonnet-20241022-think-exp',
-      realName: 'claude-3.5-sonnet-20241022-think-exp',
-      inputPrice: { original: 3.00, discounted: 1.5 },
-      outputPrice: { original: 15.00, discounted: 7.5 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'anthropic:3.5-sonnet-20241022',
-      realName: 'claude-3.5-sonnet-20241022',
-      inputPrice: { original: 3.00, discounted: 1.5 },
-      outputPrice: { original: 15.00, discounted: 7.5 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'anthropic:3-opus-think-exp',
-      realName: 'claude-3-opus-think-exp',
-      inputPrice: { original: 15.00, discounted: 7.5 },
-      outputPrice: { original: 75.00, discounted: 37.5 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'anthropic:3-opus',
-      realName: 'claude-3-opus',
-      inputPrice: { original: 15.00, discounted: 7.5 },
-      outputPrice: { original: 75.00, discounted: 37.5 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'anthropic:3.5-sonnet-think-exp',
-      realName: 'claude-3.5-sonnet-think-exp',
-      inputPrice: { original: 3.00, discounted: 1.5 },
-      outputPrice: { original: 15.00, discounted: 7.5 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'anthropic:3.5-sonnet',
-      realName: 'claude-3.5-sonnet',
-      inputPrice: { original: 3.00, discounted: 1.5 },
-      outputPrice: { original: 15.00, discounted: 7.5 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'anthropic:3.5-haiku-think-exp',
-      realName: 'claude-3.5-haiku-think-exp',
-      inputPrice: { original: 1.00, discounted: 0.5 },
-      outputPrice: { original: 5.00, discounted: 2.5 },
-      rateLimit: '-'
-    },
-    {
-      apiName: 'anthropic:3.5-haiku',
-      realName: 'claude-3.5-haiku',
-      inputPrice: { original: 1.00, discounted: 0.5 },
-      outputPrice: { original: 5.00, discounted: 2.5 },
-      rateLimit: '-'
-    },
-    
-    {
-      apiName: 'openai:gpt-4o',
-      realName: 'gpt-4o',
-      inputPrice: { original: 2.50, discounted: 1.75 },
-      outputPrice: { original: 10.00, discounted: 5 },
-      rateLimit: '-'
-    },
-
-
-    {
-      apiName: 'openai:gpt-4o-2024-08-06',
-      realName: 'gpt-4o-2024-08-06',
-      inputPrice: { original: 2.50, discounted: 1.75 },
-      outputPrice: { original: 10.00, discounted: 5 },
-      rateLimit: '-'
-    },
-    
-    {
-      apiName: 'openai:gpt-4o-mini',
-      realName: 'gpt-4o-mini',
-      inputPrice: { original: 0.15, discounted: 0.25 },
-      outputPrice: { original: 0.60, discounted: 0.3 },
-      rateLimit: '-'
-    },
-    
-    {
-      apiName: 'openai:o1-mini',
-      realName: 'o1-mini',
-      inputPrice: { original: 3.00, discounted: 1.5 },
-      outputPrice: { original: 12.00, discounted: 6 },
-      rateLimit: '-'
-    },
-    
-    {
-      apiName: 'openai:gpt-3.5-turbo',
-      realName: 'gpt-3.5-turbo',
-      inputPrice: { original: 0.50, discounted: 0.25 },
-      outputPrice: { original: 1.50, discounted: 0.75 },
-      rateLimit: '-'
-    },
-    
-    {
-      apiName: 'openai:gpt-4',
-      realName: 'gpt-4',
-      inputPrice: { original: 30.00, discounted: 15 },
-      outputPrice: { original: 60.00, discounted: 30 },
-      rateLimit: '-'
-    },
-
-    {
-      apiName: 'openai:gpt-4-turbo-2024-04-09',
-      realName: 'gpt-4-turbo-2024-04-09',
-      inputPrice: { original: 10.00, discounted: 5 },
-      outputPrice: { original: 30.00, discounted: 15 },
-      rateLimit: '-'
-    }
-  ]
+  const modelPricing = {
+    "Anthropic Models": [
+      {
+        apiName: 'anthropic:3-opus',
+        realName: 'claude-3-opus',
+        inputPrice: { original: 15.00, discounted: 7.5 },
+        outputPrice: { original: 75.00, discounted: 37.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3-opus-think-exp',
+        realName: 'claude-3-opus-think-exp',
+        inputPrice: { original: 15.00, discounted: 7.5 },
+        outputPrice: { original: 75.00, discounted: 37.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3.5-sonnet-20241022',
+        realName: 'claude-3.5-sonnet-20241022',
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 15.00, discounted: 7.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3.5-sonnet-20241022-think-exp',
+        realName: 'claude-3.5-sonnet-20241022-think-exp',
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 15.00, discounted: 7.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3.5-sonnet',
+        realName: 'claude-3.5-sonnet',
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 15.00, discounted: 7.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3.5-sonnet-think-exp',
+        realName: 'claude-3.5-sonnet-think-exp',
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 15.00, discounted: 7.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3.5-haiku',
+        realName: 'claude-3.5-haiku',
+        inputPrice: { original: 1.00, discounted: 0.5 },
+        outputPrice: { original: 5.00, discounted: 2.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3.5-haiku-think-exp',
+        realName: 'claude-3.5-haiku-think-exp',
+        inputPrice: { original: 1.00, discounted: 0.5 },
+        outputPrice: { original: 5.00, discounted: 2.5 },
+        rateLimit: '-'
+      },
+    ],
+    "OpenAI Models": [
+      {
+        apiName: 'openai:o3-mini',
+        realName: 'gpt-4o',
+        inputPrice: { original: 2.20, discounted: 1.10 },
+        outputPrice: { original: 8.80, discounted: 4.40 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'openai:o3-mini-think-exp',
+        realName: 'gpt-4o',
+        inputPrice: { original: 2.20, discounted: 1.10 },
+        outputPrice: { original: 8.80, discounted: 4.40 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'openai:gpt-4o',
+        realName: 'gpt-4o',
+        inputPrice: { original: 2.50, discounted: 1.75 },
+        outputPrice: { original: 10.00, discounted: 5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'openai:gpt-4o-mini',
+        realName: 'gpt-4o-mini',
+        inputPrice: { original: 0.15, discounted: 0.25 },
+        outputPrice: { original: 0.60, discounted: 0.3 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'openai:gpt-4o-2024-08-06',
+        realName: 'gpt-4o-2024-08-06',
+        inputPrice: { original: 2.50, discounted: 1.75 },
+        outputPrice: { original: 10.00, discounted: 5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'openai:o1-mini',
+        realName: 'o1-mini',
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 12.00, discounted: 6 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'openai:gpt-4',
+        realName: 'gpt-4',
+        inputPrice: { original: 30.00, discounted: 15 },
+        outputPrice: { original: 60.00, discounted: 30 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'openai:gpt-4-turbo-2024-04-09',
+        realName: 'gpt-4-turbo-2024-04-09',
+        inputPrice: { original: 10.00, discounted: 5 },
+        outputPrice: { original: 30.00, discounted: 15 },
+        rateLimit: '-'
+      }
+    ],
+    "DeepSeek Models": [
+      {
+        apiName: 'deepseek:deepseek-v3',
+        realName: 'Deepseek v3',
+        inputPrice: { original: 0.00, discounted: 0.00 },
+        outputPrice: { original: 0.00, discounted: 0.00 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'deepseek:deepseek-reasoner',
+        realName: 'Deepseek Reasoner',
+        inputPrice: { original: 0.50, discounted: 0.25 },
+        outputPrice: { original: 4.40, discounted: 2.20 },
+        rateLimit: '-'
+      }
+    ]
+  }
 
   const handleCopyCode = (code: string) => {
     if (navigator && navigator.clipboard) {
@@ -278,7 +283,7 @@ export default function Home() {
         textArea.select()
         document.execCommand('copy')
         document.body.removeChild(textArea)
-        
+
         setCopiedCode(code)
         setCopyNotification({
           message: `Copied ${code} to clipboard!`,
@@ -300,7 +305,7 @@ export default function Home() {
   return (
     <div className={`min-h-screen bg-[#0A192F] dark:bg-white p-4 overflow-hidden relative`}>
       {copyNotification.visible && (
-        <div 
+        <div
           className="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg 
           animate-bounce z-50"
         >
@@ -339,10 +344,10 @@ export default function Home() {
             animate-fade-in-up px-4">
             {t('description')}
           </p>
-          
+
           {/* Action Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <button 
+            <button
               onClick={() => scrollToSection(videoSectionRef)}
               className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-600 text-white dark:bg-blue-400 dark:text-black
               rounded-full hover:bg-blue-700 dark:hover:bg-blue-500 transition duration-300 
@@ -356,7 +361,7 @@ export default function Home() {
               <span>Guild Video</span>
             </button>
 
-            <button 
+            <button
               onClick={() => scrollToSection(bonusSectionRef)}
               className="px-4 py-2 sm:px-6 sm:py-3 bg-green-600 text-white
               rounded-full hover:bg-green-700 transition duration-300 
@@ -369,8 +374,8 @@ export default function Home() {
               </svg>
               <span>{t('bonusPricing')}</span>
             </button>
-            
-            <button 
+
+            <button
               onClick={() => scrollToSection(modelSectionRef)}
               className="px-4 py-2 sm:px-6 sm:py-3 border border-blue-400 text-blue-400 dark:border-blue-600 dark:text-blue-600
               rounded-full hover:bg-blue-400 hover:text-white 
@@ -395,7 +400,7 @@ export default function Home() {
             animate-pulse-slow">
             {t('youtubeSection')}
           </h2>
-          
+
           <div className="grid gap-2 md:gap-2 bg-white/5 dark:bg-gray-800 rounded-xl backdrop-blur-lg shadow-xl">
             <div className=" p-4 sm:p-6 rounded-xl 
               transition duration-700 
@@ -422,7 +427,7 @@ export default function Home() {
             animate-pulse-slow">
             {t('bonusCreditTiers')}
           </h2>
-          
+
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Tier 1: $10+ Purchase */}
             <div className="bg-white/10 dark:bg-gray-800 rounded-2xl p-6 transform transition-all 
@@ -511,66 +516,71 @@ export default function Home() {
         {/* Pricing Table Section */}
         <div ref={modelSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-8 md:mb-12 
-            animate-pulse-slow">
+    animate-pulse-slow">
             {t('modelPricing')}
           </h2>
-          
+
           <div className="overflow-x-auto bg-white/5 dark:bg-gray-800 rounded-xl backdrop-blur-lg shadow-xl -mx-4 sm:mx-0">
             <div className="min-w-[800px]">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-white/10 dark:bg-gray-900 text-left">
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tl-lg text-sm md:text-base">Model Name (API)</th>
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Real Model Name</th>
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Input Price ($/1M tokens)</th>
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Output Price ($/1M tokens)</th>
-                    <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tr-lg text-sm md:text-base">Rate Limit (daily)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {modelPricing.map((model, index) => (
-                    <tr 
-                      key={index}
-                      className="
-                        border-b 
-                        border-white/10 
-                        dark:border-gray-700 
-                        hover:bg-white/5 
-                        dark:hover:bg-gray-800 
-                        transition-colors
-                        group
-                      "
-                    >
-                      <td className="p-3 md:p-4">
-                        <div className="flex items-center space-x-2">
-                          <code className="text-blue-400 dark:text-blue-200 text-xs md:text-sm break-all">{model.apiName}</code>
-                          <button 
-                            onClick={() => handleCopyCode(model.apiName)}
-                            className="opacity-0 group-hover:opacity-100 transition-opacity"
-                            title="Copy API Name"
-                          >
-                            <FaCopy className="text-blue-400 dark:text-blue-200 hover:text-blue-300 text-sm md:text-base" />
-                          </button>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.realName}</td>
-                      <td className="p-3 md:p-4">
-                        <div className="flex flex-col">
-                          <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.inputPrice.original.toFixed(2)}</span>
-                          <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.inputPrice.discounted.toFixed(2)}</span>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4">
-                        <div className="flex flex-col">
-                          <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.outputPrice.original.toFixed(2)}</span>
-                          <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.outputPrice.discounted.toFixed(2)}</span>
-                        </div>
-                      </td>
-                      <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.rateLimit}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              {Object.entries(modelPricing).map(([category, models]) => (
+                <div key={category} className="mb-8 pl-4 pt-4">
+                  <h3 className="text-2xl font-bold text-red-500 dark:text-red-300 mb-4">{category}</h3>
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="bg-white/10 dark:bg-gray-900 text-left">
+                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tl-lg text-sm md:text-base">Model Name (API)</th>
+                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Real Model Name</th>
+                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Input Price ($/1M tokens)</th>
+                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Output Price ($/1M tokens)</th>
+                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tr-lg text-sm md:text-base">Rate Limit (daily)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {models.map((model, index) => (
+                        <tr
+                          key={index}
+                          className="
+                    border-b 
+                    border-white/10 
+                    dark:border-gray-700 
+                    hover:bg-white/5 
+                    dark:hover:bg-gray-800 
+                    transition-colors
+                    group
+                  "
+                        >
+                          <td className="p-3 md:p-4">
+                            <div className="flex items-center space-x-2">
+                              <code className="text-blue-400 dark:text-blue-200 text-xs md:text-sm break-all">{model.apiName}</code>
+                              <button
+                                onClick={() => handleCopyCode(model.apiName)}
+                                className="opacity-0 group-hover:opacity-100 transition-opacity"
+                                title="Copy API Name"
+                              >
+                                <FaCopy className="text-blue-400 dark:text-blue-200 hover:text-blue-300 text-sm md:text-base" />
+                              </button>
+                            </div>
+                          </td>
+                          <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.realName}</td>
+                          <td className="p-3 md:p-4">
+                            <div className="flex flex-col">
+                              <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.inputPrice.original.toFixed(2)}</span>
+                              <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.inputPrice.discounted.toFixed(2)}</span>
+                            </div>
+                          </td>
+                          <td className="p-3 md:p-4">
+                            <div className="flex flex-col">
+                              <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.outputPrice.original.toFixed(2)}</span>
+                              <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.outputPrice.discounted.toFixed(2)}</span>
+                            </div>
+                          </td>
+                          <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.rateLimit}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -769,9 +779,9 @@ export default function Home() {
         <footer className="text-center mt-12 md:mt-20 relative z-10 px-4 pb-20">
           <p className="text-gray-300 dark:text-gray-500 mb-4 text-sm md:text-base">{t('footerText')}</p>
           <div className="flex flex-wrap justify-center space-x-2 sm:space-x-6 md:space-x-8 mb-4">
-            <a 
-              href="https://www.youtube.com/@apishared" 
-              target="_blank" 
+            <a
+              href="https://www.youtube.com/@apishared"
+              target="_blank"
               rel="noopener noreferrer"
               className="
                 text-white dark:text-gray-200 
@@ -782,8 +792,8 @@ export default function Home() {
             >
               <FaYoutube className="w-6 h-6 md:w-8 md:h-8" />
             </a>
-            <a 
-              href="https://www.facebook.com/share/g/BGj3PsxCXXVquAmE/" 
+            <a
+              href="https://www.facebook.com/share/g/BGj3PsxCXXVquAmE/"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -795,8 +805,8 @@ export default function Home() {
             >
               <FaFacebook className="w-6 h-6 md:w-8 md:h-8" />
             </a>
-            <a 
-              href="https://t.me/rapidapisupporter" 
+            <a
+              href="https://t.me/rapidapisupporter"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -814,8 +824,8 @@ export default function Home() {
 
         {/* Language Toggle Button */}
         <div className="absolute top-1 right-4 flex items-center space-x-2">
-          <button 
-            onClick={toggleLanguage} 
+          <button
+            onClick={toggleLanguage}
             className="px-4 py-2 bg-white/10 dark:bg-gray-900 text-white dark:text-gray-200 rounded hover:bg-white/20 dark:hover:bg-gray-800 transition"
           >
             {language === 'vi' ? '🇬🇧' : '🇻🇳'}
