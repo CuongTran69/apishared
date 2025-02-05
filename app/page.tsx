@@ -361,6 +361,22 @@ export default function Home() {
               <span>Guild Video</span>
             </button>
 
+            <a
+              href="https://api.llm.ai.vn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 sm:px-6 sm:py-3 bg-red-600 text-white
+              rounded-full hover:bg-red-700 transition duration-300 
+              transform hover:scale-105 
+              flex items-center justify-center space-x-2
+              w-full sm:w-auto text-sm sm:text-base"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+              </svg>
+              <span>Visit API LLM</span>
+            </a>
+
             <button
               onClick={() => scrollToSection(bonusSectionRef)}
               className="px-4 py-2 sm:px-6 sm:py-3 bg-green-600 text-white
