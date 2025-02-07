@@ -24,7 +24,7 @@ const translations = {
     bonusPricing: 'Bonus Recharge',
     modelPricing: 'AI Model Pricing',
     footerText: 'Connect with us on social media',
-    copyrightText: '2024 API Shared. All rights reserved.',
+    copyrightText: '2025 API Shared. All rights reserved.',
     bonusCreditTiers: 'Bonus Credit Tiers',
     tenPlusPurchase: '$10+ Purchase',
     fiftyPlusPurchase: '$50+ Purchase',
@@ -55,7 +55,7 @@ const translations = {
     bonusPricing: 'Ưu đãi nạp tiền',
     modelPricing: 'Giá Các Mô Hình AI',
     footerText: 'Kết nối với chúng tôi trên mạng xã hội',
-    copyrightText: '2024 API Shared. All rights reserved.',
+    copyrightText: '2025 API Shared. All rights reserved.',
     bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
     tenPlusPurchase: 'Mua Trên $10',
     fiftyPlusPurchase: 'Mua Trên $50',
@@ -182,6 +182,13 @@ export default function Home() {
     ],
     "OpenAI Models": [
       {
+        apiName: 'openai:o1',
+        realName: 'gpt-o1',
+        inputPrice: { original: 0.00, discounted: 0.00 },
+        outputPrice: { original: 0.00, discounted: 0.00 },
+        rateLimit: '-'
+      },
+      {
         apiName: 'openai:o3-mini',
         realName: 'gpt-4o',
         inputPrice: { original: 2.20, discounted: 1.10 },
@@ -242,15 +249,15 @@ export default function Home() {
       {
         apiName: 'deepseek:deepseek-v3',
         realName: 'Deepseek v3',
-        inputPrice: { original: 0.00, discounted: 0.00 },
-        outputPrice: { original: 0.00, discounted: 0.00 },
+        inputPrice: { original: 0.50, discounted: 0.25 },
+        outputPrice: { original: 8.80, discounted: 4.40 },
         rateLimit: '-'
       },
       {
         apiName: 'deepseek:deepseek-reasoner',
-        realName: 'Deepseek Reasoner',
-        inputPrice: { original: 0.50, discounted: 0.25 },
-        outputPrice: { original: 4.40, discounted: 2.20 },
+        realName: 'Deepseek R1',
+        inputPrice: { original: 1.10, discounted: 0.55 },
+        outputPrice: { original: 8.76, discounted: 4.38 },
         rateLimit: '-'
       }
     ]
@@ -688,11 +695,11 @@ export default function Home() {
                       <div>
                         <p className="text-gray-300 dark:text-gray-500 mb-2">Số và ký tự đặc biệt:</p>
                         <div className="bg-gray-800/50 dark:bg-gray-700 p-3 rounded">
-                          <p className="text-white dark:text-gray-200 mb-2">"AI-2024!"</p>
+                          <p className="text-white dark:text-gray-200 mb-2">"AI-2025!"</p>
                           <div className="flex flex-wrap gap-2">
                             <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">AI</span>
                             <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">-</span>
-                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">2024</span>
+                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">2025</span>
                             <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">!</span>
                             <span className="text-gray-400 dark:text-gray-600 ml-2">≈ 4 tokens</span>
                           </div>
