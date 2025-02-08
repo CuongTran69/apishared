@@ -8,10 +8,9 @@ import React, { useState, useEffect, useRef } from 'react'
 // Define translations
 const translations = {
   en: {
-    title: 'API Shared - AI Services Hub',
+    title: 'API Shared - All-in-One API Model AI',
     description: 'Access powerful AI APIs at discounted rates. Featuring OpenAI, Anthropic, and more.',
-    youtubeSection: 'API Shared Service Usage Guide Video',
-    modelsSection: 'Prices token AI Models',
+    modelsSection: 'Prices Token Models',
     providersTitle: 'Providers',
     modelCodeCopy: 'Copy Model Code',
     socialConnect: 'Connect With Us',
@@ -24,7 +23,7 @@ const translations = {
     bonusPricing: 'Bonus Recharge',
     modelPricing: 'AI Model Pricing',
     footerText: 'Connect with us on social media',
-    copyrightText: '2025 API Shared. All rights reserved.',
+    copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Bonus Credit Tiers',
     tenPlusPurchase: '$10+ Purchase',
     fiftyPlusPurchase: '$50+ Purchase',
@@ -39,9 +38,8 @@ const translations = {
     seventyFivePlus: '$75+'
   },
   vi: {
-    title: 'API Shared - Trung Tâm Dịch Vụ AI',
+    title: 'API Shared - Tất cả AI chỉ trong 1 API',
     description: 'Truy cập các API AI mạnh mẽ với mức ưu đãi cực lớn. Được trang bị các models của OpenAI, Anthropic và nhiều hơn nữa.',
-    youtubeSection: 'Video Hướng dẫn sử dụng dịch vụ API Shared',
     modelsSection: 'Giá token models AI',
     providersTitle: 'Nhà Cung Cấp',
     modelCodeCopy: 'Sao Chép Mã Mô Hình',
@@ -55,7 +53,7 @@ const translations = {
     bonusPricing: 'Ưu đãi nạp tiền',
     modelPricing: 'Giá Các Mô Hình AI',
     footerText: 'Kết nối với chúng tôi trên mạng xã hội',
-    copyrightText: '2025 API Shared. All rights reserved.',
+    copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
     tenPlusPurchase: 'Mua Trên $10',
     fiftyPlusPurchase: 'Mua Trên $50',
@@ -327,103 +325,33 @@ export default function Home() {
         <link rel="icon" href="/images/logo.png" />
       </Head>
 
-      <main className="container mx-auto px-4 py-16 relative dark:bg-white">
-        {/* Animated Tech Background Elements */}
-        <div className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none">
-          <div className="absolute animate-pulse opacity-20 bg-blue-500 rounded-full w-64 h-64 -top-32 -right-32 blur-3xl dark:hidden"></div>
-          <div className="absolute animate-bounce opacity-10 bg-purple-500 rounded-full w-48 h-48 top-1/3 -left-24 blur-2xl dark:hidden"></div>
-          <div className="absolute animate-spin opacity-10 bg-green-500 rounded-full w-32 h-32 top-1/2 -left-12 blur-xl dark:hidden"></div>
-          <div className="absolute animate-ping opacity-10 bg-yellow-500 rounded-full w-24 h-24 -top-16 -right-8 blur-sm dark:hidden"></div>
-          <div className="absolute animate-ping opacity-10 bg-red-500 rounded-full w-12 h-12 top-1/4 -right-4 blur-xs dark:hidden"></div>
-          <div className="absolute animate-ping opacity-10 bg-green-500 rounded-full w-12 h-12 bottom-1/4 -left-4 blur-xs dark:hidden"></div>
-          <div className="absolute animate-bounce opacity-10 bg-blue-500 rounded-full w-24 h-24 -bottom-16 -left-8 blur-sm dark:hidden"></div>
-          <div className="absolute animate-spin opacity-10 bg-yellow-500 rounded-full w-32 h-32 bottom-1/2 -right-12 blur-xl dark:hidden"></div>
-          <div className="absolute animate-pulse opacity-20 bg-purple-500 rounded-full w-48 h-48 -bottom-32 -right-24 blur-2xl dark:hidden"></div>
-        </div>
-
-        {/* Hero Section */}
-        <div className="text-center relative z-10 mb-12 md:mb-20 px-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white dark:text-black mb-4 md:mb-8 
-            animate-fade-in leading-tight">
-            API Shared
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 dark:text-gray-700 max-w-3xl mx-auto leading-relaxed
-            animate-fade-in-up px-4">
-            {t('description')}
-          </p>
-
-          {/* Action Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <button
-              onClick={() => scrollToSection(videoSectionRef)}
-              className="px-4 py-2 sm:px-6 sm:py-3 bg-blue-600 text-white dark:bg-blue-400 dark:text-black
-              rounded-full hover:bg-blue-700 dark:hover:bg-blue-500 transition duration-300 
-              transform hover:scale-105 
-              flex items-center justify-center space-x-2
-              w-full sm:w-auto text-sm sm:text-base"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-              </svg>
-              <span>Guild Video</span>
+      {/* Enhanced Header Menu with Action Buttons */}
+      <header className="p-4 fixed top-0 left-0 right-0 z-50 bg-[#0A192F]/2 backdrop-blur-md transition-all duration-300">
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+          <h1 className="text-2xl font-bold text-center text-white">{t('title')}</h1>
+          <nav className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+            <button onClick={() => scrollToSection(videoSectionRef)} className="px-4 py-2 bg-blue-500 rounded">
+              Watch Video
             </button>
-
-            <a
-              href="https://api.llm.ai.vn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 sm:px-6 sm:py-3 bg-red-600 text-white
-              rounded-full hover:bg-red-700 transition duration-300 
-              transform hover:scale-105 
-              flex items-center justify-center space-x-2
-              w-full sm:w-auto text-sm sm:text-base"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              <span>Visit API LLM</span>
+            <a href="https://api.llm.ai.vn/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-red-500 rounded">
+              Explore API LLM
             </a>
-
-            <button
-              onClick={() => scrollToSection(bonusSectionRef)}
-              className="px-4 py-2 sm:px-6 sm:py-3 bg-green-600 text-white
-              rounded-full hover:bg-green-700 transition duration-300 
-              transform hover:scale-105 
-              flex items-center justify-center space-x-2
-              w-full sm:w-auto text-sm sm:text-base"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              <span>{t('bonusPricing')}</span>
+            <button onClick={() => scrollToSection(bonusSectionRef)} className="px-4 py-2 bg-green-500 rounded">
+              {t('bonusPricing')}
             </button>
-
-            <button
-              onClick={() => scrollToSection(modelSectionRef)}
-              className="px-4 py-2 sm:px-6 sm:py-3 border border-blue-400 text-blue-400 dark:border-blue-600 dark:text-blue-600
-              rounded-full hover:bg-blue-400 hover:text-white 
-              dark:hover:bg-blue-600 dark:hover:text-white
-              transition duration-300 
-              transform hover:scale-105 
-              flex items-center justify-center space-x-2
-              w-full sm:w-auto text-sm sm:text-base"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M13 7H7v6h6V7z" />
-                <path fillRule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h2V2zM5 5h10v12H5V5zm4 2a1 1 0 011 1v4a1 1 0 01-1 1H7a1 1 0 01-1-1V8a1 1 0 011-1h2zm6 0a1 1 0 00-1 1v4a1 1 0 001 1h2a1 1 0 001-1V8a1 1 0 00-1-1h-2z" clipRule="evenodd" />
-              </svg>
-              <span>{t('modelsSection')}</span>
+            <button onClick={() => scrollToSection(modelSectionRef)} className="px-4 py-2 border border-gray-300 text-white rounded">
+              {t('modelsSection')}
             </button>
-          </div>
+            <button onClick={toggleLanguage} className="px-3 py-1 bg-white/10 text-white rounded">
+                {language === 'vi' ? '🇬🇧' : '🇻🇳'}
+              </button>
+          </nav>
         </div>
+      </header>
 
+      <main className="container mx-auto px-4 relative dark:bg-white">
         {/* Featured Video Section */}
         <section ref={videoSectionRef} className="mt-12 md:mt-20 relative z-10 px-4 dark:bg-white">
-          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-8 md:mb-12 
-            animate-pulse-slow">
-            {t('youtubeSection')}
-          </h2>
-
           <div className="grid gap-2 md:gap-2 bg-white/5 dark:bg-gray-800 rounded-xl backdrop-blur-lg shadow-xl">
             <div className=" p-4 sm:p-6 rounded-xl 
               transition duration-700 
@@ -844,16 +772,6 @@ export default function Home() {
           </div>
           <p className="text-gray-400 dark:text-gray-600 mt-2 md:mt-4 text-xs md:text-sm">{t('copyrightText')}</p>
         </footer>
-
-        {/* Language Toggle Button */}
-        <div className="absolute top-1 right-4 flex items-center space-x-2">
-          <button
-            onClick={toggleLanguage}
-            className="px-4 py-2 bg-white/10 dark:bg-gray-900 text-white dark:text-gray-200 rounded hover:bg-white/20 dark:hover:bg-gray-800 transition"
-          >
-            {language === 'vi' ? '🇬🇧' : '🇻🇳'}
-          </button>
-        </div>
       </main>
     </div>
   )
