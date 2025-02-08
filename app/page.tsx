@@ -107,6 +107,7 @@ export default function Home() {
   const videoSectionRef = useRef<HTMLDivElement | null>(null)
   const modelSectionRef = useRef<HTMLDivElement | null>(null)
   const bonusSectionRef = useRef<HTMLDivElement | null>(null)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Scroll to section function
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
@@ -325,33 +326,78 @@ export default function Home() {
         <link rel="icon" href="/images/logo.png" />
       </Head>
 
-      {/* Enhanced Header Menu with Action Buttons */}
-      <header className="p-4 fixed top-0 left-0 right-0 z-50 bg-[#0A192F]/2 backdrop-blur-md transition-all duration-300">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-          <h1 className="text-2xl font-bold text-center text-white">{t('title')}</h1>
-          <nav className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
-            <button onClick={() => scrollToSection(videoSectionRef)} className="px-4 py-2 bg-blue-500 rounded">
-              Watch Video
-            </button>
-            <a href="https://api.llm.ai.vn/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-red-500 rounded">
-              Explore API LLM
-            </a>
-            <button onClick={() => scrollToSection(bonusSectionRef)} className="px-4 py-2 bg-green-500 rounded">
-              {t('bonusPricing')}
-            </button>
-            <button onClick={() => scrollToSection(modelSectionRef)} className="px-4 py-2 border border-gray-300 text-white rounded">
-              {t('modelsSection')}
-            </button>
-            <button onClick={toggleLanguage} className="px-3 py-1 bg-white/10 text-white rounded">
+      <main className="container mx-auto px-4 relative dark:bg-white">
+        {/* Enhanced Header Menu with Action Buttons */}
+        <header className="p-4 fixed top-0 left-0 right-0 z-50 bg-[#0A192F]/2 backdrop-blur-md transition-all duration-300">
+          <div className="container mx-auto flex justify-between items-center">
+            {/* Title displayed only on desktop */}
+            <h1 className="text-2xl font-bold text-white hidden md:block">{t('title')}</h1>
+            {/* Desktop Menu */}
+            <nav className="hidden md:flex md:flex-row space-y-2 md:space-y-0 md:space-x-4">
+              <button onClick={() => scrollToSection(videoSectionRef)} className="px-4 py-2 bg-blue-500 rounded">
+                Watch Video
+              </button>
+              <a href="https://api.llm.ai.vn/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-red-500 rounded">
+                Explore API LLM
+              </a>
+              <button onClick={() => scrollToSection(bonusSectionRef)} className="px-4 py-2 bg-green-500 rounded">
+                {t('bonusPricing')}
+              </button>
+              <button onClick={() => scrollToSection(modelSectionRef)} className="px-4 py-2 border border-gray-300 text-white rounded">
+                {t('modelsSection')}
+              </button>
+              <button onClick={toggleLanguage} className="px-3 py-1 bg-white/10 text-white rounded">
                 {language === 'vi' ? '🇬🇧' : '🇻🇳'}
               </button>
-          </nav>
-        </div>
-      </header>
-
-      <main className="container mx-auto px-4 relative dark:bg-white">
+            </nav>
+            {/* Title displayed only on mobile */}
+            <h1 className="text-2xl font-bold pl-12 pt-1 text-white md:hidden">API Shared</h1>
+            {/* Mobile Menu Button positioned at the top left */}
+            <button
+              className="md:hidden absolute top-4 left-4 p-2 rounded-lg bg-white text-blue-600 hover:bg-gray-200 transition duration-300"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
+          </div>
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <nav className="flex flex-col space-y-2 mt-4 md:hidden">
+              <div className="flex space-x-4">
+                <button onClick={() => scrollToSection(videoSectionRef)} className="px-4 py-2 bg-blue-500 rounded flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {/* YouTube Icon Path */}
+                    <path d="M10 15l5-3-5-3v6z" fill="currentColor" />
+                    <path d="M21.6 8.4c-.2-1.5-.8-2.8-1.7-3.9C18.4 3.8 17.1 3 15.6 3H8.4C6.9 3 5.6 3.8 4.1 4.5 3.2 5.6 2.6 6.9 2.4 8.4 2.2 10.1 2.2 12 2.2 12s0 1.9.2 4.4c.2 1.5.8 2.8 1.7 3.9C5.6 20.2 6.9 21 8.4 21h7.2c1.5 0 2.8-.8 3.9-1.7 1-1 1.5-2.4 1.7-3.9.2-2.5.2-4.4.2-4.4s0-1.9-.2-4.4z" fill="currentColor" />
+                  </svg>
+                </button>
+                <a href="https://api.llm.ai.vn/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-red-500 rounded flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2C10.343 2 9 3.343 9 5c0 .553-.447 1-1 1H6c-1.104 0-2 .896-2 2v2c0 1.104.896 2 2 2h2c.553 0 1 .447 1 1 0 1.657 1.343 3 3 3s3-1.343 3-3c0-.553.447-1 1-1h2c1.104 0 2-.896 2-2v-2c0-1.104-.896-2-2-2h-2c-.553 0-1-.447-1-1 0-1.657-1.343-3-3-3z" />
+                  </svg>
+                </a>
+                <button onClick={() => scrollToSection(bonusSectionRef)} className="px-4 py-2 bg-green-500 rounded flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                </button>
+                <button onClick={() => scrollToSection(modelSectionRef)} className="px-4 py-2 border border-gray-300 text-white rounded flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M12 2v2m0 16v2M9 6h6a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6" />
+                  </svg>
+                </button>
+                <button onClick={toggleLanguage} className="px-3 py-1 bg-white/10 text-white rounded flex items-center">
+                  {language === 'vi' ? '🇬🇧' : '🇻🇳'}
+                </button>
+              </div>
+            </nav>
+          )}
+        </header>
         {/* Featured Video Section */}
-        <section ref={videoSectionRef} className="mt-12 md:mt-20 relative z-10 px-4 dark:bg-white">
+        <section ref={videoSectionRef} className="mt-16 md:mt-20 relative z-10 px-4 dark:bg-white">
           <div className="grid gap-2 md:gap-2 bg-white/5 dark:bg-gray-800 rounded-xl backdrop-blur-lg shadow-xl">
             <div className=" p-4 sm:p-6 rounded-xl 
               transition duration-700 
