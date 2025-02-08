@@ -184,8 +184,8 @@ export default function Home() {
       {
         apiName: 'openai:o1',
         realName: 'gpt-o1',
-        inputPrice: { original: 0.00, discounted: 0.00 },
-        outputPrice: { original: 0.00, discounted: 0.00 },
+        inputPrice: { original: 15.00, discounted: 7.50 },
+        outputPrice: { original: 60.00, discounted: 30.00 },
         rateLimit: '-'
       },
       {
@@ -249,15 +249,15 @@ export default function Home() {
       {
         apiName: 'deepseek:deepseek-v3',
         realName: 'Deepseek v3',
-        inputPrice: { original: 0.50, discounted: 0.25 },
-        outputPrice: { original: 8.80, discounted: 4.40 },
+        inputPrice: { original: 0.25, discounted: 0.125 },
+        outputPrice: { original: 0.50, discounted: 0.25 },
         rateLimit: '-'
       },
       {
         apiName: 'deepseek:deepseek-reasoner',
         realName: 'Deepseek R1',
-        inputPrice: { original: 1.10, discounted: 0.55 },
-        outputPrice: { original: 8.76, discounted: 4.38 },
+        inputPrice: { original: 0.55, discounted: 0.275 },
+        outputPrice: { original: 1.11, discounted: 0.55 },
         rateLimit: '-'
       }
     ]
