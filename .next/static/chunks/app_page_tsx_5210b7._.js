@@ -393,7 +393,7 @@ function Home() {
             navigator.clipboard.writeText(code).then(()=>{
                 setCopiedCode(code);
                 setCopyNotification({
-                    message: `Copied ${code} to clipboard!`,
+                    message: language === 'vi' ? 'Đã sao chép thành công!' : 'Successfully copied!',
                     visible: true
                 });
                 setTimeout(()=>{
@@ -434,7 +434,7 @@ function Home() {
         className: `min-h-screen bg-[#0A192F] dark:bg-white p-4 overflow-hidden relative`,
         children: [
             copyNotification.visible && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg  animate-bounce z-50",
+                className: "fixed top-24 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg  animate-bounce z-50",
                 children: copyNotification.message
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
