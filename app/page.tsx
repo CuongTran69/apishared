@@ -121,6 +121,54 @@ export default function Home() {
   }
 
   const modelPricing = {
+    "DeepSeek Models": [
+      {
+        apiName: 'deepseek:deepseek-v3',
+        realName: 'Deepseek v3',
+        inputPrice: { original: 0.25, discounted: 0.125 },
+        outputPrice: { original: 0.50, discounted: 0.25 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'deepseek:deepseek-reasoner',
+        realName: 'Deepseek R1',
+        inputPrice: { original: 0.55, discounted: 0.275 },
+        outputPrice: { original: 1.11, discounted: 0.55 },
+        rateLimit: '-'
+      }
+    ],
+    "xAI Models": [
+      {
+        apiName: 'grok:grok-2',
+        realName: 'Grok v2',
+        inputPrice: { original: 2, discounted: 1 },
+        outputPrice: { original: 10, discounted: 5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'grok:grok-2-think-exp',
+        realName: 'Grok v2 Deep Think',
+        inputPrice: { original: 2, discounted: 1 },
+        outputPrice: { original: 10, discounted: 5 },
+        rateLimit: '-'
+      },
+    ],
+    "Gemini Models": [
+      {
+        apiName: 'gemini:gemini-2.0-pro-exp',
+        realName: 'Gemini 2.0 Deep Think',
+        inputPrice: { original: 2.5, discounted: 1.25 },
+        outputPrice: { original: 10, discounted: 5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'deepseek:deepseek-reasoner',
+        realName: 'Deepseek R1',
+        inputPrice: { original: 0.55, discounted: 0.275 },
+        outputPrice: { original: 1.11, discounted: 0.55 },
+        rateLimit: '-'
+      }
+    ],
     "Anthropic Models": [
       {
         apiName: 'anthropic:3-opus',
@@ -241,22 +289,6 @@ export default function Home() {
         realName: 'gpt-4-turbo-2024-04-09',
         inputPrice: { original: 10.00, discounted: 5 },
         outputPrice: { original: 30.00, discounted: 15 },
-        rateLimit: '-'
-      }
-    ],
-    "DeepSeek Models": [
-      {
-        apiName: 'deepseek:deepseek-v3',
-        realName: 'Deepseek v3',
-        inputPrice: { original: 0.25, discounted: 0.125 },
-        outputPrice: { original: 0.50, discounted: 0.25 },
-        rateLimit: '-'
-      },
-      {
-        apiName: 'deepseek:deepseek-reasoner',
-        realName: 'Deepseek R1',
-        inputPrice: { original: 0.55, discounted: 0.275 },
-        outputPrice: { original: 1.11, discounted: 0.55 },
         rateLimit: '-'
       }
     ]
