@@ -156,18 +156,18 @@ export default function Home() {
     "Gemini Models": [
       {
         apiName: 'gemini:gemini-2.0-pro-exp',
-        realName: 'Gemini 2.0 Deep Think',
+        realName: 'Gemini 2.0',
         inputPrice: { original: 2.5, discounted: 1.25 },
         outputPrice: { original: 10, discounted: 5 },
         rateLimit: '-'
       },
       {
-        apiName: 'deepseek:deepseek-reasoner',
-        realName: 'Deepseek R1',
-        inputPrice: { original: 0.55, discounted: 0.275 },
-        outputPrice: { original: 1.11, discounted: 0.55 },
+        apiName: 'gemini:gemini-2.0-pro-exp-think-exp',
+        realName: 'Gemini 2.0 Deep Think',
+        inputPrice: { original: 2.5, discounted: 1.25 },
+        outputPrice: { original: 10, discounted: 5 },
         rateLimit: '-'
-      }
+      },
     ],
     "Anthropic Models": [
       {
