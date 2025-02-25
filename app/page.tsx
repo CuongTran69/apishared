@@ -121,67 +121,19 @@ export default function Home() {
   }
 
   const modelPricing = {
-    "DeepSeek Models": [
-      {
-        apiName: 'deepseek:deepseek-v3',
-        realName: 'Deepseek v3',
-        inputPrice: { original: 0.25, discounted: 0.125 },
-        outputPrice: { original: 0.50, discounted: 0.25 },
-        rateLimit: '-'
-      },
-      {
-        apiName: 'deepseek:deepseek-reasoner',
-        realName: 'Deepseek R1',
-        inputPrice: { original: 0.55, discounted: 0.275 },
-        outputPrice: { original: 1.11, discounted: 0.55 },
-        rateLimit: '-'
-      }
-    ],
-    "xAI Models": [
-      {
-        apiName: 'grok:grok-2',
-        realName: 'Grok v2',
-        inputPrice: { original: 2, discounted: 1 },
-        outputPrice: { original: 10, discounted: 5 },
-        rateLimit: '-'
-      },
-      {
-        apiName: 'grok:grok-2-think-exp',
-        realName: 'Grok v2 Deep Think',
-        inputPrice: { original: 2, discounted: 1 },
-        outputPrice: { original: 10, discounted: 5 },
-        rateLimit: '-'
-      },
-    ],
-    "Gemini Models": [
-      {
-        apiName: 'gemini:gemini-2.0-pro-exp',
-        realName: 'Gemini 2.0',
-        inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 },
-        rateLimit: '-'
-      },
-      {
-        apiName: 'gemini:gemini-2.0-pro-exp-think-exp',
-        realName: 'Gemini 2.0 Deep Think',
-        inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 },
-        rateLimit: '-'
-      },
-    ],
     "Anthropic Models": [
       {
-        apiName: 'anthropic:3-opus',
-        realName: 'claude-3-opus',
-        inputPrice: { original: 15.00, discounted: 7.5 },
-        outputPrice: { original: 75.00, discounted: 37.5 },
+        apiName: 'anthropic:3.7-sonnet',
+        realName: 'Claude 3.7',
+        inputPrice: { original: 5, discounted: 2.5 },
+        outputPrice: { original: 25, discounted: 12.5 },
         rateLimit: '-'
       },
       {
-        apiName: 'anthropic:3-opus-think-exp',
-        realName: 'claude-3-opus-think-exp',
-        inputPrice: { original: 15.00, discounted: 7.5 },
-        outputPrice: { original: 75.00, discounted: 37.5 },
+        apiName: 'anthropic:3.7-sonnet-thinking',
+        realName: 'Claude 3.7 thinking',
+        inputPrice: { original: 5, discounted: 2.5 },
+        outputPrice: { original: 25, discounted: 12.5 },
         rateLimit: '-'
       },
       {
@@ -196,6 +148,20 @@ export default function Home() {
         realName: 'claude-3.5-sonnet-20241022-think-exp',
         inputPrice: { original: 3.00, discounted: 1.5 },
         outputPrice: { original: 15.00, discounted: 7.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3-opus',
+        realName: 'Claude-3-opus',
+        inputPrice: { original: 15.00, discounted: 7.5 },
+        outputPrice: { original: 75.00, discounted: 37.5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'anthropic:3-opus-think-exp',
+        realName: 'Claude-3-opus-think-exp',
+        inputPrice: { original: 15.00, discounted: 7.5 },
+        outputPrice: { original: 75.00, discounted: 37.5 },
         rateLimit: '-'
       },
       {
@@ -219,11 +185,94 @@ export default function Home() {
         outputPrice: { original: 5.00, discounted: 2.5 },
         rateLimit: '-'
       },
+    ],
+    "DeepSeek Models": [
       {
-        apiName: 'anthropic:3.5-haiku-think-exp',
-        realName: 'claude-3.5-haiku-think-exp',
-        inputPrice: { original: 1.00, discounted: 0.5 },
-        outputPrice: { original: 5.00, discounted: 2.5 },
+        apiName: 'deepseek:deepseek-v3',
+        realName: 'Deepseek v3',
+        inputPrice: { original: 0.25, discounted: 0.125 },
+        outputPrice: { original: 0.50, discounted: 0.25 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'deepseek:deepseek-reasoner',
+        realName: 'Deepseek R1',
+        inputPrice: { original: 0.55, discounted: 0.275 },
+        outputPrice: { original: 1.11, discounted: 0.55 },
+        rateLimit: '-'
+      }
+    ],
+    "xAI Models": [
+      {
+        apiName: 'grok-3',
+        realName: 'Grok v3',
+        inputPrice: { original: 1.50, discounted: 0.75 },
+        outputPrice: { original: 7.50, discounted: 3.75 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'grok-3',
+        realName: 'Grok v3',
+        inputPrice: { original: 1.50, discounted: 0.75 },
+        outputPrice: { original: 7.50, discounted: 3.75 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'grok-3-deepsearch',
+        realName: 'Grok v3 Deep search',
+        inputPrice: { original: 1.50, discounted: 0.75 },
+        outputPrice: { original: 7.50, discounted: 3.75 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'grok-3-reasoner',
+        realName: 'Grok v3 reasoner',
+        inputPrice: { original: 1.50, discounted: 0.75 },
+        outputPrice: { original: 7.50, discounted: 3.75 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'grok:grok-2',
+        realName: 'Grok v2',
+        inputPrice: { original: 2.00, discounted: 1 },
+        outputPrice: { original: 10, discounted: 5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'grok:grok-2-think-exp',
+        realName: 'Grok v2 Deep Think',
+        inputPrice: { original: 2, discounted: 1 },
+        outputPrice: { original: 10, discounted: 5 },
+        rateLimit: '-'
+      },
+    ],
+    "Gemini Models": [
+      {
+        apiName: 'gemini:gemini-2.0-flash',
+        realName: 'Gemini 2.0 Flash',
+        inputPrice: { original: 0.15, discounted: 0.075 },
+        outputPrice: { original: 0.6, discounted: 0.3 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'gemini:gemini-2.0-flash-thinking-exp',
+        realName: 'Gemini 2.0 Flash Deep think',
+        inputPrice: { original: 0.15, discounted: 0.075 },
+        outputPrice: { original: 0.6, discounted: 0.3 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'gemini:gemini-2.0-pro-exp',
+        realName: 'Gemini 2.0',
+        inputPrice: { original: 2.5, discounted: 1.25 },
+        outputPrice: { original: 10, discounted: 5 },
+        rateLimit: '-'
+      },
+      {
+        apiName: 'gemini:gemini-2.0-pro-exp-think-exp',
+        realName: 'Gemini 2.0 Deep Think',
+        inputPrice: { original: 2.5, discounted: 1.25 },
+        outputPrice: { original: 10, discounted: 5 },
         rateLimit: '-'
       },
     ],
