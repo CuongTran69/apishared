@@ -211,13 +211,6 @@ export default function Home() {
         rateLimit: '-'
       },
       {
-        apiName: 'grok-3',
-        realName: 'Grok v3',
-        inputPrice: { original: 1.50, discounted: 0.75 },
-        outputPrice: { original: 7.50, discounted: 3.75 },
-        rateLimit: '-'
-      },
-      {
         apiName: 'grok-3-deepsearch',
         realName: 'Grok v3 Deep search',
         inputPrice: { original: 1.50, discounted: 0.75 },
