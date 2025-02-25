@@ -125,15 +125,15 @@ export default function Home() {
       {
         apiName: 'anthropic:3.7-sonnet',
         realName: 'Claude 3.7',
-        inputPrice: { original: 5, discounted: 2.5 },
-        outputPrice: { original: 25, discounted: 12.5 },
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 15.00, discounted: 7.5 },
         rateLimit: '-'
       },
       {
         apiName: 'anthropic:3.7-sonnet-thinking',
         realName: 'Claude 3.7 thinking',
-        inputPrice: { original: 5, discounted: 2.5 },
-        outputPrice: { original: 25, discounted: 12.5 },
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 15.00, discounted: 7.5 },
         rateLimit: '-'
       },
       {
