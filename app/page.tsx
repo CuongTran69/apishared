@@ -124,14 +124,14 @@ export default function Home() {
     "Anthropic Models": [
       {
         apiName: 'anthropic:3.7-sonnet',
-        realName: 'Claude 3.7',
+        realName: 'Claude 3.7 Sonnet',
         inputPrice: { original: 3.00, discounted: 1.5 },
         outputPrice: { original: 15.00, discounted: 7.5 },
         rateLimit: '-'
       },
       {
         apiName: 'anthropic:3.7-sonnet-thinking',
-        realName: 'Claude 3.7 thinking',
+        realName: 'Claude 3.7 Thinking Mode Extended',
         inputPrice: { original: 3.00, discounted: 1.5 },
         outputPrice: { original: 15.00, discounted: 7.5 },
         rateLimit: '-'
