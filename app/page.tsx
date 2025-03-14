@@ -517,95 +517,159 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Bonus Tiers */}
-        <section ref={bonusSectionRef} className="mt-20 relative z-10 px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-12 
-            animate-pulse-slow">
-            {t('bonusCreditTiers')}
-          </h2>
+        {/* Bonus Tiers Container */}
+        <section ref={bonusSectionRef} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+          {/* Trial Tier */}
+          <div className="bg-gradient-to-br from-green-900/40 to-green-800/20 backdrop-blur-lg rounded-3xl p-8 
+            border border-green-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
+            hover:shadow-green-500/20 hover:border-green-500/40">
+            <div className="flex items-center justify-between mb-6">
+              <div className="bg-green-500/20 p-4 rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div className="bg-green-500/10 px-4 py-2 rounded-full">
+                <span className="text-2xl font-bold text-green-400">Trial</span>
+              </div>
+            </div>
 
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Tier 1: $10+ Purchase */}
-            <div className="bg-white/10 dark:bg-gray-800 rounded-2xl p-6 transform transition-all 
-              duration-300 hover:scale-105 hover:shadow-2xl">
-              <div className="flex items-center justify-between mb-4">
-                <div className="bg-blue-500/20 dark:bg-blue-400/20 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-500 dark:text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Join and Test API
+            </h3>
+            <p className="text-gray-300 mb-6 text-lg">
+              Try before you buy with our trial offer
+            </p>
+
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center space-x-3">
+                <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-gray-200">Free <span className="text-green-400 font-semibold">$2</span> credit</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-gray-200">Valid for <span className="text-green-400 font-semibold">24 hours</span></span>
+              </div>
+            </div>
+
+            <button
+              onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full bg-green-500/20 hover:bg-green-500/30 text-green-400 font-bold py-3 px-6 rounded-xl transition-colors"
+            >
+              Join Group to Start
+            </button>
+          </div>
+
+          {/* Tier 1: $10+ Purchase */}
+          <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/20 backdrop-blur-lg rounded-3xl p-8 
+            border border-blue-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
+            hover:shadow-blue-500/20 hover:border-blue-500/40">
+            <button onClick={() => scrollToSection(footerSectionRef)}>
+              <div className="flex items-center justify-between mb-6">
+                <div className="bg-blue-500/20 p-4 rounded-2xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <span className="text-2xl font-bold text-green-500 dark:text-green-300">
-                  {t('tenDollarTier')}
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold text-white dark:text-gray-200 mb-2">
-                {t('tenPlusPurchase')}
-              </h3>
-              <p className="text-gray-300 dark:text-gray-500 mb-4">
-                {t('getExtraTen')}
-              </p>
-              <div className="bg-blue-500/10 dark:bg-blue-400/10 p-3 rounded-lg">
-                <div className="flex justify-between items-center">
-                  <span className="text-white dark:text-gray-200">
-                    {t('spend')}
-                  </span>
-                  <span className="font-bold text-blue-500 dark:text-blue-300">$10+</span>
-                </div>
-                <div className="flex justify-between items-center mt-2">
-                  <span className="text-white dark:text-gray-200">
-                    {t('bonusPercentage')}
-                  </span>
-                  <span className="font-bold text-green-500 dark:text-green-300">100%</span>
-                </div>
-                <div className="flex justify-between items-center mt-2">
-                  <span className="text-white dark:text-gray-200">
-                    {t('bonus')}
-                  </span>
-                  <span className="font-bold text-green-500 dark:text-green-300">x$10</span>
+                <div className="bg-green-500/10 px-4 py-2 rounded-full">
+                  <span className="text-3xl font-bold text-green-400">100% Bonus</span>
                 </div>
               </div>
-            </div>
 
-            {/* Tier 2: $50+ Purchase */}
-            <div className="bg-white/10 dark:bg-gray-800 rounded-2xl p-6 transform transition-all 
-              duration-300 hover:scale-105 hover:shadow-2xl">
-              <div className="flex items-center justify-between mb-4">
-                <div className="bg-purple-500/20 dark:bg-purple-400/20 p-3 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-purple-500 dark:text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Standard Bonus Tier
+              </h3>
+              <p className="text-gray-300 mb-6 text-lg">
+                Double your investment with our standard bonus tier
+              </p>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center space-x-3">
+                  <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-200">Minimum deposit: <span className="text-blue-400 font-semibold">$10</span></span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-200">Bonus rate: <span className="text-green-400 font-semibold">100%</span></span>
+                </div>
+              </div>
+
+              <div className="bg-white/5 rounded-2xl p-6">
+                <div className="text-center">
+                  <div className="text-sm text-gray-400 mb-2">Example Investment</div>
+                  <div className="flex items-center justify-center space-x-4">
+                    <div className="text-2xl font-bold text-white">$10</div>
+                    <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                    <div className="text-2xl font-bold text-green-400">$20</div>
+                  </div>
+                  <div className="text-sm text-gray-400 mt-2">Total Balance After Bonus</div>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          {/* Tier 2: $50+ Purchase */}
+          <div className="bg-gradient-to-br from-purple-900/40 to-purple-800/20 backdrop-blur-lg rounded-3xl p-8 
+            border border-purple-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
+            hover:shadow-purple-500/20 hover:border-purple-500/40">
+            <button onClick={() => scrollToSection(footerSectionRef)}>
+              <div className="flex items-center justify-between mb-6">
+                <div className="bg-purple-500/20 p-4 rounded-2xl">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
-                <span className="text-2xl font-bold text-green-500 dark:text-green-300">
-                  {t('fiftyDollarTier')}
-                </span>
+                <div className="bg-green-500/10 px-4 py-2 rounded-full">
+                  <span className="text-3xl font-bold text-green-400">150% Bonus</span>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-white dark:text-gray-200 mb-2">
-                {t('fiftyPlusPurchase')}
+
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Premium Bonus Tier
               </h3>
-              <p className="text-gray-300 dark:text-gray-500 mb-4">
-                {t('receiveExtraSeventyFive')}
+              <p className="text-gray-300 mb-6 text-lg">
+                Maximize your investment with our premium bonus tier
               </p>
-              <div className="bg-purple-500/10 dark:bg-purple-400/10 p-3 rounded-lg">
-                <div className="flex justify-between items-center">
-                  <span className="text-white dark:text-gray-200">
-                    {t('spend')}
-                  </span>
-                  <span className="font-bold text-purple-500 dark:text-purple-300">$50+</span>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center space-x-3">
+                  <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-200">Minimum deposit: <span className="text-purple-400 font-semibold">$50</span></span>
                 </div>
-                <div className="flex justify-between items-center mt-2">
-                  <span className="text-white dark:text-gray-200">
-                    {t('bonusPercentage')}
-                  </span>
-                  <span className="font-bold text-green-500 dark:text-green-300">150%</span>
-                </div>
-                <div className="flex justify-between items-center mt-2">
-                  <span className="text-white dark:text-gray-200">
-                    {t('bonus')}
-                  </span>
-                  <span className="font-bold text-green-500 dark:text-green-300">x$75</span>
+                <div className="flex items-center space-x-3">
+                  <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-200">Bonus rate: <span className="text-green-400 font-semibold">150%</span></span>
                 </div>
               </div>
-            </div>
+
+              <div className="bg-white/5 rounded-2xl p-6">
+                <div className="text-center">
+                  <div className="text-sm text-gray-400 mb-2">Example Investment</div>
+                  <div className="flex items-center justify-center space-x-4">
+                    <div className="text-2xl font-bold text-white">$50</div>
+                    <svg className="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                    <div className="text-2xl font-bold text-green-400">$125</div>
+                  </div>
+                  <div className="text-sm text-gray-400 mt-2">Total Balance After Bonus</div>
+                </div>
+              </div>
+            </button>
           </div>
         </section>
 
