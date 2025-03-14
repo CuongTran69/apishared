@@ -13,16 +13,9 @@ const translations = {
     modelsSection: 'Prices Token Models',
     providersTitle: 'Providers',
     modelCodeCopy: 'Copy Model Code',
-    socialConnect: 'Connect With Us',
-    tokenInformation: ' Tokens và Tokenization: Nền Tảng Của AI Trong Xử Lý Dữ Liệu',
-    whatAreTokens: ' What is Tokens?',
-    tokenExamples: ' Example Token',
-    tokenLimits: ' Token Limit',
-    tokenCorrespondence: ' Token Tương ứng bao nhiêu từ?',
-    futureTrends: ' Future Trend',
     bonusPricing: 'Bonus Recharge',
     modelPricing: 'AI Model Pricing',
-    footerText: 'Connect with us on social media',
+    footerText: 'Join our community groups to get $2 credit and 24h free trial access! 🎁',
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Bonus Credit Tiers',
     tenPlusPurchase: '$10+ Purchase',
@@ -32,8 +25,8 @@ const translations = {
     spend: 'Spend',
     bonus: 'Bonus',
     bonusPercentage: 'Bonus %',
-    tenDollarTier: '10$ Tier: 100% Bonus',
-    fiftyDollarTier: '50$ Tier: 150% Bonus',
+    tenDollarTier: 'Buy 10$: 100% Bonus',
+    fiftyDollarTier: 'Buy 50$: 150% Bonus',
     fiftyPlus: '$50+',
     seventyFivePlus: '$75+'
   },
@@ -43,16 +36,9 @@ const translations = {
     modelsSection: 'Giá token models AI',
     providersTitle: 'Nhà Cung Cấp',
     modelCodeCopy: 'Sao Chép Mã Mô Hình',
-    socialConnect: 'Kết Nối Với Chúng Tôi',
-    tokenInformation: ' Tokens và Tokenization: Nền Tảng Của AI Trong Xử Lý Dữ Liệu',
-    whatAreTokens: ' Tokens Là Gì?',
-    tokenExamples: ' Ví Dụ Cụ Thể Về Token',
-    tokenLimits: ' Giới Hạn Token của Các Mô Hình Phổ Biến',
-    tokenCorrespondence: ' Token Tương ứng bao nhiêu từ?',
-    futureTrends: ' Xu Hướng Tương Lai',
     bonusPricing: 'Ưu đãi nạp tiền',
     modelPricing: 'Giá Các Mô Hình AI',
-    footerText: 'Kết nối với chúng tôi trên mạng xã hội',
+    footerText: 'Tham gia nhóm cộng đồng của chúng tôi để nhận $2 credit và 24h miễn phí dùng thử! 🎁',
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
     tenPlusPurchase: 'Mua Trên $10',
@@ -62,8 +48,8 @@ const translations = {
     spend: 'Chi Tiêu',
     bonus: 'Ưu Đãi',
     bonusPercentage: '% Ưu Đãi',
-    tenDollarTier: 'Mức trên $10: Ưu Đãi 100%',
-    fiftyDollarTier: 'Mức trên $50: Ưu Đãi 150%',
+    tenDollarTier: 'Mua trên $10: Ưu Đãi 100%',
+    fiftyDollarTier: 'Mua trên $50: Ưu Đãi 150%',
     fiftyPlus: '$50+',
     seventyFivePlus: '$75+'
   }
@@ -104,7 +90,7 @@ export default function Home() {
   }
 
   // Properly type the refs
-  const videoSectionRef = useRef<HTMLDivElement | null>(null)
+  const footerSectionRef = useRef<HTMLDivElement | null>(null)
   const modelSectionRef = useRef<HTMLDivElement | null>(null)
   const bonusSectionRef = useRef<HTMLDivElement | null>(null)
   const [menuOpen, setMenuOpen] = useState(false);
@@ -126,64 +112,55 @@ export default function Home() {
         apiName: 'anthropic:3.7-sonnet',
         realName: 'Claude 3.7 Sonnet',
         inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 15.00, discounted: 7.5 },
-        rateLimit: '-'
+        outputPrice: { original: 15.00, discounted: 7.5 }
       },
       {
         apiName: 'anthropic:3.7-sonnet-thinking',
         realName: 'Claude 3.7 Thinking Mode Extended',
         inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 15.00, discounted: 7.5 },
-        rateLimit: '-'
+        outputPrice: { original: 15.00, discounted: 7.5 }
       },
       {
         apiName: 'anthropic:3.5-sonnet-20241022',
         realName: 'claude-3.5-sonnet-20241022',
         inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 15.00, discounted: 7.5 },
-        rateLimit: '-'
+        outputPrice: { original: 15.00, discounted: 7.5 }
       },
       {
         apiName: 'anthropic:3.5-sonnet-20241022-think-exp',
         realName: 'claude-3.5-sonnet-20241022-think-exp',
         inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 15.00, discounted: 7.5 },
-        rateLimit: '-'
+        outputPrice: { original: 15.00, discounted: 7.5 }
       },
       {
         apiName: 'anthropic:3-opus',
         realName: 'Claude-3-opus',
         inputPrice: { original: 15.00, discounted: 7.5 },
-        outputPrice: { original: 75.00, discounted: 37.5 },
-        rateLimit: '-'
+        outputPrice: { original: 75.00, discounted: 37.5 }
       },
       {
         apiName: 'anthropic:3-opus-think-exp',
         realName: 'Claude-3-opus-think-exp',
         inputPrice: { original: 15.00, discounted: 7.5 },
-        outputPrice: { original: 75.00, discounted: 37.5 },
-        rateLimit: '-'
+        outputPrice: { original: 75.00, discounted: 37.5 }
       },
       {
         apiName: 'anthropic:3.5-sonnet',
         realName: 'claude-3.5-sonnet',
         inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 15.00, discounted: 7.5 },
-        rateLimit: '-'
+        outputPrice: { original: 15.00, discounted: 7.5 }
       },
       {
         apiName: 'anthropic:3.5-sonnet-think-exp',
         realName: 'claude-3.5-sonnet-think-exp',
         inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 15.00, discounted: 7.5 },
-        rateLimit: '-'
+        outputPrice: { original: 15.00, discounted: 7.5 }
       },
       {
         apiName: 'anthropic:3.5-haiku',
         realName: 'claude-3.5-haiku',
         inputPrice: { original: 1.00, discounted: 0.5 },
-        outputPrice: { original: 5.00, discounted: 2.5 },
-        rateLimit: '-'
+        outputPrice: { original: 5.00, discounted: 2.5 }
       },
     ],
     "DeepSeek Models": [
@@ -191,15 +168,13 @@ export default function Home() {
         apiName: 'deepseek:deepseek-v3',
         realName: 'Deepseek v3',
         inputPrice: { original: 0.25, discounted: 0.125 },
-        outputPrice: { original: 0.50, discounted: 0.25 },
-        rateLimit: '-'
+        outputPrice: { original: 0.50, discounted: 0.25 }
       },
       {
         apiName: 'deepseek:deepseek-reasoner',
         realName: 'Deepseek R1',
         inputPrice: { original: 0.55, discounted: 0.275 },
-        outputPrice: { original: 1.11, discounted: 0.55 },
-        rateLimit: '-'
+        outputPrice: { original: 1.11, discounted: 0.55 }
       }
     ],
     "xAI Models": [
@@ -207,36 +182,31 @@ export default function Home() {
         apiName: 'grok-3',
         realName: 'Grok v3',
         inputPrice: { original: 1.50, discounted: 0.75 },
-        outputPrice: { original: 7.50, discounted: 3.75 },
-        rateLimit: '-'
+        outputPrice: { original: 7.50, discounted: 3.75 }
       },
       {
         apiName: 'grok-3-deepsearch',
         realName: 'Grok v3 Deep search',
         inputPrice: { original: 1.50, discounted: 0.75 },
-        outputPrice: { original: 7.50, discounted: 3.75 },
-        rateLimit: '-'
+        outputPrice: { original: 7.50, discounted: 3.75 }
       },
       {
         apiName: 'grok-3-reasoner',
         realName: 'Grok v3 reasoner',
         inputPrice: { original: 1.50, discounted: 0.75 },
-        outputPrice: { original: 7.50, discounted: 3.75 },
-        rateLimit: '-'
+        outputPrice: { original: 7.50, discounted: 3.75 }
       },
       {
         apiName: 'grok:grok-2',
         realName: 'Grok v2',
         inputPrice: { original: 2.00, discounted: 1 },
-        outputPrice: { original: 10, discounted: 5 },
-        rateLimit: '-'
+        outputPrice: { original: 10, discounted: 5 }
       },
       {
         apiName: 'grok:grok-2-think-exp',
         realName: 'Grok v2 Deep Think',
         inputPrice: { original: 2, discounted: 1 },
-        outputPrice: { original: 10, discounted: 5 },
-        rateLimit: '-'
+        outputPrice: { original: 10, discounted: 5 }
       },
     ],
     "Gemini Models": [
@@ -244,29 +214,25 @@ export default function Home() {
         apiName: 'gemini:gemini-2.0-flash',
         realName: 'Gemini 2.0 Flash',
         inputPrice: { original: 0.15, discounted: 0.075 },
-        outputPrice: { original: 0.6, discounted: 0.3 },
-        rateLimit: '-'
+        outputPrice: { original: 0.6, discounted: 0.3 }
       },
       {
         apiName: 'gemini:gemini-2.0-flash-thinking-exp',
         realName: 'Gemini 2.0 Flash Deep think',
         inputPrice: { original: 0.15, discounted: 0.075 },
-        outputPrice: { original: 0.6, discounted: 0.3 },
-        rateLimit: '-'
+        outputPrice: { original: 0.6, discounted: 0.3 }
       },
       {
         apiName: 'gemini:gemini-2.0-pro-exp',
         realName: 'Gemini 2.0',
         inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 },
-        rateLimit: '-'
+        outputPrice: { original: 10, discounted: 5 }
       },
       {
         apiName: 'gemini:gemini-2.0-pro-exp-think-exp',
         realName: 'Gemini 2.0 Deep Think',
         inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 },
-        rateLimit: '-'
+        outputPrice: { original: 10, discounted: 5 }
       },
     ],
     "OpenAI Models": [
@@ -274,64 +240,55 @@ export default function Home() {
         apiName: 'openai:o1',
         realName: 'gpt-o1',
         inputPrice: { original: 15.00, discounted: 7.50 },
-        outputPrice: { original: 60.00, discounted: 30.00 },
-        rateLimit: '-'
+        outputPrice: { original: 60.00, discounted: 30.00 }
       },
       {
         apiName: 'openai:o3-mini',
         realName: 'gpt-4o',
         inputPrice: { original: 2.20, discounted: 1.10 },
-        outputPrice: { original: 8.80, discounted: 4.40 },
-        rateLimit: '-'
+        outputPrice: { original: 8.80, discounted: 4.40 }
       },
       {
         apiName: 'openai:o3-mini-think-exp',
         realName: 'gpt-4o',
         inputPrice: { original: 2.20, discounted: 1.10 },
-        outputPrice: { original: 8.80, discounted: 4.40 },
-        rateLimit: '-'
+        outputPrice: { original: 8.80, discounted: 4.40 }
       },
       {
         apiName: 'openai:gpt-4o',
         realName: 'gpt-4o',
         inputPrice: { original: 2.50, discounted: 1.75 },
-        outputPrice: { original: 10.00, discounted: 5 },
-        rateLimit: '-'
+        outputPrice: { original: 10.00, discounted: 5 }
       },
       {
         apiName: 'openai:gpt-4o-mini',
         realName: 'gpt-4o-mini',
         inputPrice: { original: 0.15, discounted: 0.25 },
-        outputPrice: { original: 0.60, discounted: 0.3 },
-        rateLimit: '-'
+        outputPrice: { original: 0.60, discounted: 0.3 }
       },
       {
         apiName: 'openai:gpt-4o-2024-08-06',
         realName: 'gpt-4o-2024-08-06',
         inputPrice: { original: 2.50, discounted: 1.75 },
-        outputPrice: { original: 10.00, discounted: 5 },
-        rateLimit: '-'
+        outputPrice: { original: 10.00, discounted: 5 }
       },
       {
         apiName: 'openai:o1-mini',
         realName: 'o1-mini',
         inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 12.00, discounted: 6 },
-        rateLimit: '-'
+        outputPrice: { original: 12.00, discounted: 6 }
       },
       {
         apiName: 'openai:gpt-4',
         realName: 'gpt-4',
         inputPrice: { original: 30.00, discounted: 15 },
-        outputPrice: { original: 60.00, discounted: 30 },
-        rateLimit: '-'
+        outputPrice: { original: 60.00, discounted: 30 }
       },
       {
         apiName: 'openai:gpt-4-turbo-2024-04-09',
         realName: 'gpt-4-turbo-2024-04-09',
         inputPrice: { original: 10.00, discounted: 5 },
-        outputPrice: { original: 30.00, discounted: 15 },
-        rateLimit: '-'
+        outputPrice: { original: 30.00, discounted: 15 }
       }
     ]
   }
@@ -408,9 +365,6 @@ export default function Home() {
             <h1 className="text-2xl font-bold text-white hidden md:block">{t('title')}</h1>
             {/* Desktop Menu */}
             <nav className="hidden md:flex md:flex-row space-y-2 md:space-y-0 md:space-x-4">
-              <button onClick={() => scrollToSection(videoSectionRef)} className="px-4 py-2 bg-blue-500 rounded">
-                Watch Video
-              </button>
               <a href="https://api.llm.ai.vn/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-red-500 rounded">
                 Explore API LLM
               </a>
@@ -419,6 +373,9 @@ export default function Home() {
               </button>
               <button onClick={() => scrollToSection(modelSectionRef)} className="px-4 py-2 border border-gray-300 text-white rounded">
                 {t('modelsSection')}
+              </button>
+              <button onClick={() => scrollToSection(footerSectionRef)} className="px-4 py-2 bg-blue-500 rounded">
+                Join Us
               </button>
               <button onClick={toggleLanguage} className="px-3 py-1 bg-white/10 text-white rounded">
                 {language === 'vi' ? '🇬🇧' : '🇻🇳'}
@@ -440,13 +397,6 @@ export default function Home() {
           {menuOpen && (
             <nav className="flex flex-col space-y-2 mt-4 md:hidden">
               <div className="flex space-x-4">
-                <button onClick={() => scrollToSection(videoSectionRef)} className="px-4 py-2 bg-blue-500 rounded flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    {/* YouTube Icon Path */}
-                    <path d="M10 15l5-3-5-3v6z" fill="currentColor" />
-                    <path d="M21.6 8.4c-.2-1.5-.8-2.8-1.7-3.9C18.4 3.8 17.1 3 15.6 3H8.4C6.9 3 5.6 3.8 4.1 4.5 3.2 5.6 2.6 6.9 2.4 8.4 2.2 10.1 2.2 12 2.2 12s0 1.9.2 4.4c.2 1.5.8 2.8 1.7 3.9C5.6 20.2 6.9 21 8.4 21h7.2c1.5 0 2.8-.8 3.9-1.7 1-1 1.5-2.4 1.7-3.9.2-2.5.2-4.4.2-4.4s0-1.9-.2-4.4z" fill="currentColor" />
-                  </svg>
-                </button>
                 <a href="https://api.llm.ai.vn/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-red-500 rounded flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2C10.343 2 9 3.343 9 5c0 .553-.447 1-1 1H6c-1.104 0-2 .896-2 2v2c0 1.104.896 2 2 2h2c.553 0 1 .447 1 1 0 1.657 1.343 3 3 3s3-1.343 3-3c0-.553.447-1 1-1h2c1.104 0 2-.896 2-2v-2c0-1.104-.896-2-2-2h-2c-.553 0-1-.447-1-1 0-1.657-1.343-3-3-3z" />
@@ -463,6 +413,11 @@ export default function Home() {
                       d="M12 2v2m0 16v2M9 6h6a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6" />
                   </svg>
                 </button>
+                <button onClick={() => scrollToSection(footerSectionRef)} className="px-4 py-2 bg-blue-500 rounded flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
                 <button onClick={toggleLanguage} className="px-3 py-1 bg-white/10 text-white rounded flex items-center">
                   {language === 'vi' ? '🇬🇧' : '🇻🇳'}
                 </button>
@@ -471,7 +426,7 @@ export default function Home() {
           )}
         </header>
         {/* Featured Video Section */}
-        <section ref={videoSectionRef} className="mt-16 md:mt-20 relative z-10 px-4 dark:bg-white">
+        <section className="mt-16 md:mt-20 relative z-10 px-4 dark:bg-white">
           <div className="grid gap-2 md:gap-2 bg-white/5 dark:bg-gray-800 rounded-xl backdrop-blur-lg shadow-xl">
             <div className=" p-4 sm:p-6 rounded-xl 
               transition duration-700 
@@ -599,11 +554,10 @@ export default function Home() {
                   <table className="w-full border-collapse">
                     <thead>
                       <tr className="bg-white/10 dark:bg-gray-900 text-left">
-                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tl-lg text-sm md:text-base">Model Name (API)</th>
+                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tl-lg text-sm md:text-base">Model Name</th>
                         <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Real Model Name</th>
                         <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Input Price ($/1M tokens)</th>
                         <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Output Price ($/1M tokens)</th>
-                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tr-lg text-sm md:text-base">Rate Limit (daily)</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -645,7 +599,6 @@ export default function Home() {
                               <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.outputPrice.discounted.toFixed(2)}</span>
                             </div>
                           </td>
-                          <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.rateLimit}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -656,198 +609,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Token Explanation Section */}
-        <section className="mt-20 relative z-10">
-          <div className="max-w-4xl mx-auto bg-white/5 dark:bg-gray-800 rounded-2xl p-8 backdrop-blur-lg">
-            <h2 className="text-3xl font-bold text-white dark:text-gray-200 mb-8 text-center">
-              {t('tokenInformation')}
-            </h2>
-
-            {/* Introduction */}
-            <div className="text-center mb-10 text-gray-300 dark:text-gray-500">
-              Hiểu sâu về cách AI xử lý và phân tích ngôn ngữ thông qua tokens.
-            </div>
-
-            {/* What are Tokens */}
-            <div className="mb-10">
-              <h3 className="text-2xl font-semibold text-white dark:text-gray-200 mb-4">{t('whatAreTokens')}</h3>
-              <p className="text-gray-300 dark:text-gray-500 mb-4">
-                Tokens là các đơn vị nhỏ nhất mà mô hình AI sử dụng để hiểu và xử lý dữ liệu.
-              </p>
-              <ul className="list-none space-y-2 text-gray-300 dark:text-gray-500">
-                <li className="flex items-center gap-2">📚 Với văn bản: tokens có thể là từ, phần của từ, hoặc ký tự</li>
-                <li className="flex items-center gap-2">🖼️ Với hình ảnh: tokens là các mảnh nhỏ của ảnh, gọi là patches</li>
-                <li className="flex items-center gap-2">🎵 Với âm thanh: tokens là các khung thời gian hoặc đặc trưng âm thanh</li>
-                <li className="flex items-center gap-2">💻 Với code: tokens có thể là từ khóa, toán tử, biến số</li>
-                <li className="flex items-center gap-2">🎥 Với video: tokens có thể là các frame hoặc các phần của frame</li>
-              </ul>
-            </div>
-
-            {/* Specific Token Examples */}
-            <div className="mb-10">
-              <h3 className="text-2xl font-semibold text-white dark:text-gray-200 mb-4">{t('tokenExamples')}</h3>
-              <div className="grid gap-6">
-                {/* Vietnamese Text Example */}
-                <div className="bg-white/10 dark:bg-gray-900 rounded-lg p-6">
-                  <h4 className="text-xl text-white dark:text-gray-200 mb-3">🇻🇳 Ví dụ Tiếng Việt:</h4>
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <p className="text-gray-300 dark:text-gray-500 mb-2">Câu ngắn:</p>
-                        <div className="bg-gray-800/50 dark:bg-gray-700 p-3 rounded">
-                          <p className="text-white dark:text-gray-200 mb-2">"Xin chào"</p>
-                          <div className="flex flex-wrap gap-2">
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">Xin</span>
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">chào</span>
-                            <span className="text-gray-400 dark:text-gray-600 ml-2">≈ 2 tokens</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <p className="text-gray-300 dark:text-gray-500 mb-2">Câu dài:</p>
-                        <div className="bg-gray-800/50 dark:bg-gray-700 p-3 rounded">
-                          <p className="text-white dark:text-gray-200 mb-2">"Trí tuệ nhân tạo đang phát triển"</p>
-                          <div className="flex flex-wrap gap-2">
-                            <span className="bg-blue-500/20 bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">Trí</span>
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">tuệ</span>
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">nhân</span>
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">tạo</span>
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">đang</span>
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">phát</span>
-                            <span className="bg-blue-500/20 dark:bg-blue-200/20 px-3 py-1 rounded text-white dark:text-gray-200">triển</span>
-                            <span className="text-gray-400 dark:text-gray-600 ml-2">≈ 7 tokens</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* English Text Example */}
-                <div className="bg-white/10 dark:bg-gray-900 rounded-lg p-6">
-                  <h4 className="text-xl text-white dark:text-gray-200 mb-3">🇺🇸 Ví dụ Tiếng Anh:</h4>
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <p className="text-gray-300 dark:text-gray-500 mb-2">Từ ghép:</p>
-                        <div className="bg-gray-800/50 dark:bg-gray-700 p-3 rounded">
-                          <p className="text-white dark:text-gray-200 mb-2">"artificial"</p>
-                          <div className="flex flex-wrap gap-2">
-                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">art</span>
-                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">ific</span>
-                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">ial</span>
-                            <span className="text-gray-400 dark:text-gray-600 ml-2">≈ 3 tokens</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <p className="text-gray-300 dark:text-gray-500 mb-2">Số và ký tự đặc biệt:</p>
-                        <div className="bg-gray-800/50 dark:bg-gray-700 p-3 rounded">
-                          <p className="text-white dark:text-gray-200 mb-2">"AI-2025!"</p>
-                          <div className="flex flex-wrap gap-2">
-                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">AI</span>
-                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">-</span>
-                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">2025</span>
-                            <span className="bg-green-500/20 dark:bg-green-200/20 px-3 py-1 rounded text-white dark:text-gray-200">!</span>
-                            <span className="text-gray-400 dark:text-gray-600 ml-2">≈ 4 tokens</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Special Cases */}
-                <div className="bg-white/10 dark:bg-gray-900 rounded-lg p-6">
-                  <h4 className="text-xl text-white dark:text-gray-200 mb-3">🔍 Trường Hợp Đặc Biệt:</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-gray-300 dark:text-gray-500 mb-2">Emoji:</p>
-                      <div className="bg-gray-800/50 dark:bg-gray-700 p-3 rounded">
-                        <p className="text-white dark:text-gray-200 mb-2">"Hello 👋 World 🌍"</p>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">Hello</span>
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">👋</span>
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">World</span>
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">🌍</span>
-                          <span className="text-gray-400 dark:text-gray-600 ml-2">≈ 4-8 tokens</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-gray-300 dark:text-gray-500 mb-2">URL:</p>
-                      <div className="bg-gray-800/50 dark:bg-gray-700 p-3 rounded">
-                        <p className="text-white dark:text-gray-200 mb-2">"https://example.com"</p>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">https</span>
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">://</span>
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">example</span>
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">.</span>
-                          <span className="bg-purple-500/20 dark:bg-purple-200/20 px-3 py-1 rounded text-white dark:text-gray-200">com</span>
-                          <span className="text-gray-400 dark:text-gray-600 ml-2">≈ 5 tokens</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Token Limits */}
-            <div className="mb-10">
-              <h3 className="text-2xl font-semibold text-white dark:text-gray-200 mb-4">{t('tokenLimits')}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-blue-500/20 dark:bg-blue-400/20 p-4 rounded-lg">
-                  <h4 className="font-semibold text-white dark:text-gray-200">GPT-4 🔵</h4>
-                  <p className="text-gray-300 dark:text-gray-500">128K tokens</p>
-                </div>
-                <div className="bg-green-500/20 dark:bg-green-400/20 p-4 rounded-lg">
-                  <h4 className="font-semibold text-white dark:text-gray-200">GPT-3.5 🟢</h4>
-                  <p className="text-gray-300 dark:text-gray-500">16K tokens</p>
-                </div>
-                <div className="bg-purple-500/20 dark:bg-purple-400/20 p-4 rounded-lg">
-                  <h4 className="font-semibold text-white dark:text-gray-200">Claude 🟣</h4>
-                  <p className="text-gray-300 dark:text-gray-500">100K tokens</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Token Correspondence */}
-            <div className="mb-10">
-              <h3 className="text-2xl font-semibold text-white dark:text-gray-200 mb-4">{t('tokenCorrespondence')}</h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <span className="text-2xl">🇺🇸</span>
-                  <div>
-                    <p className="text-white dark:text-gray-200">Tiếng Anh</p>
-                    <p className="text-gray-300 dark:text-gray-500">1 token ≈ 4-5 ký tự</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-2xl">🇻🇳</span>
-                  <div>
-                    <p className="text-white dark:text-gray-200">Tiếng Việt</p>
-                    <p className="text-gray-300 dark:text-gray-500">1 token ≈ 2-3 ký tự</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Future Trends */}
-            <div>
-              <h3 className="text-2xl font-semibold text-white dark:text-gray-200 mb-4">{t('futureTrends')}</h3>
-              <ul className="list-none space-y-2 text-gray-300 dark:text-gray-500">
-                <li className="flex items-center gap-2">🎯 Tokenization đa phương thức</li>
-                <li className="flex items-center gap-2">🌏 Tối ưu hóa cho ngôn ngữ đặc biệt</li>
-                <li className="flex items-center gap-2">💎 Giảm chi phí xử lý token</li>
-                <li className="flex items-center gap-2">⚡ Cải thiện hiệu suất mô hình</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
         {/* Footer */}
-        <footer className="text-center mt-12 md:mt-20 relative z-10 px-4 pb-20">
+        <footer ref={footerSectionRef} className="text-center mt-12 md:mt-20 relative z-10 px-4 pb-20">
           <p className="text-gray-300 dark:text-gray-500 mb-4 text-sm md:text-base">{t('footerText')}</p>
           <div className="flex flex-wrap justify-center space-x-2 sm:space-x-6 md:space-x-8 mb-4">
             <a
