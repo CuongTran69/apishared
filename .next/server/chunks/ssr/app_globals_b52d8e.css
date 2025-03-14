@@ -544,10 +544,6 @@ img, video {
   min-width: 800px;
 }
 
-.max-w-2xl {
-  max-width: 42rem;
-}
-
 .max-w-4xl {
   max-width: 56rem;
 }
@@ -1152,11 +1148,6 @@ body {
 .dark\:text-gray-600:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity, 1));
-}
-
-.dark\:text-gray-800:is(.dark *) {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
 }
 
 .dark\:text-green-200:is(.dark *) {
