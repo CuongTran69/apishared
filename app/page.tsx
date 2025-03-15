@@ -89,6 +89,17 @@ export default function Home() {
     localStorage.setItem('appLanguage', newLanguage)
   }
 
+  const [filterText, setFilterText] = useState('');
+
+  // Add this helper function
+  const filterModels = (models: any[], filter: string) => {
+    if (!filter) return models;
+    return models.filter(model =>
+      model.apiName.toLowerCase().includes(filter.toLowerCase()) ||
+      model.realName.toLowerCase().includes(filter.toLowerCase())
+    );
+  };
+
   // Properly type the refs
   const footerSectionRef = useRef<HTMLDivElement | null>(null)
   const modelSectionRef = useRef<HTMLDivElement | null>(null)
@@ -163,6 +174,62 @@ export default function Home() {
         outputPrice: { original: 5.00, discounted: 2.5 }
       },
     ],
+    "OpenAI Models": [
+      {
+        apiName: 'openai:o1',
+        realName: 'gpt-o1',
+        inputPrice: { original: 15.00, discounted: 7.50 },
+        outputPrice: { original: 60.00, discounted: 30.00 }
+      },
+      {
+        apiName: 'openai:o3-mini',
+        realName: 'gpt-4o',
+        inputPrice: { original: 2.20, discounted: 1.10 },
+        outputPrice: { original: 8.80, discounted: 4.40 }
+      },
+      {
+        apiName: 'openai:o3-mini-think-exp',
+        realName: 'gpt-4o',
+        inputPrice: { original: 2.20, discounted: 1.10 },
+        outputPrice: { original: 8.80, discounted: 4.40 }
+      },
+      {
+        apiName: 'openai:gpt-4o',
+        realName: 'gpt-4o',
+        inputPrice: { original: 2.50, discounted: 1.75 },
+        outputPrice: { original: 10.00, discounted: 5 }
+      },
+      {
+        apiName: 'openai:gpt-4o-mini',
+        realName: 'gpt-4o-mini',
+        inputPrice: { original: 0.15, discounted: 0.25 },
+        outputPrice: { original: 0.60, discounted: 0.3 }
+      },
+      {
+        apiName: 'openai:gpt-4o-2024-08-06',
+        realName: 'gpt-4o-2024-08-06',
+        inputPrice: { original: 2.50, discounted: 1.75 },
+        outputPrice: { original: 10.00, discounted: 5 }
+      },
+      {
+        apiName: 'openai:o1-mini',
+        realName: 'o1-mini',
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 12.00, discounted: 6 }
+      },
+      {
+        apiName: 'openai:gpt-4',
+        realName: 'gpt-4',
+        inputPrice: { original: 30.00, discounted: 15 },
+        outputPrice: { original: 60.00, discounted: 30 }
+      },
+      {
+        apiName: 'openai:gpt-4-turbo-2024-04-09',
+        realName: 'gpt-4-turbo-2024-04-09',
+        inputPrice: { original: 10.00, discounted: 5 },
+        outputPrice: { original: 30.00, discounted: 15 }
+      }
+    ],
     "DeepSeek Models": [
       {
         apiName: 'deepseek:deepseek-v3',
@@ -177,7 +244,7 @@ export default function Home() {
         outputPrice: { original: 1.11, discounted: 0.55 }
       }
     ],
-    "xAI Models": [
+    "Grok Models": [
       {
         apiName: 'grok-3',
         realName: 'Grok v3',
@@ -234,62 +301,6 @@ export default function Home() {
         inputPrice: { original: 2.5, discounted: 1.25 },
         outputPrice: { original: 10, discounted: 5 }
       },
-    ],
-    "OpenAI Models": [
-      {
-        apiName: 'openai:o1',
-        realName: 'gpt-o1',
-        inputPrice: { original: 15.00, discounted: 7.50 },
-        outputPrice: { original: 60.00, discounted: 30.00 }
-      },
-      {
-        apiName: 'openai:o3-mini',
-        realName: 'gpt-4o',
-        inputPrice: { original: 2.20, discounted: 1.10 },
-        outputPrice: { original: 8.80, discounted: 4.40 }
-      },
-      {
-        apiName: 'openai:o3-mini-think-exp',
-        realName: 'gpt-4o',
-        inputPrice: { original: 2.20, discounted: 1.10 },
-        outputPrice: { original: 8.80, discounted: 4.40 }
-      },
-      {
-        apiName: 'openai:gpt-4o',
-        realName: 'gpt-4o',
-        inputPrice: { original: 2.50, discounted: 1.75 },
-        outputPrice: { original: 10.00, discounted: 5 }
-      },
-      {
-        apiName: 'openai:gpt-4o-mini',
-        realName: 'gpt-4o-mini',
-        inputPrice: { original: 0.15, discounted: 0.25 },
-        outputPrice: { original: 0.60, discounted: 0.3 }
-      },
-      {
-        apiName: 'openai:gpt-4o-2024-08-06',
-        realName: 'gpt-4o-2024-08-06',
-        inputPrice: { original: 2.50, discounted: 1.75 },
-        outputPrice: { original: 10.00, discounted: 5 }
-      },
-      {
-        apiName: 'openai:o1-mini',
-        realName: 'o1-mini',
-        inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 12.00, discounted: 6 }
-      },
-      {
-        apiName: 'openai:gpt-4',
-        realName: 'gpt-4',
-        inputPrice: { original: 30.00, discounted: 15 },
-        outputPrice: { original: 60.00, discounted: 30 }
-      },
-      {
-        apiName: 'openai:gpt-4-turbo-2024-04-09',
-        realName: 'gpt-4-turbo-2024-04-09',
-        inputPrice: { original: 10.00, discounted: 5 },
-        outputPrice: { original: 30.00, discounted: 15 }
-      }
     ]
   }
 
@@ -674,91 +685,133 @@ export default function Home() {
         </section>
 
         {/* Pricing Table Section */}
-        <div ref={modelSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-8 md:mb-12 
-    animate-pulse-slow">
+        <section ref={modelSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black text-center mb-8 md:mb-12">
             {t('modelPricing')}
           </h2>
 
-          <div className="overflow-x-auto bg-white/5 dark:bg-gray-800 rounded-xl backdrop-blur-lg shadow-xl -mx-4 sm:mx-0">
-            <div className="min-w-[800px]">
-              {Object.entries(modelPricing).map(([category, models]) => (
-                <div key={category} className="mb-8 pl-4 pt-4">
-                  <h3 className="text-2xl font-bold text-red-500 dark:text-red-300 mb-4">{category}</h3>
-                  <table className="w-full border-collapse">
-                    <thead>
-                      <tr className="bg-white/10 dark:bg-gray-900 text-left">
-                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold rounded-tl-lg text-sm md:text-base">Model Name</th>
-                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Real Model Name</th>
-                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Input Price ($/1M tokens)</th>
-                        <th className="p-3 md:p-4 text-white dark:text-gray-200 font-semibold text-sm md:text-base">Output Price ($/1M tokens)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {models.map((model, index) => (
-                        <tr
-                          key={index}
-                          className="
-                    border-b 
-                    border-white/10 
-                    dark:border-gray-700 
-                    hover:bg-white/5 
-                    dark:hover:bg-gray-800 
-                    transition-colors
-                    group
-                  "
-                        >
-                          <td className="p-3 md:p-4">
-                            <div className="flex items-center space-x-2">
-                              <code className="text-blue-400 dark:text-blue-200 text-xs md:text-sm break-all">{model.apiName}</code>
-                              <button
-                                onClick={() => handleCopyCode(model.apiName)}
-                                className="opacity-0 group-hover:opacity-100 transition-opacity"
-                                title="Copy API Name"
-                              >
-                                <FaCopy className="text-blue-400 dark:text-blue-200 hover:text-blue-300 text-sm md:text-base" />
-                              </button>
-                            </div>
-                          </td>
-                          <td className="p-3 md:p-4 text-gray-300 dark:text-gray-500 text-sm md:text-base">{model.realName}</td>
-                          <td className="p-3 md:p-4">
-                            <div className="flex flex-col">
-                              <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.inputPrice.original.toFixed(2)}</span>
-                              <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.inputPrice.discounted.toFixed(2)}</span>
-                            </div>
-                          </td>
-                          <td className="p-3 md:p-4">
-                            <div className="flex flex-col">
-                              <span className="text-gray-400 dark:text-gray-600 line-through text-xs md:text-sm">${model.outputPrice.original.toFixed(2)}</span>
-                              <span className="text-green-400 dark:text-green-200 font-bold text-sm md:text-base">${model.outputPrice.discounted.toFixed(2)}</span>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              ))}
+          {/* Search Filter */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="relative">
+              <input
+                type="text"
+                value={filterText}
+                onChange={(e) => setFilterText(e.target.value)}
+                placeholder="Search models..."
+                className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 rounded-xl 
+          border border-white/10 dark:border-gray-700
+          text-white dark:text-gray-200 
+          placeholder-gray-400 dark:placeholder-gray-500
+          focus:outline-none focus:ring-2 focus:ring-blue-500/50
+          transition-all duration-300"
+              />
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div className="overflow-x-auto rounded-xl shadow-xl">
+            <div className="min-w-[800px] space-y-8">
+              {Object.entries(modelPricing).map(([category, models]) => {
+                const filteredModels = filterModels(models, filterText);
+                if (filteredModels.length === 0) return null;
+
+                return (
+                  <div key={category} className="bg-white/5 dark:bg-gray-800 backdrop-blur-lg rounded-xl overflow-hidden">
+                    <h3 className="text-xl font-bold text-white dark:text-red-300 bg-red-500/20 p-4 border-b border-white/10">
+                      {category} ({filteredModels.length} models)
+                    </h3>
+
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="bg-white/10 dark:bg-gray-900">
+                          <th className="p-4 text-left text-white dark:text-gray-200 font-semibold text-sm md:text-base w-1/3">
+                            Model Name
+                          </th>
+                          <th className="p-4 text-left text-white dark:text-gray-200 font-semibold text-sm md:text-base">
+                            Real Model Name
+                          </th>
+                          <th className="p-4 text-left text-white dark:text-gray-200 font-semibold text-sm md:text-base whitespace-nowrap">
+                            Input Price ($/1M tokens)
+                          </th>
+                          <th className="p-4 text-left text-white dark:text-gray-200 font-semibold text-sm md:text-base whitespace-nowrap">
+                            Output Price ($/1M tokens)
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {filteredModels.map((model, index) => (
+                          <tr
+                            key={index}
+                            className="border-b border-white/10 dark:border-gray-700 hover:bg-white/5 dark:hover:bg-gray-800 transition-colors group"
+                          >
+                            <td className="p-4">
+                              <div className="flex items-center gap-2 group">
+                                <code className="text-blue-400 dark:text-blue-200 text-sm font-mono break-all">
+                                  {model.apiName}
+                                </code>
+                                <button
+                                  onClick={() => handleCopyCode(model.apiName)}
+                                  className="opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110"
+                                  title="Copy API Name"
+                                >
+                                  <FaCopy className="text-blue-400 dark:text-blue-200 hover:text-blue-300" />
+                                </button>
+                              </div>
+                            </td>
+                            <td className="p-4 text-gray-300 dark:text-gray-400 text-sm">
+                              {model.realName}
+                            </td>
+                            <td className="p-4">
+                              <div className="flex flex-col gap-1">
+                                <span className="text-gray-400 dark:text-gray-500 line-through text-sm">
+                                  ${model.inputPrice.original.toFixed(2)}
+                                </span>
+                                <span className="text-green-400 dark:text-green-300 font-bold">
+                                  ${model.inputPrice.discounted.toFixed(2)}
+                                </span>
+                              </div>
+                            </td>
+                            <td className="p-4">
+                              <div className="flex flex-col gap-1">
+                                <span className="text-gray-400 dark:text-gray-500 line-through text-sm">
+                                  ${model.outputPrice.original.toFixed(2)}
+                                </span>
+                                <span className="text-green-400 dark:text-green-300 font-bold">
+                                  ${model.outputPrice.discounted.toFixed(2)}
+                                </span>
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
         {/* Footer */}
         <footer ref={footerSectionRef} className="text-center mt-12 md:mt-20 relative z-10 px-4 pb-20">
           <p className="text-gray-300 dark:text-gray-500 mb-4 text-sm md:text-base">{t('footerText')}</p>
           <div className="flex flex-wrap justify-center space-x-2 sm:space-x-6 md:space-x-8 mb-4">
             <a
-              href="https://www.youtube.com/@apishared"
+              href="https://t.me/rapidapisupporter"
               target="_blank"
               rel="noopener noreferrer"
               className="
                 text-white dark:text-gray-200 
-                hover:text-red-500 dark:hover:text-red-400 
+                hover:text-blue-400 dark:hover:text-blue-300 
                 transition-colors 
                 duration-300
                 flex items-center"
             >
-              <FaYoutube className="w-6 h-6 md:w-8 md:h-8" />
+              <FaTelegram className="w-6 h-6 md:w-8 md:h-8" />
             </a>
             <a
               href="https://www.facebook.com/share/g/BGj3PsxCXXVquAmE/"
@@ -772,19 +825,6 @@ export default function Home() {
                 flex items-center"
             >
               <FaFacebook className="w-6 h-6 md:w-8 md:h-8" />
-            </a>
-            <a
-              href="https://t.me/rapidapisupporter"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                text-white dark:text-gray-200 
-                hover:text-blue-400 dark:hover:text-blue-300 
-                transition-colors 
-                duration-300
-                flex items-center"
-            >
-              <FaTelegram className="w-6 h-6 md:w-8 md:h-8" />
             </a>
           </div>
           <p className="text-gray-400 dark:text-gray-600 mt-2 md:mt-4 text-xs md:text-sm">{t('copyrightText')}</p>
