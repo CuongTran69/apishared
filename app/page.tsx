@@ -628,60 +628,6 @@ export default function Home() {
               </div>
             </button>
           </div>
-
-          {/* Tier 2: $50+ Purchase */}
-          <div className="bg-gradient-to-br from-purple-900/40 to-purple-800/20 backdrop-blur-lg rounded-3xl p-8 
-            border border-purple-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
-            hover:shadow-purple-500/20 hover:border-purple-500/40">
-            <button onClick={() => scrollToSection(footerSectionRef)}>
-              <div className="flex items-center justify-between mb-6">
-                <div className="bg-purple-500/20 p-4 rounded-2xl">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <div className="bg-green-500/10 px-4 py-2 rounded-full">
-                  <span className="text-3xl font-bold text-green-400">150% Bonus</span>
-                </div>
-              </div>
-
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Premium Bonus Tier
-              </h3>
-              <p className="text-gray-300 mb-6 text-lg">
-                Maximize your investment with our premium bonus tier
-              </p>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-200">Minimum deposit: <span className="text-purple-400 font-semibold">$50</span></span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-200">Bonus rate: <span className="text-green-400 font-semibold">150%</span></span>
-                </div>
-              </div>
-
-              <div className="bg-white/5 rounded-2xl p-6">
-                <div className="text-center">
-                  <div className="text-sm text-gray-400 mb-2">Example Investment</div>
-                  <div className="flex items-center justify-center space-x-4">
-                    <div className="text-2xl font-bold text-white">$50</div>
-                    <svg className="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                    <div className="text-2xl font-bold text-green-400">$125</div>
-                  </div>
-                  <div className="text-sm text-gray-400 mt-2">Total Balance After Bonus</div>
-                </div>
-              </div>
-            </button>
-          </div>
         </section>
 
         {/* Pricing Table Section */}
