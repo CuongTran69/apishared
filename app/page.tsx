@@ -120,6 +120,18 @@ export default function Home() {
   const modelPricing = {
     "Anthropic Models": [
       {
+        apiName: 'anthropic:3.7-sonnet-search',
+        realName: 'Claude 3.7 Search',
+        inputPrice: { original: 3.75, discounted: 1.88 },
+        outputPrice: { original: 18.75, discounted: 9.38 }
+      },
+      {
+        apiName: 'anthropic:3.7-sonnet-thinking-search',
+        realName: 'Claude 3.7 Thinking Search',
+        inputPrice: { original: 5.00, discounted: 2.5 },
+        outputPrice: { original: 25.00, discounted: 12.5 }
+      },
+      {
         apiName: 'anthropic:3.7-sonnet',
         realName: 'Claude 3.7 Sonnet',
         inputPrice: { original: 3.00, discounted: 1.5 },
@@ -128,6 +140,12 @@ export default function Home() {
       {
         apiName: 'anthropic:3.7-sonnet-thinking',
         realName: 'Claude 3.7 Thinking Mode Extended',
+        inputPrice: { original: 3.00, discounted: 1.5 },
+        outputPrice: { original: 15.00, discounted: 7.5 }
+      },
+      {
+        apiName: 'anthropic:3.5-sonnet-search',
+        realName: 'claude-3.5-sonnet-20241022',
         inputPrice: { original: 3.00, discounted: 1.5 },
         outputPrice: { original: 15.00, discounted: 7.5 }
       },
@@ -177,55 +195,61 @@ export default function Home() {
     "OpenAI Models": [
       {
         apiName: 'openai:o1',
-        realName: 'gpt-o1',
+        realName: 'OpenAI o1',
         inputPrice: { original: 15.00, discounted: 7.50 },
         outputPrice: { original: 60.00, discounted: 30.00 }
       },
       {
         apiName: 'openai:o3-mini',
-        realName: 'gpt-4o',
+        realName: 'OpenAI o3-mini',
         inputPrice: { original: 2.20, discounted: 1.10 },
         outputPrice: { original: 8.80, discounted: 4.40 }
       },
       {
         apiName: 'openai:o3-mini-think-exp',
-        realName: 'gpt-4o',
+        realName: 'OpenAI o3-mini',
         inputPrice: { original: 2.20, discounted: 1.10 },
         outputPrice: { original: 8.80, discounted: 4.40 }
       },
       {
         apiName: 'openai:gpt-4o',
-        realName: 'gpt-4o',
+        realName: 'OpenAI 4o',
+        inputPrice: { original: 2.50, discounted: 1.75 },
+        outputPrice: { original: 10.00, discounted: 5 }
+      },
+      {
+        apiName: 'openai:gpt-4o-search',
+        realName: 'OpenAI 4o search',
         inputPrice: { original: 2.50, discounted: 1.75 },
         outputPrice: { original: 10.00, discounted: 5 }
       },
       {
         apiName: 'openai:gpt-4o-mini',
-        realName: 'gpt-4o-mini',
+        realName: 'OpenAI 4o-mini',
         inputPrice: { original: 0.15, discounted: 0.25 },
         outputPrice: { original: 0.60, discounted: 0.3 }
       },
       {
         apiName: 'openai:gpt-4o-2024-08-06',
-        realName: 'gpt-4o-2024-08-06',
+        realName: 'OpenAI 4o-2024-08-06',
         inputPrice: { original: 2.50, discounted: 1.75 },
         outputPrice: { original: 10.00, discounted: 5 }
       },
       {
         apiName: 'openai:o1-mini',
-        realName: 'o1-mini',
+        realName: 'OpenAI o1-mini',
         inputPrice: { original: 3.00, discounted: 1.5 },
         outputPrice: { original: 12.00, discounted: 6 }
       },
       {
         apiName: 'openai:gpt-4',
-        realName: 'gpt-4',
+        realName: 'OpenAI gpt-4',
         inputPrice: { original: 30.00, discounted: 15 },
         outputPrice: { original: 60.00, discounted: 30 }
       },
       {
         apiName: 'openai:gpt-4-turbo-2024-04-09',
-        realName: 'gpt-4-turbo-2024-04-09',
+        realName: 'OpenAI gpt-4-turbo-2024-04-09',
         inputPrice: { original: 10.00, discounted: 5 },
         outputPrice: { original: 30.00, discounted: 15 }
       }
@@ -236,6 +260,12 @@ export default function Home() {
         realName: 'Deepseek v3',
         inputPrice: { original: 0.25, discounted: 0.125 },
         outputPrice: { original: 0.50, discounted: 0.25 }
+      },
+      {
+        apiName: 'deepseek:deepseek-reasoner-search',
+        realName: 'Deepseek v1 search',
+        inputPrice: { original: 0.55, discounted: 0.275 },
+        outputPrice: { original: 1.11, discounted: 0.55 }
       },
       {
         apiName: 'deepseek:deepseek-reasoner',
@@ -278,6 +308,18 @@ export default function Home() {
     ],
     "Gemini Models": [
       {
+        apiName: 'gemini:gemini-2.5-pro-exp-03-25',
+        realName: 'Gemini 2.5 Pro',
+        inputPrice: { original: 2.5, discounted: 1.25 },
+        outputPrice: { original: 10, discounted: 5 }
+      },
+      {
+        apiName: 'gemini:gemini-2.5-pro-exp-03-25-search',
+        realName: 'Gemini 2.5 Pro Search',
+        inputPrice: { original: 2.5, discounted: 1.25 },
+        outputPrice: { original: 10, discounted: 5 }
+      },
+      {
         apiName: 'gemini:gemini-2.0-flash',
         realName: 'Gemini 2.0 Flash',
         inputPrice: { original: 0.15, discounted: 0.075 },
@@ -292,6 +334,12 @@ export default function Home() {
       {
         apiName: 'gemini:gemini-2.0-pro-exp',
         realName: 'Gemini 2.0',
+        inputPrice: { original: 2.5, discounted: 1.25 },
+        outputPrice: { original: 10, discounted: 5 }
+      },
+      {
+        apiName: 'gemini:gemini-2.0-pro-exp-search',
+        realName: 'Gemini 2.0 Pro Search',
         inputPrice: { original: 2.5, discounted: 1.25 },
         outputPrice: { original: 10, discounted: 5 }
       },
@@ -529,11 +577,11 @@ export default function Home() {
         </section>
 
         {/* Bonus Tiers Container */}
-        <section ref={bonusSectionRef} className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-16">
+        <section ref={bonusSectionRef} className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-16">
           {/* Trial Tier */}
           <div className="bg-gradient-to-br from-green-900/40 to-green-800/20 backdrop-blur-lg rounded-3xl p-8 
-            border border-green-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
-            hover:shadow-green-500/20 hover:border-green-500/40">
+    border border-green-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
+    hover:shadow-green-500/20 hover:border-green-500/40">
             <div className="flex items-center justify-between mb-6">
               <div className="bg-green-500/20 p-4 rounded-2xl">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -541,7 +589,7 @@ export default function Home() {
                 </svg>
               </div>
               <div className="bg-green-500/10 px-4 py-2 rounded-full">
-                <span className="text-2xl font-bold text-green-400">Trial</span>
+                <span className="text-2xl font-bold text-green-400">Free Trial</span>
               </div>
             </div>
 
@@ -577,55 +625,60 @@ export default function Home() {
 
           {/* Tier 1: $10+ Purchase */}
           <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/20 backdrop-blur-lg rounded-3xl p-8 
-            border border-blue-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
-            hover:shadow-blue-500/20 hover:border-blue-500/40">
-            <button onClick={() => scrollToSection(footerSectionRef)}>
-              <div className="flex items-center justify-between mb-6">
-                <div className="bg-blue-500/20 p-4 rounded-2xl">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="bg-green-500/10 px-4 py-2 rounded-full">
-                  <span className="text-3xl font-bold text-green-400">100% Bonus</span>
-                </div>
+    border border-blue-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
+    hover:shadow-blue-500/20 hover:border-blue-500/40">
+            <div className="flex items-center justify-between mb-6">
+              <div className="bg-blue-500/20 p-4 rounded-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Standard Bonus Tier
-              </h3>
-              <p className="text-gray-300 mb-6 text-lg">
-                Double your investment with our standard bonus tier
-              </p>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center space-x-3">
-                  <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-200">Minimum deposit: <span className="text-blue-400 font-semibold">$10</span></span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-200">Bonus rate: <span className="text-green-400 font-semibold">100%</span></span>
-                </div>
+              <div className="bg-blue-500/10 px-4 py-2 rounded-full">
+                <span className="text-2xl font-bold text-blue-400">$10+ Purchase</span>
               </div>
+            </div>
 
-              <div className="bg-white/5 rounded-2xl p-6">
-                <div className="text-center">
-                  <div className="text-sm text-gray-400 mb-2">Example Investment</div>
-                  <div className="flex items-center justify-center space-x-4">
-                    <div className="text-2xl font-bold text-white">$10</div>
-                    <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                    <div className="text-2xl font-bold text-green-400">$20</div>
-                  </div>
-                  <div className="text-sm text-gray-400 mt-2">Total Balance After Bonus</div>
-                </div>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Standard Bonus Tier
+            </h3>
+            <p className="text-gray-300 mb-6 text-lg">
+              Double your investment with our standard bonus tier
+            </p>
+
+            <div className="space-y-4 mb-8">
+              <div className="flex items-center space-x-3">
+                <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-gray-200">Minimum deposit: <span className="text-blue-400 font-semibold">$10</span></span>
               </div>
+              <div className="flex items-center space-x-3">
+                <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-gray-200">Bonus rate: <span className="text-blue-400 font-semibold">100%</span></span>
+              </div>
+            </div>
+
+            <div className="bg-white/5 rounded-2xl p-6">
+              <div className="text-center">
+                <div className="text-sm text-gray-400 mb-2">Example Investment</div>
+                <div className="flex items-center justify-center space-x-4">
+                  <div className="text-2xl font-bold text-white">$10</div>
+                  <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                  <div className="text-2xl font-bold text-blue-400">$20</div>
+                </div>
+                <div className="text-sm text-gray-400 mt-2">Total Balance After Bonus</div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 font-bold py-3 px-6 rounded-xl mt-8 transition-colors"
+            >
+              Contact Us to Purchase
             </button>
           </div>
         </section>
