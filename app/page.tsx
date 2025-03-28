@@ -226,7 +226,7 @@ export default function Home() {
       {
         apiName: 'openai:gpt-4o-mini',
         realName: 'OpenAI 4o-mini',
-        inputPrice: { original: 0.15, discounted: 0.25 },
+        inputPrice: { original: 0.15, discounted: 0.075 },
         outputPrice: { original: 0.60, discounted: 0.3 }
       },
       {
