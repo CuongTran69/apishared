@@ -214,13 +214,13 @@ export default function Home() {
       {
         apiName: 'openai:gpt-4o',
         realName: 'OpenAI 4o',
-        inputPrice: { original: 2.50, discounted: 1.75 },
+        inputPrice: { original: 2.50, discounted: 1.25 },
         outputPrice: { original: 10.00, discounted: 5 }
       },
       {
         apiName: 'openai:gpt-4o-search',
         realName: 'OpenAI 4o search',
-        inputPrice: { original: 2.50, discounted: 1.75 },
+        inputPrice: { original: 2.50, discounted: 1.25 },
         outputPrice: { original: 10.00, discounted: 5 }
       },
       {
@@ -232,7 +232,7 @@ export default function Home() {
       {
         apiName: 'openai:gpt-4o-2024-08-06',
         realName: 'OpenAI 4o-2024-08-06',
-        inputPrice: { original: 2.50, discounted: 1.75 },
+        inputPrice: { original: 2.50, discounted: 1.25 },
         outputPrice: { original: 10.00, discounted: 5 }
       },
       {
@@ -258,20 +258,20 @@ export default function Home() {
       {
         apiName: 'deepseek:deepseek-v3',
         realName: 'Deepseek v3',
-        inputPrice: { original: 0.25, discounted: 0.125 },
-        outputPrice: { original: 0.50, discounted: 0.25 }
+        inputPrice: { original: 0.5, discounted: 0.25 },
+        outputPrice: { original: 1.5, discounted: 0.75 }
       },
       {
-        apiName: 'deepseek:deepseek-reasoner-search',
-        realName: 'Deepseek v1 search',
-        inputPrice: { original: 0.55, discounted: 0.275 },
-        outputPrice: { original: 1.11, discounted: 0.55 }
+        apiName: 'deepseek:deepseek-r1-search',
+        realName: 'Deepseek R1 search',
+        inputPrice: { original: 0.80, discounted: 0.40 },
+        outputPrice: { original: 2.40, discounted: 1.20 }
       },
       {
-        apiName: 'deepseek:deepseek-reasoner',
-        realName: 'Deepseek R1',
-        inputPrice: { original: 0.55, discounted: 0.275 },
-        outputPrice: { original: 1.11, discounted: 0.55 }
+        apiName: 'deepseek:deepseek-r1',
+        realName: 'Deepseek Reasoner',
+        inputPrice: { original: 0.80, discounted: 0.40 },
+        outputPrice: { original: 2.40, discounted: 1.20 }
       }
     ],
     "Grok Models": [
