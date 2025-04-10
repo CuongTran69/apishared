@@ -276,10 +276,10 @@ export default function Home() {
     ],
     "Grok Models": [
       {
-        apiName: 'grok-3',
+        apiName: 'grok:grok-3',
         realName: 'Grok v3',
-        inputPrice: { original: 1.50, discounted: 0.75 },
-        outputPrice: { original: 7.50, discounted: 3.75 }
+        inputPrice: { original: 3.00, discounted: 1.50 },
+        outputPrice: { original: 15, discounted: 7.50 }
       },
       {
         apiName: 'grok-3-deepsearch',
