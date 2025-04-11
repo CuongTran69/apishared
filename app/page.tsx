@@ -128,20 +128,20 @@ export default function Home() {
       {
         apiName: 'anthropic:3.7-sonnet-thinking-search',
         realName: 'Claude 3.7 Thinking Search',
-        inputPrice: { original: 5.00, discounted: 2.5 },
+        inputPrice: { original: 5.00, discounted: 2.50 },
         outputPrice: { original: 25.00, discounted: 12.5 }
       },
       {
         apiName: 'anthropic:3.7-sonnet',
         realName: 'Claude 3.7 Sonnet',
-        inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 15.00, discounted: 7.5 }
+        inputPrice: { original: 3.75, discounted: 1.88 },
+        outputPrice: { original: 18.75, discounted: 9.38 }
       },
       {
         apiName: 'anthropic:3.7-sonnet-thinking',
         realName: 'Claude 3.7 Thinking Mode Extended',
-        inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 15.00, discounted: 7.5 }
+        inputPrice: { original: 5.00, discounted: 2.50 },
+        outputPrice: { original: 25.00, discounted: 12.50 }
       },
       {
         apiName: 'anthropic:3.5-sonnet-search',
@@ -255,6 +255,12 @@ export default function Home() {
       }
     ],
     "DeepSeek Models": [
+      {
+        apiName: 'deepseek:deepseek-v3-0324',
+        realName: 'Deepseek v3 03-2024',
+        inputPrice: { original: 0.5, discounted: 0.25 },
+        outputPrice: { original: 1.5, discounted: 0.75 }
+      },
       {
         apiName: 'deepseek:deepseek-v3',
         realName: 'Deepseek v3',
