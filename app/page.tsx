@@ -108,6 +108,7 @@ export default function Home() {
 
   // Scroll to section function
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
+    setMenuOpen(false); // Close menu when navigating
     if (sectionRef.current) {
       const yOffset = -80; // Adjust this value based on your header height
       const element = sectionRef.current;
@@ -404,6 +405,26 @@ export default function Home() {
     }
   }
 
+  useEffect(() => {
+    // Add CSS for animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateX(-20px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      .animate-slideIn {
+        animation: slideIn 0.3s ease-out forwards;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Clean up
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <div className={`min-h-screen bg-[#0A192F] dark:bg-white p-4 overflow-hidden relative`}>
       {copyNotification.visible && (
@@ -448,46 +469,96 @@ export default function Home() {
             </nav>
             {/* Title displayed only on mobile */}
             <h1 className="text-2xl font-bold pl-12 pt-1 text-white md:hidden">API Shared</h1>
-            {/* Mobile Menu Button positioned at the top left */}
+            {/* Mobile Menu Button */}
             <button
-              className="md:hidden absolute top-4 left-4 p-2 rounded-lg bg-white text-blue-600 hover:bg-gray-200 transition duration-300"
+              className="md:hidden fixed top-4 left-4 p-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 shadow-lg z-50 transition-all duration-300"
               onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
+              {menuOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              )}
             </button>
           </div>
-          {/* Mobile Menu */}
+          {/* Mobile Menu - Compact Style */}
           {menuOpen && (
-            <nav className="flex flex-col space-y-2 mt-4 md:hidden">
-              <div className="flex space-x-4">
-                <a href="https://api.llm.ai.vn/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-red-500 rounded flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2C10.343 2 9 3.343 9 5c0 .553-.447 1-1 1H6c-1.104 0-2 .896-2 2v2c0 1.104.896 2 2 2h2c.553 0 1 .447 1 1 0 1.657 1.343 3 3 3s3-1.343 3-3c0-.553.447-1 1-1h2c1.104 0 2-.896 2-2v-2c0-1.104-.896-2-2-2h-2c-.553 0-1-.447-1-1 0-1.657-1.343-3-3-3z" />
-                  </svg>
-                </a>
-                <button onClick={() => scrollToSection(bonusSectionRef)} className="px-4 py-2 bg-green-500 rounded flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                </button>
-                <button onClick={() => scrollToSection(modelSectionRef)} className="px-4 py-2 border border-gray-300 text-white rounded flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M12 2v2m0 16v2M9 6h6a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6" />
-                  </svg>
-                </button>
-                <button onClick={() => scrollToSection(footerSectionRef)} className="px-4 py-2 bg-blue-500 rounded flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </button>
-                <button onClick={toggleLanguage} className="px-3 py-1 bg-white/10 text-white rounded flex items-center">
-                  {language === 'vi' ? '🇬🇧' : '🇻🇳'}
-                </button>
+            <div className="fixed left-4 top-20 z-40 md:hidden">
+              <div className="bg-white rounded-2xl shadow-xl p-2 w-64 transform transition-all duration-300 animate-slideIn">
+                <div className="flex flex-col space-y-1">
+                  <a 
+                    href="https://api.llm.ai.vn" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-red-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                    <span className="text-gray-800 font-medium">API LLM</span>
+                  </a>
+                  
+                  <button 
+                    onClick={() => scrollToSection(bonusSectionRef)} 
+                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200 text-left"
+                  >
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <span className="text-gray-800 font-medium">{t('bonusPricing')}</span>
+                  </button>
+                  
+                  <button 
+                    onClick={() => scrollToSection(modelSectionRef)} 
+                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200 text-left"
+                  >
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                          d="M12 2v2m0 16v2M9 6h6a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h6" />
+                      </svg>
+                    </div>
+                    <span className="text-gray-800 font-medium">{t('modelsSection')}</span>
+                  </button>
+                  
+                  <button 
+                    onClick={() => scrollToSection(footerSectionRef)} 
+                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200 text-left"
+                  >
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-purple-100">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </div>
+                    <span className="text-gray-800 font-medium">Join Us</span>
+                  </button>
+                  
+                  <hr className="my-1 border-gray-200" />
+                  
+                  <button 
+                    onClick={toggleLanguage} 
+                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200 text-left"
+                  >
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-yellow-100">
+                      <span className="text-xl">{language === 'vi' ? '🇬🇧' : '🇻🇳'}</span>
+                    </div>
+                    <span className="text-gray-800 font-medium">
+                      {language === 'vi' ? 'English' : 'Tiếng Việt'}
+                    </span>
+                  </button>
+                </div>
               </div>
-            </nav>
+            </div>
           )}
         </header>
         {/* Featured Video Section */}
