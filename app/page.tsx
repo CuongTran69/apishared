@@ -437,6 +437,36 @@ export default function Home() {
     );
   };
 
+  // Add useRef for menu and button
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+  
+  // Add effect for outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // Check if click is outside both the menu and the menu button
+      if (
+        menuOpen && 
+        menuRef.current && 
+        menuButtonRef.current &&
+        !menuRef.current.contains(event.target as Node) && 
+        !menuButtonRef.current.contains(event.target as Node)
+      ) {
+        setMenuOpen(false);
+      }
+    }
+    
+    // Add event listener only when menu is open
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    // Clean up
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
+
   return (
     <div className={`min-h-screen bg-[#0A192F] dark:bg-white p-4 overflow-hidden relative`}>
       {copyNotification.visible && (
@@ -483,6 +513,7 @@ export default function Home() {
             <h1 className="text-2xl font-bold pl-12 pt-1 text-white md:hidden">API Shared</h1>
             {/* Mobile Menu Button */}
             <button
+              ref={menuButtonRef}
               className="md:hidden fixed top-4 left-4 p-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 shadow-lg z-50 transition-all duration-300"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -501,7 +532,10 @@ export default function Home() {
           {/* Mobile Menu - Compact Style */}
           {menuOpen && (
             <div className="fixed left-4 top-20 z-40 md:hidden">
-              <div className="bg-white rounded-2xl shadow-xl p-2 w-64 transform transition-all duration-300 animate-slideIn">
+              <div 
+                ref={menuRef}
+                className="bg-white rounded-2xl shadow-xl p-2 w-64 transform transition-all duration-300 animate-slideIn"
+              >
                 <div className="flex flex-col space-y-1">
                   <a 
                     href="https://api.llm.ai.vn" 
