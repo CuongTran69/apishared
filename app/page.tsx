@@ -141,7 +141,7 @@ export default function Home() {
         apiName: 'anthropic:3.7-sonnet-thinking',
         realName: 'Claude 3.7 Thinking Mode Extended',
         inputPrice: { original: 5.00, discounted: 2.50 },
-        outputPrice: { original: 25.00, discounted: 12.50 }
+        outputPrice: { original: 25.00, discounted: 12.5 }
       },
       {
         apiName: 'anthropic:3.5-sonnet-search',
@@ -577,101 +577,6 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Hot Image Generation Models Section */}
-        <section className="mt-16 relative z-10 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="bg-gradient-to-r from-purple-900/40 to-pink-800/40 backdrop-blur-lg rounded-3xl p-6 
-      border border-purple-500/20 shadow-xl transform transition-all duration-300 hover:shadow-purple-500/20">
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold text-white mb-2">
-                  🔥 Hot Image Generation Models Available Now 🔥
-                </h2>
-                <p className="text-gray-300 text-lg">
-                  Create stunning images with our powerful AI models at competitive prices
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 mt-8">
-                {/* Grok3 Card */}
-                <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/10 backdrop-blur-lg rounded-2xl p-6 
-          border border-purple-500/20 shadow-lg transform transition-all duration-300 hover:scale-102 
-          hover:shadow-purple-500/20 hover:border-purple-500/40">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-white">Grok-3</h3>
-                    <div className="bg-purple-500/20 px-3 py-1 rounded-full">
-                      <span className="text-sm font-medium text-purple-300">Budget-friendly</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center space-x-3">
-                      <svg className="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-200">Starting from just <span className="text-purple-400 font-semibold">$0.0009</span> per image</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <svg className="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-200">High-quality image generation</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <svg className="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-200">Fast processing time</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* GPT4 Card */}
-                <div className="bg-gradient-to-br from-pink-900/30 to-pink-800/10 backdrop-blur-lg rounded-2xl p-6 
-          border border-pink-500/20 shadow-lg transform transition-all duration-300 hover:scale-102 
-          hover:shadow-pink-500/20 hover:border-pink-500/40">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-white">GPT-4o-IMAGE</h3>
-                    <div className="bg-pink-500/20 px-3 py-1 rounded-full">
-                      <span className="text-sm font-medium text-pink-300">Premium quality</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center space-x-3">
-                      <svg className="h-5 w-5 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-200">Starting from <span className="text-pink-400 font-semibold">$0.1</span> per image</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <svg className="h-5 w-5 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-200">Ultra-high resolution outputs</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <svg className="h-5 w-5 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-200">Advanced image customization</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="text-center mt-6">
-                <p className="text-lg text-white font-medium">Try these powerful image generation models today!</p>
-                <button
-                  onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
-                  className="mt-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-white font-bold 
-          hover:from-purple-700 hover:to-pink-700 transition-all duration-300 shadow-lg">
-                  Join Group and start generating images
-                </button>
               </div>
             </div>
           </div>
