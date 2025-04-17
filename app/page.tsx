@@ -195,6 +195,18 @@ export default function Home() {
     ],
     "OpenAI Models": [
       {
+        apiName: 'openai:o4-mini',
+        realName: 'OpenAI o4 mini',
+        inputPrice: { original: 0, discounted: 0 },
+        outputPrice: { original: 0, discounted: 0 }
+      },
+      {
+        apiName: 'openai:gpt-4.1',
+        realName: 'OpenAI 4.1',
+        inputPrice: { original: 2.00, discounted: 1.00 },
+        outputPrice: { original: 8.00, discounted: 8.00 }
+      },
+      {
         apiName: 'openai:o1',
         realName: 'OpenAI o1',
         inputPrice: { original: 15.00, discounted: 7.50 },
@@ -216,13 +228,13 @@ export default function Home() {
         apiName: 'openai:gpt-4o',
         realName: 'OpenAI 4o',
         inputPrice: { original: 2.50, discounted: 1.25 },
-        outputPrice: { original: 10.00, discounted: 5 }
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
       {
         apiName: 'openai:gpt-4o-search',
         realName: 'OpenAI 4o search',
         inputPrice: { original: 2.50, discounted: 1.25 },
-        outputPrice: { original: 10.00, discounted: 5 }
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
       {
         apiName: 'openai:gpt-4o-mini',
@@ -234,25 +246,25 @@ export default function Home() {
         apiName: 'openai:gpt-4o-2024-08-06',
         realName: 'OpenAI 4o-2024-08-06',
         inputPrice: { original: 2.50, discounted: 1.25 },
-        outputPrice: { original: 10.00, discounted: 5 }
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
       {
         apiName: 'openai:o1-mini',
         realName: 'OpenAI o1-mini',
         inputPrice: { original: 3.00, discounted: 1.5 },
-        outputPrice: { original: 12.00, discounted: 6 }
+        outputPrice: { original: 12.00, discounted: 6.00 }
       },
       {
         apiName: 'openai:gpt-4',
         realName: 'OpenAI gpt-4',
-        inputPrice: { original: 30.00, discounted: 15 },
-        outputPrice: { original: 60.00, discounted: 30 }
+        inputPrice: { original: 30.00, discounted: 15.00 },
+        outputPrice: { original: 60.00, discounted: 30.00 }
       },
       {
         apiName: 'openai:gpt-4-turbo-2024-04-09',
         realName: 'OpenAI gpt-4-turbo-2024-04-09',
-        inputPrice: { original: 10.00, discounted: 5 },
-        outputPrice: { original: 30.00, discounted: 15 }
+        inputPrice: { original: 10.00, discounted: 5.00 },
+        outputPrice: { original: 30.00, discounted: 15.00 }
       }
     ],
     "DeepSeek Models": [
@@ -286,7 +298,7 @@ export default function Home() {
         apiName: 'grok:grok-3',
         realName: 'Grok v3',
         inputPrice: { original: 3.00, discounted: 1.50 },
-        outputPrice: { original: 15, discounted: 7.50 }
+        outputPrice: { original: 15.00, discounted: 7.50 }
       },
       {
         apiName: 'grok-3-deepsearch',
@@ -303,14 +315,14 @@ export default function Home() {
       {
         apiName: 'grok:grok-2',
         realName: 'Grok v2',
-        inputPrice: { original: 2.00, discounted: 1 },
-        outputPrice: { original: 10, discounted: 5 }
+        inputPrice: { original: 2.00, discounted: 1.00 },
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
       {
         apiName: 'grok:grok-2-think-exp',
         realName: 'Grok v2 Deep Think',
-        inputPrice: { original: 2, discounted: 1 },
-        outputPrice: { original: 10, discounted: 5 }
+        inputPrice: { original: 2.00, discounted: 1.00 },
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
     ],
     "Gemini Models": [
@@ -318,43 +330,31 @@ export default function Home() {
         apiName: 'gemini:gemini-2.5-pro-exp-03-25',
         realName: 'Gemini 2.5 Pro',
         inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 }
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
       {
         apiName: 'gemini:gemini-2.5-pro-exp-03-25-search',
         realName: 'Gemini 2.5 Pro Search',
         inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 }
-      },
-      {
-        apiName: 'gemini:gemini-2.0-flash',
-        realName: 'Gemini 2.0 Flash',
-        inputPrice: { original: 0.15, discounted: 0.075 },
-        outputPrice: { original: 0.6, discounted: 0.3 }
-      },
-      {
-        apiName: 'gemini:gemini-2.0-flash-thinking-exp',
-        realName: 'Gemini 2.0 Flash Deep think',
-        inputPrice: { original: 0.15, discounted: 0.075 },
-        outputPrice: { original: 0.6, discounted: 0.3 }
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
       {
         apiName: 'gemini:gemini-2.0-pro-exp',
         realName: 'Gemini 2.0',
         inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 }
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
       {
         apiName: 'gemini:gemini-2.0-pro-exp-search',
         realName: 'Gemini 2.0 Pro Search',
         inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 }
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
       {
         apiName: 'gemini:gemini-2.0-pro-exp-think-exp',
         realName: 'Gemini 2.0 Deep Think',
         inputPrice: { original: 2.5, discounted: 1.25 },
-        outputPrice: { original: 10, discounted: 5 }
+        outputPrice: { original: 10.00, discounted: 5.00 }
       },
     ]
   }
