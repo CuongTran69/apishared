@@ -275,12 +275,6 @@ export default function Home() {
         outputPrice: { original: 1.5, discounted: 0.75 }
       },
       {
-        apiName: 'deepseek:deepseek-v3',
-        realName: 'Deepseek v3',
-        inputPrice: { original: 0.5, discounted: 0.25 },
-        outputPrice: { original: 1.5, discounted: 0.75 }
-      },
-      {
         apiName: 'deepseek:deepseek-r1-search',
         realName: 'Deepseek R1 search',
         inputPrice: { original: 0.80, discounted: 0.40 },
