@@ -305,19 +305,7 @@ export default function Home() {
         realName: 'Grok v3 reasoner',
         inputPrice: { original: 1.50, discounted: 0.75 },
         outputPrice: { original: 7.50, discounted: 3.75 }
-      },
-      {
-        apiName: 'grok:grok-2',
-        realName: 'Grok v2',
-        inputPrice: { original: 2.00, discounted: 1.00 },
-        outputPrice: { original: 10.00, discounted: 5.00 }
-      },
-      {
-        apiName: 'grok:grok-2-think-exp',
-        realName: 'Grok v2 Deep Think',
-        inputPrice: { original: 2.00, discounted: 1.00 },
-        outputPrice: { original: 10.00, discounted: 5.00 }
-      },
+      }
     ],
     "Gemini Models": [
       {
