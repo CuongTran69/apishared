@@ -2,8 +2,9 @@
 'use client';  // Add client directive for client-side components
 
 import Head from 'next/head'
-import { FaYoutube, FaFacebook, FaTelegram, FaCopy } from 'react-icons/fa'
+import { FaYoutube, FaFacebook, FaTelegram, FaCopy, FaCode } from 'react-icons/fa'
 import React, { useState, useEffect, useRef } from 'react'
+import ApiTester from './components/ApiTester'
 
 // Define translations
 const translations = {
@@ -19,16 +20,12 @@ const translations = {
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Bonus Credit Tiers',
     tenPlusPurchase: '$10+ Purchase',
-    fiftyPlusPurchase: '$50+ Purchase',
     getExtraTen: 'Get an extra 100% bonus when you spend over $10',
-    receiveExtraSeventyFive: 'Get an extra 150% bonus when you spend over $50',
     spend: 'Spend',
     bonus: 'Bonus',
     bonusPercentage: 'Bonus %',
     tenDollarTier: 'Buy 10$: 100% Bonus',
-    fiftyDollarTier: 'Buy 50$: 150% Bonus',
-    fiftyPlus: '$50+',
-    seventyFivePlus: '$75+'
+    testApiKey: 'Test API Key'
   },
   vi: {
     title: 'API Shared - Tất cả AI chỉ trong 1 API',
@@ -42,16 +39,12 @@ const translations = {
     copyrightText: '2024 API Shared. All rights reserved.',
     bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
     tenPlusPurchase: 'Mua Trên $10',
-    fiftyPlusPurchase: 'Mua Trên $50',
     getExtraTen: 'Nhận thêm ưu đãi 100% khi nạp trên $10',
-    receiveExtraSeventyFive: 'Nhận thêm ưu đãi 150% khi nạp trên $50',
     spend: 'Chi Tiêu',
     bonus: 'Ưu Đãi',
     bonusPercentage: '% Ưu Đãi',
     tenDollarTier: 'Mua trên $10: Ưu Đãi 100%',
-    fiftyDollarTier: 'Mua trên $50: Ưu Đãi 150%',
-    fiftyPlus: '$50+',
-    seventyFivePlus: '$75+'
+    testApiKey: 'Kiểm Tra API Key'
   }
 }
 
@@ -62,6 +55,7 @@ export default function Home() {
     message: '',
     visible: false
   })
+  const [isApiTesterOpen, setIsApiTesterOpen] = useState(false)
 
   // Use a two-step state approach to avoid hydration issues
   const [language, setLanguage] = useState<'en' | 'vi'>('en')
@@ -464,66 +458,108 @@ export default function Home() {
         <title>{t('title')}</title>
         <meta name="description" content={t('description')} />
         <meta name="keywords" content="AI API, OpenAI, Anthropic, Claude, GPT-4, Machine Learning, API Integration" />
-        <link rel="icon" href="/images/logo.png" />
+        <link rel="icon" href="/public/logo.png" />
       </Head>
 
       <main className="container mx-auto px-4 relative dark:bg-white">
         {/* Enhanced Header Menu with Action Buttons */}
-        <header className="p-4 fixed top-0 left-0 right-0 z-50 bg-[#0A192F]/2 backdrop-blur-md transition-all duration-300">
-          <div className="container mx-auto flex justify-between items-center">
-            {/* Title displayed only on desktop */}
-            <h1 className="text-2xl font-bold text-white hidden md:block">{t('title')}</h1>
-            {/* Desktop Menu */}
-            <nav className="hidden md:flex md:flex-row space-y-2 md:space-y-0 md:space-x-4">
-              <a href="https://api.llm.ai.vn" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-red-500 rounded">
-                Explore API LLM
-              </a>
-              <button onClick={() => scrollToSection(bonusSectionRef)} className="px-4 py-2 bg-green-500 rounded">
-                {t('bonusPricing')}
+        <header className="p-4 fixed top-0 left-0 right-0 z-50 bg-[#0A192F]/90 backdrop-blur-md shadow-lg transition-all duration-300">
+          <div className="container mx-auto">
+            {/* Desktop Header */}
+            <div className="hidden md:flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-white flex items-center gap-2">
+                API Shared - All in one API
+              </h1>
+              <div className="flex items-center space-x-3">
+                <button 
+                  onClick={() => setIsApiTesterOpen(true)} 
+                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-full flex items-center gap-2 transition-all shadow-md">
+                  <FaCode className="text-sm" />
+                  <span>{t('testApiKey')}</span>
+                </button>
+                <a 
+                  href="https://api.llm.ai.vn" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full transition-all shadow-md">
+                  Explore API LLM
+                </a>
+                <button 
+                  onClick={() => scrollToSection(bonusSectionRef)} 
+                  className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-full transition-all shadow-md">
+                  {t('bonusPricing')}
+                </button>
+                <button 
+                  onClick={() => scrollToSection(modelSectionRef)} 
+                  className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-full transition-all shadow-md">
+                  {t('modelsSection')}
+                </button>
+                <button 
+                  onClick={() => scrollToSection(footerSectionRef)} 
+                  className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-all shadow-md">
+                  Join Us
+                </button>
+                <button 
+                  onClick={toggleLanguage} 
+                  className="w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 text-white rounded-full transition-all">
+                  {language === 'vi' ? '🇬🇧' : '🇻🇳'}
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Header */}
+            <div className="flex md:hidden items-center justify-between">
+              <button
+                ref={menuButtonRef}
+                className="p-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 shadow-lg transition-all duration-300"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+              >
+                {menuOpen ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                  </svg>
+                )}
               </button>
-              <button onClick={() => scrollToSection(modelSectionRef)} className="px-4 py-2 border border-gray-300 text-white rounded">
-                {t('modelsSection')}
-              </button>
-              <button onClick={() => scrollToSection(footerSectionRef)} className="px-4 py-2 bg-blue-500 rounded">
-                Join Us
-              </button>
-              <button onClick={toggleLanguage} className="px-3 py-1 bg-white/10 text-white rounded">
-                {language === 'vi' ? '🇬🇧' : '🇻🇳'}
-              </button>
-            </nav>
-            {/* Title displayed only on mobile */}
-            <h1 className="text-2xl font-bold pl-12 pt-1 text-white md:hidden">API Shared</h1>
-            {/* Mobile Menu Button */}
-            <button
-              ref={menuButtonRef}
-              className="md:hidden fixed top-4 left-4 p-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 shadow-lg z-50 transition-all duration-300"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-            >
-              {menuOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-              )}
-            </button>
+              
+              <div className="flex items-center">
+                <h1 className="text-xl font-bold text-white">API Shared - All in one API</h1>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setIsApiTesterOpen(true)}
+                  className="p-2 rounded-full bg-purple-600 text-white shadow-md"
+                >
+                  <FaCode className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={toggleLanguage}
+                  className="p-2 rounded-full bg-white/10 text-white"
+                >
+                  {language === 'vi' ? '🇬🇧' : '🇻🇳'}
+                </button>
+              </div>
+            </div>
           </div>
-          {/* Mobile Menu - Compact Style */}
+          
+          {/* Mobile Menu - Redesigned */}
           {menuOpen && (
-            <div className="fixed left-4 top-20 z-40 md:hidden">
+            <div className="fixed left-0 top-[72px] z-40 md:hidden w-full">
               <div 
                 ref={menuRef}
-                className="bg-white rounded-2xl shadow-xl p-2 w-64 transform transition-all duration-300 animate-slideIn"
+                className="bg-white mx-4 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 animate-slideIn"
               >
-                <div className="flex flex-col space-y-1">
+                <div className="flex flex-col">
                   <a 
                     href="https://api.llm.ai.vn" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200"
+                    className="flex items-center gap-4 py-4 px-5 hover:bg-gray-100 transition-all duration-200"
                     onClick={() => setMenuOpen(false)}
                   >
                     <div className="w-10 h-10 flex items-center justify-center rounded-full bg-red-100">
@@ -535,8 +571,21 @@ export default function Home() {
                   </a>
                   
                   <button 
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setIsApiTesterOpen(true);
+                    }}
+                    className="flex items-center gap-4 py-4 px-5 hover:bg-gray-100 transition-all duration-200 text-left"
+                  >
+                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-purple-100">
+                      <FaCode className="h-5 w-5 text-purple-600" />
+                    </div>
+                    <span className="text-gray-800 font-medium">{t('testApiKey')}</span>
+                  </button>
+                  
+                  <button 
                     onClick={() => scrollToSection(bonusSectionRef)} 
-                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200 text-left"
+                    className="flex items-center gap-4 py-4 px-5 hover:bg-gray-100 transition-all duration-200 text-left"
                   >
                     <div className="w-10 h-10 flex items-center justify-center rounded-full bg-green-100">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -548,7 +597,7 @@ export default function Home() {
                   
                   <button 
                     onClick={() => scrollToSection(modelSectionRef)} 
-                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200 text-left"
+                    className="flex items-center gap-4 py-4 px-5 hover:bg-gray-100 transition-all duration-200 text-left"
                   >
                     <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-100">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -561,7 +610,7 @@ export default function Home() {
                   
                   <button 
                     onClick={() => scrollToSection(footerSectionRef)} 
-                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200 text-left"
+                    className="flex items-center gap-4 py-4 px-5 hover:bg-gray-100 transition-all duration-200 text-left"
                   >
                     <div className="w-10 h-10 flex items-center justify-center rounded-full bg-purple-100">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -569,20 +618,6 @@ export default function Home() {
                       </svg>
                     </div>
                     <span className="text-gray-800 font-medium">Join Us</span>
-                  </button>
-                  
-                  <hr className="my-1 border-gray-200" />
-                  
-                  <button 
-                    onClick={toggleLanguage} 
-                    className="flex items-center space-x-3 py-3 px-4 rounded-xl hover:bg-gray-100 transition-all duration-200 text-left"
-                  >
-                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-yellow-100">
-                      <span className="text-xl">{language === 'vi' ? '🇬🇧' : '🇻🇳'}</span>
-                    </div>
-                    <span className="text-gray-800 font-medium">
-                      {language === 'vi' ? 'English' : 'Tiếng Việt'}
-                    </span>
                   </button>
                 </div>
               </div>
@@ -1030,6 +1065,13 @@ export default function Home() {
           <p className="text-gray-400 dark:text-gray-600 mt-2 md:mt-4 text-xs md:text-sm">{t('copyrightText')}</p>
         </footer>
       </main>
+
+      {/* API Tester Modal */}
+      <ApiTester 
+        isOpen={isApiTesterOpen} 
+        onClose={() => setIsApiTesterOpen(false)} 
+        language={language} 
+      />
     </div>
   )
 }
