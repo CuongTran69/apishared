@@ -2,54 +2,92 @@
 'use client';  // Add client directive for client-side components
 
 import Head from 'next/head'
-import { FaYoutube, FaFacebook, FaTelegram, FaCopy, FaCode } from 'react-icons/fa'
+import { FaFacebook, FaTelegram, FaCopy, FaCode } from 'react-icons/fa'
 import React, { useState, useEffect, useRef } from 'react'
 import ApiTester from './components/ApiTester'
 
 // Define translations
 const translations = {
   en: {
-    title: 'API Shared - All-in-One API Model AI',
+    title: 'API Shared - All in one API',
     description: 'Access powerful AI APIs at discounted rates. Featuring OpenAI, Anthropic, and more.',
+    exploreAPILLM: 'Explore LLMAIVN',
     modelsSection: 'Prices Token Models',
+    joinUs: 'Join Us',
     providersTitle: 'Providers',
     modelCodeCopy: 'Copy Model Code',
     bonusPricing: 'Bonus Recharge',
     modelPricing: 'AI Model Pricing',
     footerText: 'Join our community groups to get $2 credit and 24h free trial access! 🎁',
     copyrightText: '2024 API Shared. All rights reserved.',
-    bonusCreditTiers: 'Bonus Credit Tiers',
+    freeTrial: 'Free Trial',
+    joinAndTest: 'Join and Test API',
+    tryBeforeYouBuy: 'Try before you buy with our trial offer',
+    freeCreditText: "Free",
+    bonusCreditTiers: 'Bonus Credit Tiers:',
+    minimumDeposit: 'Minimum deposit:',
+    bonusRate: 'Bonus rate:',
+    exampleInvestment: 'Example Investment',
+    totalBalanceAfterBonus: 'Total Balance After Bonus',
+    contactUsToPurchase: 'Contact Us to Purchase',
+    validFor: 'Valid for',
     tenPlusPurchase: '$10+ Purchase',
     getExtraTen: 'Get an extra 100% bonus when you spend over $10',
     spend: 'Spend',
     bonus: 'Bonus',
     bonusPercentage: 'Bonus %',
     tenDollarTier: 'Buy 10$: 100% Bonus',
-    testApiKey: 'Test API Key'
+    testApiKey: 'Test API Key',
+    placeholder: 'Search models...',
+    modelName: 'Model Name',
+    realModelName: 'Real Model Name',
+    inputPrice: 'Input Price ($/1M tokens)',
+    outputPrice: 'Output Price ($/1M tokens)',
+    showAll: 'Show all',
+    showLess: 'Show less'
   },
   vi: {
-    title: 'API Shared - Tất cả AI chỉ trong 1 API',
+    title: 'API Shared - All in one API',
     description: 'Truy cập các API AI mạnh mẽ với mức ưu đãi cực lớn. Được trang bị các models của OpenAI, Anthropic và nhiều hơn nữa.',
+    exploreAPILLM: 'Khám phá LLMAIVN',
     modelsSection: 'Giá token models AI',
+    joinUs: 'Tham gia cùng chúng tôi',
     providersTitle: 'Nhà Cung Cấp',
     modelCodeCopy: 'Sao Chép Mã Mô Hình',
     bonusPricing: 'Ưu đãi nạp tiền',
-    modelPricing: 'Giá Các Mô Hình AI',
+    modelPricing: 'Giá Các Models AI',
     footerText: 'Tham gia nhóm cộng đồng của chúng tôi để nhận $2 credit và 24h miễn phí dùng thử! 🎁',
     copyrightText: '2024 API Shared. All rights reserved.',
+    freeTrial: 'Dùng thử miễn phí',
+    joinAndTest: 'Tham gia và dùng thử API',
+    tryBeforeYouBuy: 'Dùng thử trước khi mua',
+    freeCreditText: 'Miễn phí',
     bonusCreditTiers: 'Ưu Đãi Nạp Tiền',
+    minimumDeposit: 'Mệnh giá nạp tối thiểu:',
+    bonusRate: 'Tỷ lệ ưu đãi:',
+    exampleInvestment: 'Ví dụ đầu tư:',
+    totalBalanceAfterBonus: 'Tổng số dư sau khi nhận ưu đãi',
+    contactUsToPurchase: 'Liên hệ với chúng tôi để mua',
+    validFor: 'Hạn sử dụng',
     tenPlusPurchase: 'Mua Trên $10',
     getExtraTen: 'Nhận thêm ưu đãi 100% khi nạp trên $10',
     spend: 'Chi Tiêu',
     bonus: 'Ưu Đãi',
     bonusPercentage: '% Ưu Đãi',
     tenDollarTier: 'Mua trên $10: Ưu Đãi 100%',
-    testApiKey: 'Kiểm Tra API Key'
+    testApiKey: 'Kiểm Tra API Key',
+    placeholder: 'Tìm kiếm model...',
+    modelName: 'Tên Model',
+    realModelName: 'Tên Model Thực',
+    inputPrice: 'Giá Input ($/1M tokens)',
+    outputPrice: 'Giá Output ($/1M tokens)',
+    showAll: 'Hiển thị tất cả',
+    showLess: 'Hiển thị ít hơn'
   }
 }
 
 export default function Home() {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>('jjAwWP1R8jo')
+  const [selectedVideo, setSelectedVideo] = useState<string | null>('EOdb9EPEEqQ')
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
   const [copyNotification, setCopyNotification] = useState({
     message: '',
@@ -468,7 +506,7 @@ export default function Home() {
             {/* Desktop Header */}
             <div className="hidden md:flex items-center justify-between">
               <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-                API Shared - All in one API
+                { t('title') }
               </h1>
               <div className="flex items-center space-x-3">
                 <button 
@@ -482,7 +520,7 @@ export default function Home() {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full transition-all shadow-md">
-                  Explore API LLM
+                  {t('exploreAPILLM')}
                 </a>
                 <button 
                   onClick={() => scrollToSection(bonusSectionRef)} 
@@ -497,7 +535,7 @@ export default function Home() {
                 <button 
                   onClick={() => scrollToSection(footerSectionRef)} 
                   className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-all shadow-md">
-                  Join Us
+                    {t('joinUs')}
                 </button>
                 <button 
                   onClick={toggleLanguage} 
@@ -663,9 +701,9 @@ export default function Home() {
                   <div className="space-y-4 max-h-[400px] overflow-y-auto custom-scrollbar">
                     {[
                       {
-                        id: 'jjAwWP1R8jo',
-                        title: 'Getting Started Guide',
-                        duration: '8:28',
+                        id: 'EOdb9EPEEqQ',
+                        title: 'Build local Cherry Studio',
+                        duration: '9:32',
                         thumbnail: '/path/to/thumbnail1.jpg'
                       },
                       {
@@ -673,6 +711,12 @@ export default function Home() {
                         title: 'Hướng dẫn thêm API vào IDE (Vscode, Cursor, Windsurf)',
                         duration: '6:59',
                         thumbnail: '/path/to/thumbnail2.jpg'
+                      },
+                      {
+                        id: 'jjAwWP1R8jo',
+                        title: 'Getting Started Guide',
+                        duration: '8:28',
+                        thumbnail: '/path/to/thumbnail1.jpg'
                       },
                       {
                         id: 'DqcIc2jtrC0',
@@ -729,15 +773,15 @@ export default function Home() {
                 </svg>
               </div>
               <div className="bg-green-500/10 px-4 py-2 rounded-full">
-                <span className="text-2xl font-bold text-green-400">Free Trial</span>
+                <span className="text-2xl font-bold text-green-400">{t('freeTrial')}</span>
               </div>
             </div>
 
             <h3 className="text-2xl font-bold text-white mb-4">
-              Join and Test API
+              {t('joinAndTest')}
             </h3>
             <p className="text-gray-300 mb-6 text-lg">
-              Try before you buy with our trial offer
+              {t('tryBeforeYouBuy')}
             </p>
 
             <div className="space-y-4 mb-8">
@@ -745,13 +789,13 @@ export default function Home() {
                 <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-200">Free <span className="text-green-400 font-semibold">$2</span> credit</span>
+                <span className="text-gray-200">{t('freeCreditText')} <span className="text-green-400 font-semibold">$2</span> credit</span>
               </div>
               <div className="flex items-center space-x-3">
                 <svg className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-200">Valid for <span className="text-green-400 font-semibold">24 hours</span></span>
+                <span className="text-gray-200">{t('validFor')} <span className="text-green-400 font-semibold">24 hours</span></span>
               </div>
             </div>
 
@@ -759,7 +803,7 @@ export default function Home() {
               onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
               className="w-full bg-green-500/20 hover:bg-green-500/30 text-green-400 font-bold py-3 px-6 rounded-xl transition-colors"
             >
-              Join Group to Start
+              {t('joinAndTest')}
             </button>
           </div>
 
@@ -774,15 +818,15 @@ export default function Home() {
                 </svg>
               </div>
               <div className="bg-blue-500/10 px-4 py-2 rounded-full">
-                <span className="text-2xl font-bold text-blue-400">$10+ Purchase</span>
+                <span className="text-2xl font-bold text-blue-400">{t('tenPlusPurchase')}</span>
               </div>
             </div>
 
             <h3 className="text-2xl font-bold text-white mb-4">
-              Standard Bonus Tier
+              {t('bonusCreditTiers')}
             </h3>
             <p className="text-gray-300 mb-6 text-lg">
-              Double your investment with our standard bonus tier
+              {t('getExtraTen')}
             </p>
 
             <div className="space-y-4 mb-8">
@@ -790,19 +834,19 @@ export default function Home() {
                 <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-200">Minimum deposit: <span className="text-blue-400 font-semibold">$10</span></span>
+                <span className="text-gray-200">{t('minimumDeposit')} <span className="text-blue-400 font-semibold">$10</span></span>
               </div>
               <div className="flex items-center space-x-3">
                 <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-200">Bonus rate: <span className="text-blue-400 font-semibold">100%</span></span>
+                <span className="text-gray-200">{t('bonusRate')} <span className="text-blue-400 font-semibold">100%</span></span>
               </div>
             </div>
 
             <div className="bg-white/5 rounded-2xl p-6">
               <div className="text-center">
-                <div className="text-sm text-gray-400 mb-2">Example Investment</div>
+                <div className="text-sm text-gray-400 mb-2">{t('exampleInvestment')}</div>
                 <div className="flex items-center justify-center space-x-4">
                   <div className="text-2xl font-bold text-white">$10</div>
                   <svg className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -810,7 +854,7 @@ export default function Home() {
                   </svg>
                   <div className="text-2xl font-bold text-blue-400">$20</div>
                 </div>
-                <div className="text-sm text-gray-400 mt-2">Total Balance After Bonus</div>
+                <div className="text-sm text-gray-400 mt-2">{t('totalBalanceAfterBonus')}</div>
               </div>
             </div>
 
@@ -818,7 +862,7 @@ export default function Home() {
               onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
               className="w-full bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 font-bold py-3 px-6 rounded-xl mt-8 transition-colors"
             >
-              Contact Us to Purchase
+              {t('contactUsToPurchase')}
             </button>
           </div>
         </section>
@@ -836,7 +880,7 @@ export default function Home() {
                 type="text"
                 value={filterText}
                 onChange={(e) => setFilterText(e.target.value)}
-                placeholder="Search models..."
+                placeholder={t('placeholder')}
                 className="w-full px-4 py-3 bg-white/5 dark:bg-gray-800 rounded-xl 
           border border-white/10 dark:border-gray-700
           text-white dark:text-gray-200 
@@ -886,16 +930,16 @@ export default function Home() {
                         <thead>
                           <tr className="bg-white/10 dark:bg-gray-900">
                             <th className="p-4 text-left text-white dark:text-gray-200 font-semibold text-sm md:text-base w-1/3">
-                              Model Name
+                              {t('modelName')}
                             </th>
                             <th className="p-4 text-left text-white dark:text-gray-200 font-semibold text-sm md:text-base">
-                              Real Model Name
+                              {t('realModelName')}
                             </th>
                             <th className="p-4 text-left text-white dark:text-gray-200 font-semibold text-sm md:text-base whitespace-nowrap">
-                              Input Price ($/1M tokens)
+                              {t('inputPrice')}
                             </th>
                             <th className="p-4 text-left text-white dark:text-gray-200 font-semibold text-sm md:text-base whitespace-nowrap">
-                              Output Price ($/1M tokens)
+                              {t('outputPrice')}
                             </th>
                           </tr>
                         </thead>
@@ -1011,7 +1055,7 @@ export default function Home() {
                           onClick={() => toggleCategory(category)}
                           className="text-blue-400 hover:text-blue-300 text-sm font-medium flex md:inline-flex items-center justify-center mx-auto px-4 py-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors"
                         >
-                          {isExpanded ? 'Show less' : `Show all ${filteredModels.length} models`}
+                          {isExpanded ? t('showLess') : t('showAll')}
                           <svg 
                             xmlns="http://www.w3.org/2000/svg" 
                             className={`h-4 w-4 ml-1 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
@@ -1033,35 +1077,61 @@ export default function Home() {
 
         {/* Footer */}
         <footer ref={footerSectionRef} className="text-center mt-12 md:mt-20 relative z-10 px-4 pb-20">
-          <p className="text-gray-300 dark:text-gray-500 mb-4 text-sm md:text-base">{t('footerText')}</p>
-          <div className="flex flex-wrap justify-center space-x-2 sm:space-x-6 md:space-x-8 mb-4">
-            <a
-              href="https://t.me/rapidapisupporter"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                text-white dark:text-gray-200 
-                hover:text-blue-400 dark:hover:text-blue-300 
-                transition-colors 
-                duration-300
-                flex items-center"
-            >
-              <FaTelegram className="w-6 h-6 md:w-8 md:h-8" />
-            </a>
-            <a
-              href="https://www.facebook.com/share/g/BGj3PsxCXXVquAmE/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                text-white dark:text-gray-200 
-                hover:text-blue-500 dark:hover:text-blue-400 
-                transition-colors 
-                duration-300
-                flex items-center"
-            >
-              <FaFacebook className="w-6 h-6 md:w-8 md:h-8" />
-            </a>
+          <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-2xl shadow-xl border border-blue-500/20 p-6 md:p-10 mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{t('footerText')}</h2>
+            
+            <div className="grid md:grid-cols-2 gap-6 mt-8">
+              {/* Telegram Group */}
+              <a
+                href="https://t.me/rapidapisupporter"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#27A7E5]/10 hover:bg-[#27A7E5]/20 border border-[#27A7E5]/30 rounded-xl p-5 transition-all duration-300 transform hover:scale-105 flex flex-col items-center group"
+              >
+                <div className="w-16 h-16 rounded-full bg-[#27A7E5]/20 flex items-center justify-center mb-4">
+                  <FaTelegram className="w-8 h-8 text-[#27A7E5]" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-1">Telegram</h3>
+                <p className="text-gray-300 text-sm mb-3">Join our Telegram community for instant support</p>
+                <span className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#27A7E5]/30 group-hover:bg-[#27A7E5]/50 rounded-full">
+                  Join Now
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </span>
+              </a>
+
+              {/* Facebook Group */}
+              <a
+                href="https://www.facebook.com/share/g/BGj3PsxCXXVquAmE/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 rounded-xl p-5 transition-all duration-300 transform hover:scale-105 flex flex-col items-center group"
+              >
+                <div className="w-16 h-16 rounded-full bg-[#1877F2]/20 flex items-center justify-center mb-4">
+                  <FaFacebook className="w-8 h-8 text-[#1877F2]" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-1">Facebook</h3>
+                <p className="text-gray-300 text-sm mb-3">Connect with our Facebook community</p>
+                <span className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#1877F2]/30 group-hover:bg-[#1877F2]/50 rounded-full">
+                  Join Now
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+
+            {/* Bonus Badge */}
+            <div className="mt-8 inline-block bg-gradient-to-r from-green-500 to-blue-500 p-1 rounded-full animate-pulse">
+              <div className="bg-[#0A192F] rounded-full px-4 py-2 flex items-center">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 font-bold">
+                  $2 Credit + 24h Free Trial
+                </span>
+              </div>
+            </div>
           </div>
+          
           <p className="text-gray-400 dark:text-gray-600 mt-2 md:mt-4 text-xs md:text-sm">{t('copyrightText')}</p>
         </footer>
       </main>
