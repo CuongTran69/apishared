@@ -300,12 +300,12 @@ export default function Home() {
       }
     ],
     "DeepSeek Models": [
-      {
-        apiName: 'deepseek:deepseek-v3-0324',
-        realName: 'Deepseek v3 03-2024',
-        inputPrice: { original: 0.5, discounted: 0.25 },
-        outputPrice: { original: 1.5, discounted: 0.75 }
-      },
+      // {
+      //   apiName: 'deepseek:deepseek-v3-0324',
+      //   realName: 'Deepseek v3 03-2024',
+      //   inputPrice: { original: 0.5, discounted: 0.25 },
+      //   outputPrice: { original: 1.5, discounted: 0.75 }
+      // },
       {
         apiName: 'deepseek:deepseek-r1-search',
         realName: 'Deepseek R1 search',
@@ -331,13 +331,14 @@ export default function Home() {
         realName: 'Grok v3 Deep search',
         inputPrice: { original: 1.50, discounted: 0.75 },
         outputPrice: { original: 7.50, discounted: 3.75 }
-      },
-      {
-        apiName: 'grok-3-reasoner',
-        realName: 'Grok v3 reasoner',
-        inputPrice: { original: 1.50, discounted: 0.75 },
-        outputPrice: { original: 7.50, discounted: 3.75 }
       }
+      // ,
+      // {
+      //   apiName: 'grok-3-reasoner',
+      //   realName: 'Grok v3 reasoner',
+      //   inputPrice: { original: 1.50, discounted: 0.75 },
+      //   outputPrice: { original: 7.50, discounted: 3.75 }
+      // }
     ],
     "Gemini Models": [
       {
