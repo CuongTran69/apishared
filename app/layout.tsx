@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Analytics } from './components/analytics'
 import { ErrorBoundary } from './components/error-boundary'
 
 const geistSans = Geist({
@@ -33,7 +32,6 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body className="bg-gray-900 text-white">
         <ErrorBoundary>
-          <Analytics />
           {children}
         </ErrorBoundary>
       </body>
