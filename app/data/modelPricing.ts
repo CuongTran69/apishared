@@ -208,6 +208,12 @@ const modelPricing = {
   ],
   "Gemini Models": [
     {
+      apiName: 'gemini:gemini-2.5-pro-preview-05-06',
+      realName: 'Gemini 2.5 Pro Preview 05-06',
+      inputPrice: { original: 2.5, discounted: 1.25 },
+      outputPrice: { original: 10.00, discounted: 5.00 }
+    },
+    {
       apiName: 'gemini:gemini-2.5-pro-exp-03-25',
       realName: 'Gemini 2.5 Pro',
       inputPrice: { original: 2.5, discounted: 1.25 },
@@ -219,12 +225,12 @@ const modelPricing = {
       inputPrice: { original: 2.5, discounted: 1.25 },
       outputPrice: { original: 10.00, discounted: 5.00 }
     },
-    {
-      apiName: 'gemini:gemini-2.0-pro-exp',
-      realName: 'Gemini 2.0',
-      inputPrice: { original: 2.5, discounted: 1.25 },
-      outputPrice: { original: 10.00, discounted: 5.00 }
-    },
+    // {
+    //   apiName: 'gemini:gemini-2.0-pro-exp',
+    //   realName: 'Gemini 2.0',
+    //   inputPrice: { original: 2.5, discounted: 1.25 },
+    //   outputPrice: { original: 10.00, discounted: 5.00 }
+    // },
     {
       apiName: 'gemini:gemini-2.0-pro-exp-search',
       realName: 'Gemini 2.0 Pro Search',
