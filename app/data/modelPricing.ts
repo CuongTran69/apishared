@@ -60,18 +60,18 @@ const modelPricing = {
       inputPrice: { original: 3.00, discounted: 1.5 },
       outputPrice: { original: 15.00, discounted: 7.5 }
     },
-    {
-      apiName: 'anthropic:3-opus',
-      realName: 'Claude-3-opus',
-      inputPrice: { original: 15.00, discounted: 7.5 },
-      outputPrice: { original: 75.00, discounted: 37.5 }
-    },
-    {
-      apiName: 'anthropic:3-opus-think-exp',
-      realName: 'Claude-3-opus-think-exp',
-      inputPrice: { original: 15.00, discounted: 7.5 },
-      outputPrice: { original: 75.00, discounted: 37.5 }
-    },
+    // {
+    //   apiName: 'anthropic:3-opus',
+    //   realName: 'Claude-3-opus',
+    //   inputPrice: { original: 15.00, discounted: 7.5 },
+    //   outputPrice: { original: 75.00, discounted: 37.5 }
+    // },
+    // {
+    //   apiName: 'anthropic:3-opus-think-exp',
+    //   realName: 'Claude-3-opus-think-exp',
+    //   inputPrice: { original: 15.00, discounted: 7.5 },
+    //   outputPrice: { original: 75.00, discounted: 37.5 }
+    // },
     {
       apiName: 'anthropic:3.5-sonnet',
       realName: 'claude-3.5-sonnet',
