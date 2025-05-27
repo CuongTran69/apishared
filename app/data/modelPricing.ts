@@ -19,6 +19,18 @@ export interface ModelPricing {
 const modelPricing = {
   "Anthropic Models": [
     {
+      apiName: 'anthropic:opus-4-20250514',
+      realName: 'Claude 4 Opus',
+      inputPrice: { original: 15.00, discounted: 7.50 },
+      outputPrice: { original: 75.00, discounted: 37.50 }
+    },
+    {
+      apiName: 'anthropic:sonnet-4-20250514',
+      realName: 'Claude 4 Sonnet',
+      inputPrice: { original: 3.00, discounted: 1.50 },
+      outputPrice: { original: 15.00, discounted: 7.50 }
+    },
+    {
       apiName: 'anthropic:3.7-sonnet-search',
       realName: 'Claude 3.7 Search',
       inputPrice: { original: 3.75, discounted: 1.88 },
