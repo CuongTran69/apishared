@@ -11,6 +11,7 @@ interface ModelPricingSectionProps {
   expandedCategories: string[];
   toggleCategory: (category: string) => void;
   handleCopyCode: (code: string) => void;
+  footerSectionRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 // Loading skeleton component
@@ -41,7 +42,8 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
   modelSectionRef,
   expandedCategories,
   toggleCategory,
-  handleCopyCode
+  handleCopyCode,
+  footerSectionRef
 }) => {
   const [filterText, setFilterText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -165,32 +167,7 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
     return () => document.removeEventListener('keydown', handleKeyPress);
   }, [showComparePanel, showModelPopup]);
 
-  const quickFilters = [
-    { name: 'Claude Models', filter: 'claude' },
-    { name: 'GPT Models', filter: 'gpt' },
-    { name: 'Free Tier', filter: 'free' }
-  ];
 
-  const applyQuickFilter = (filterType: string) => {
-    const allModels = Object.values(modelPricing).flat();
-    let filtered: ModelInfo[] = [];
-
-    switch (filterType) {
-      case 'claude':
-        setFilterText('claude');
-        break;
-      case 'gpt':
-        setFilterText('gpt');
-        break;
-      case 'free':
-        filtered = allModels.filter(model => model.inputPrice.discounted < 1);
-        if (filtered.length > 0) {
-          const modelNames = filtered.map(m => m.realName).join(', ');
-          alert(`Free tier models: ${modelNames}`);
-        }
-        break;
-    }
-  };
 
   return (
     <section ref={modelSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
@@ -227,6 +204,66 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
               <div className="text-xs text-gray-400">Avg Discount</div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* How to Get Started Section */}
+      <div className="max-w-4xl mx-auto mb-8 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl p-6 border border-blue-500/20">
+        <div className="text-center mb-6">
+          <h3 className="text-2xl font-bold text-white mb-2">🚀 How to Get Started</h3>
+          <p className="text-gray-300">Follow these simple steps to start using AI models at discounted prices</p>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Step 1 */}
+          <div className="text-center">
+            <div className="bg-blue-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
+              <span className="text-2xl font-bold text-blue-400">1</span>
+            </div>
+            <h4 className="font-semibold text-white mb-2">Choose Your Model</h4>
+            <p className="text-gray-400 text-sm">Browse and compare AI models. Click on model names for detailed pricing info.</p>
+          </div>
+          
+          {/* Step 2 */}
+          <div className="text-center">
+            <div className="bg-green-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/30">
+              <span className="text-2xl font-bold text-green-400">2</span>
+            </div>
+            <h4 className="font-semibold text-white mb-2">Contact Us</h4>
+            <p className="text-gray-400 text-sm">Join our Telegram/Discord community or contact us directly to get your API key.</p>
+          </div>
+          
+          {/* Step 3 */}
+          <div className="text-center">
+            <div className="bg-purple-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
+              <span className="text-2xl font-bold text-purple-400">3</span>
+            </div>
+            <h4 className="font-semibold text-white mb-2">Start Using</h4>
+            <p className="text-gray-400 text-sm">Use our API endpoint with your preferred programming language and start building!</p>
+          </div>
+        </div>
+        
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <button
+            onClick={() => window.open('https://api.llm.ai.vn', '_blank')}
+            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 shadow-lg"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            Visit API Portal
+          </button>
+          
+          <button
+            onClick={() => footerSectionRef?.current?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 shadow-lg"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-2.126-.325c-1.652-.5-3.274-1.326-4.874-2.492L0 20l2.126-6.287c-.652-1.6-1.478-3.222-1.978-4.874-.25-.677-.298-1.376-.298-2.039C0 3.372 3.582-.25 8-.25s8 3.622 8 12.25z" />
+            </svg>
+            Join Community
+          </button>
         </div>
       </div>
 
@@ -286,18 +323,7 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
            </button>
          </div>
 
-         {/* Quick Filters */}
-         <div className="flex flex-wrap gap-2 justify-center">
-           {quickFilters.map((filter) => (
-             <button
-               key={filter.filter}
-               onClick={() => applyQuickFilter(filter.filter)}
-               className="px-3 py-1 text-xs bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white rounded-full transition-all duration-200 border border-white/10 hover:border-white/20"
-             >
-               {filter.name}
-             </button>
-           ))}
-         </div>
+
 
          {/* Compare Panel */}
         {showComparePanel && savedModels.length > 0 && (
@@ -667,40 +693,82 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
                     <div className="text-xs text-gray-500">Output Discount</div>
                   </div>
                 </div>
-              </div>
+                             </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button
-                  onClick={() => handleCopyCode(selectedModel.apiName)}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105"
-                >
-                  <FaCopy className="w-4 h-4" />
-                  Copy API Name
-                </button>
-                
-                <button
-                  onClick={() => handleCopyCode(selectedModel.realName)}
-                  className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105"
-                >
-                  <FaCopy className="w-4 h-4" />
-                  Copy Model Name
-                </button>
+               {/* Usage Example */}
+               <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 mb-6">
+                 <div className="flex items-center gap-2 mb-3">
+                   <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                   </svg>
+                   <h4 className="font-semibold text-gray-300">Usage Example</h4>
+                 </div>
+                 <div className="bg-black/30 rounded-lg p-3 border border-gray-600">
+                   <code className="text-sm text-green-400 block whitespace-pre-wrap">
+{`curl -X POST "https://api.llm.ai.vn/v1/chat/completions" \\
+  -H "Authorization: Bearer YOUR_API_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "model": "${selectedModel.apiName}",
+    "messages": [
+      {"role": "user", "content": "Hello!"}
+    ]
+  }'`}
+                   </code>
+                 </div>
+                 <p className="text-xs text-gray-500 mt-2">
+                   💡 Replace YOUR_API_KEY with your actual API key from our portal
+                 </p>
+               </div>
 
-                <button
-                  onClick={() => toggleSaveModel(selectedModel.apiName)}
-                  className={`px-4 py-3 rounded-xl font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:scale-105 ${
-                    savedModels.includes(selectedModel.apiName)
-                      ? 'bg-yellow-600 hover:bg-yellow-700 text-white'
-                      : 'bg-yellow-600/20 hover:bg-yellow-600/30 text-yellow-400 border border-yellow-500/30'
-                  }`}
-                >
-                  <svg className="w-4 h-4" fill={savedModels.includes(selectedModel.apiName) ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                  {savedModels.includes(selectedModel.apiName) ? 'Saved' : 'Save'}
-                </button>
-              </div>
+                              {/* Primary CTA */}
+               <div className="mb-4">
+                 <button
+                   onClick={() => {
+                     window.open('https://api.llm.ai.vn', '_blank');
+                     setShowModelPopup(false);
+                   }}
+                   className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-3 hover:scale-105 shadow-lg"
+                 >
+                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-3a1 1 0 011-1h2.586l6.243-6.243C12.968 9.313 13.83 9 14.5 9z" />
+                   </svg>
+                   Get API Key & Start Using {selectedModel.realName}
+                 </button>
+               </div>
+
+               {/* Secondary Actions */}
+               <div className="grid grid-cols-3 gap-2">
+                 <button
+                   onClick={() => handleCopyCode(selectedModel.apiName)}
+                   className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 font-medium py-2 px-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm border border-blue-500/30"
+                 >
+                   <FaCopy className="w-3 h-3" />
+                   Copy API
+                 </button>
+                 
+                 <button
+                   onClick={() => handleCopyCode(selectedModel.realName)}
+                   className="bg-gray-600/20 hover:bg-gray-600/30 text-gray-400 font-medium py-2 px-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm border border-gray-500/30"
+                 >
+                   <FaCopy className="w-3 h-3" />
+                   Copy Name
+                 </button>
+
+                 <button
+                   onClick={() => toggleSaveModel(selectedModel.apiName)}
+                   className={`font-medium py-2 px-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm ${
+                     savedModels.includes(selectedModel.apiName)
+                       ? 'bg-yellow-600/30 text-yellow-400 border border-yellow-500/30'
+                       : 'bg-yellow-600/20 hover:bg-yellow-600/30 text-yellow-400 border border-yellow-500/30'
+                   }`}
+                 >
+                   <svg className="w-3 h-3" fill={savedModels.includes(selectedModel.apiName) ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                   </svg>
+                   {savedModels.includes(selectedModel.apiName) ? 'Saved' : 'Save'}
+                 </button>
+               </div>
             </div>
           </div>
         </div>

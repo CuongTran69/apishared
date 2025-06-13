@@ -179,6 +179,7 @@ export default function Home() {
           expandedCategories={expandedCategories}
           toggleCategory={toggleCategory}
           handleCopyCode={handleCopyCode}
+          footerSectionRef={footerSectionRef}
         />
 
         {/* Footer */}
@@ -191,6 +192,17 @@ export default function Home() {
       {/* Floating Action Button - Mobile Only */}
       <div className="fixed bottom-6 right-6 z-50 md:hidden">
         <div className="flex flex-col gap-3">
+          {/* Contact/Join Button */}
+          <button
+            onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group animate-pulse"
+            title="Get API Key"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-3a1 1 0 011-1h2.586l6.243-6.243C12.968 9.313 13.83 9 14.5 9z" />
+            </svg>
+          </button>
+
           {/* API Tester Button */}
           <button
             onClick={() => setIsApiTesterOpen(true)}
@@ -213,6 +225,20 @@ export default function Home() {
             </svg>
           </button>
         </div>
+      </div>
+
+      {/* Desktop Floating Contact Button */}
+      <div className="fixed bottom-6 left-6 z-50 hidden md:block">
+        <button
+          onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 hover:scale-105 animate-pulse"
+          title="Get API Key Now"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-3a1 1 0 011-1h2.586l6.243-6.243C12.968 9.313 13.83 9 14.5 9z" />
+          </svg>
+          Get API Key
+        </button>
       </div>
 
       {/* API Tester Modal */}

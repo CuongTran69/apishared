@@ -12,7 +12,11 @@ const Footer: React.FC<FooterProps> = ({ t, footerSectionRef }) => {
   return (
     <footer ref={footerSectionRef} className="text-center mt-12 md:mt-20 relative z-10 px-4 pb-20">
       <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-2xl shadow-xl border border-blue-500/20 p-6 md:p-10 mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{t('footerText')}</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{t('footerText')}</h2>
+        <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+          Get your API key instantly and start using powerful AI models at 50% discounted prices. 
+          Our community is ready to help you integrate and optimize your AI applications.
+        </p>
         
         <div className="grid md:grid-cols-2 gap-6 mt-8">
           {/* Telegram Group */}
@@ -25,8 +29,12 @@ const Footer: React.FC<FooterProps> = ({ t, footerSectionRef }) => {
             <div className="w-16 h-16 rounded-full bg-[#27A7E5]/20 flex items-center justify-center mb-4">
               <FaTelegram className="w-8 h-8 text-[#27A7E5]" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-1">Telegram</h3>
-            <p className="text-gray-300 text-sm mb-3">Join our Telegram community for instant support</p>
+            <h3 className="text-xl font-bold text-white mb-1">Telegram Support</h3>
+            <p className="text-gray-300 text-sm mb-3">
+              🚀 Get API keys instantly<br/>
+              💬 24/7 community support<br/>
+              🎁 Free $2 credit for new members
+            </p>
             <span className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#27A7E5]/30 group-hover:bg-[#27A7E5]/50 rounded-full">
               Join Now
               <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -45,8 +53,12 @@ const Footer: React.FC<FooterProps> = ({ t, footerSectionRef }) => {
             <div className="w-16 h-16 rounded-full bg-[#1877F2]/20 flex items-center justify-center mb-4">
               <FaFacebook className="w-8 h-8 text-[#1877F2]" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-1">Facebook</h3>
-            <p className="text-gray-300 text-sm mb-3">Connect with our Facebook community</p>
+            <h3 className="text-xl font-bold text-white mb-1">Facebook Community</h3>
+            <p className="text-gray-300 text-sm mb-3">
+              📚 API tutorials & guides<br/>
+              🤝 Developer networking<br/>
+              📈 Success stories & tips
+            </p>
             <span className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#1877F2]/30 group-hover:bg-[#1877F2]/50 rounded-full">
               Join Now
               <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
