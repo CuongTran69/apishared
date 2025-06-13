@@ -106,9 +106,16 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
                         >
                           <td className="p-4">
                             <div className="flex items-center gap-2 group">
-                              <code className="text-blue-400 dark:text-blue-200 text-sm font-mono break-all">
-                                {model.apiName}
-                              </code>
+                              <div className="flex items-center gap-2">
+                                <code className="text-blue-400 dark:text-blue-200 text-sm font-mono break-all">
+                                  {model.apiName}
+                                </code>
+                                {model.isNew && (
+                                  <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse">
+                                    {t('newBadge')}
+                                  </span>
+                                )}
+                              </div>
                               <button
                                 onClick={() => handleCopyCode(model.apiName)}
                                 className="opacity-0 group-hover:opacity-100 transition-opacity hover:scale-110"
@@ -156,13 +163,20 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
                         className="bg-[#0F2442] rounded-lg p-4 border border-white/5 hover:border-white/10 transition-colors"
                       >
                         <div className="mb-3">
-                          <div className="flex items-center gap-2 mb-1">
-                            <code className="text-blue-400 dark:text-blue-200 text-sm font-mono break-all line-clamp-1">
-                              {model.apiName}
-                            </code>
+                          <div className="flex items-start gap-2 mb-1">
+                            <div className="flex-1 min-w-0">
+                              <code className="text-blue-400 dark:text-blue-200 text-sm font-mono break-all line-clamp-1">
+                                {model.apiName}
+                              </code>
+                                                              {model.isNew && (
+                                  <span className="inline-flex items-center px-2 py-1 mt-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse">
+                                    {t('newBadge')}
+                                  </span>
+                                )}
+                            </div>
                             <button
                               onClick={() => handleCopyCode(model.apiName)}
-                              className="flex-shrink-0"
+                              className="flex-shrink-0 mt-1"
                               title="Copy API Name"
                             >
                               <FaCopy className="text-blue-400 dark:text-blue-200 hover:text-blue-300 w-4 h-4" />

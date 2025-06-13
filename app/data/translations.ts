@@ -43,7 +43,8 @@ const translations: Translations = {
     inputPrice: 'Input Price ($/1M tokens)',
     outputPrice: 'Output Price ($/1M tokens)',
     showAll: 'Show all',
-    showLess: 'Show less'
+    showLess: 'Show less',
+    newBadge: 'NEW'
   },
   vi: {
     title: 'API Shared - All in one API',
@@ -81,7 +82,8 @@ const translations: Translations = {
     inputPrice: 'Giá Input ($/1M tokens)',
     outputPrice: 'Giá Output ($/1M tokens)',
     showAll: 'Hiển thị tất cả',
-    showLess: 'Hiển thị ít hơn'
+    showLess: 'Hiển thị ít hơn',
+    newBadge: 'MỚI'
   }
 };
 

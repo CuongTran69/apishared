@@ -437,7 +437,8 @@ const translations = {
         inputPrice: 'Input Price ($/1M tokens)',
         outputPrice: 'Output Price ($/1M tokens)',
         showAll: 'Show all',
-        showLess: 'Show less'
+        showLess: 'Show less',
+        newBadge: 'NEW'
     },
     vi: {
         title: 'API Shared - All in one API',
@@ -475,7 +476,8 @@ const translations = {
         inputPrice: 'Giá Input ($/1M tokens)',
         outputPrice: 'Giá Output ($/1M tokens)',
         showAll: 'Hiển thị tất cả',
-        showLess: 'Hiển thị ít hơn'
+        showLess: 'Hiển thị ít hơn',
+        newBadge: 'MỚI'
     }
 };
 const __TURBOPACK__default__export__ = translations;
@@ -2029,167 +2031,446 @@ __turbopack_esm__({
     "default": (()=>__TURBOPACK__default__export__)
 });
 const modelPricing = {
-    "OpenAI": [
+    "Anthropic Models": [
         {
-            apiName: "gpt-4o",
-            realName: "GPT-4o",
+            apiName: 'anthropic:opus-4-20250514',
+            realName: 'Claude 4 Opus',
             inputPrice: {
-                original: 10.0,
-                discounted: 5.0
+                original: 15.00,
+                discounted: 7.50
             },
             outputPrice: {
-                original: 30.0,
-                discounted: 15.0
+                original: 75.00,
+                discounted: 37.50
             }
         },
         {
-            apiName: "gpt-4-turbo",
-            realName: "GPT-4 Turbo",
+            apiName: 'anthropic:sonnet-4-20250514',
+            realName: 'Claude 4 Sonnet',
             inputPrice: {
-                original: 10.0,
-                discounted: 5.0
+                original: 3.00,
+                discounted: 1.50
             },
             outputPrice: {
-                original: 30.0,
-                discounted: 15.0
+                original: 15.00,
+                discounted: 7.50
             }
         },
         {
-            apiName: "gpt-4-vision",
-            realName: "GPT-4 Vision",
+            apiName: 'anthropic:3.7-sonnet-search',
+            realName: 'Claude 3.7 Search',
             inputPrice: {
-                original: 10.0,
-                discounted: 5.0
+                original: 3.75,
+                discounted: 1.88
             },
             outputPrice: {
-                original: 30.0,
-                discounted: 15.0
+                original: 18.75,
+                discounted: 9.38
             }
         },
         {
-            apiName: "gpt-4",
-            realName: "GPT-4",
+            apiName: 'anthropic:3.7-sonnet-thinking-search',
+            realName: 'Claude 3.7 Thinking Search',
             inputPrice: {
-                original: 30.0,
-                discounted: 15.0
+                original: 5.00,
+                discounted: 2.50
             },
             outputPrice: {
-                original: 60.0,
-                discounted: 30.0
+                original: 25.00,
+                discounted: 12.5
             }
         },
         {
-            apiName: "gpt-3.5-turbo",
-            realName: "GPT-3.5 Turbo",
+            apiName: 'anthropic:3.7-sonnet',
+            realName: 'Claude 3.7 Sonnet',
             inputPrice: {
-                original: 1.0,
-                discounted: 0.5
+                original: 3.75,
+                discounted: 1.88
             },
             outputPrice: {
-                original: 2.0,
-                discounted: 1.0
-            }
-        }
-    ],
-    "Anthropic": [
-        {
-            apiName: "claude-3-opus",
-            realName: "Claude 3 Opus",
-            inputPrice: {
-                original: 15.0,
-                discounted: 7.5
-            },
-            outputPrice: {
-                original: 75.0,
-                discounted: 37.5
+                original: 18.75,
+                discounted: 9.38
             }
         },
         {
-            apiName: "claude-3-sonnet",
-            realName: "Claude 3 Sonnet",
+            apiName: 'anthropic:3.7-sonnet-thinking',
+            realName: 'Claude 3.7 Thinking Mode Extended',
             inputPrice: {
-                original: 3.0,
+                original: 5.00,
+                discounted: 2.50
+            },
+            outputPrice: {
+                original: 25.00,
+                discounted: 12.5
+            }
+        },
+        {
+            apiName: 'anthropic:3.5-sonnet-search',
+            realName: 'claude-3.5-sonnet-20241022',
+            inputPrice: {
+                original: 3.00,
                 discounted: 1.5
             },
             outputPrice: {
-                original: 15.0,
+                original: 15.00,
                 discounted: 7.5
             }
         },
         {
-            apiName: "claude-3-haiku",
-            realName: "Claude 3 Haiku",
+            apiName: 'anthropic:3.5-sonnet-20241022',
+            realName: 'claude-3.5-sonnet-20241022',
             inputPrice: {
-                original: 0.25,
-                discounted: 0.125
+                original: 3.00,
+                discounted: 1.5
             },
             outputPrice: {
-                original: 1.25,
-                discounted: 0.625
+                original: 15.00,
+                discounted: 7.5
+            }
+        },
+        {
+            apiName: 'anthropic:3.5-sonnet-20241022-think-exp',
+            realName: 'claude-3.5-sonnet-20241022-think-exp',
+            inputPrice: {
+                original: 3.00,
+                discounted: 1.5
+            },
+            outputPrice: {
+                original: 15.00,
+                discounted: 7.5
+            }
+        },
+        // {
+        //   apiName: 'anthropic:3-opus',
+        //   realName: 'Claude-3-opus',
+        //   inputPrice: { original: 15.00, discounted: 7.5 },
+        //   outputPrice: { original: 75.00, discounted: 37.5 }
+        // },
+        // {
+        //   apiName: 'anthropic:3-opus-think-exp',
+        //   realName: 'Claude-3-opus-think-exp',
+        //   inputPrice: { original: 15.00, discounted: 7.5 },
+        //   outputPrice: { original: 75.00, discounted: 37.5 }
+        // },
+        {
+            apiName: 'anthropic:3.5-sonnet',
+            realName: 'claude-3.5-sonnet',
+            inputPrice: {
+                original: 3.00,
+                discounted: 1.5
+            },
+            outputPrice: {
+                original: 15.00,
+                discounted: 7.5
+            }
+        },
+        {
+            apiName: 'anthropic:3.5-sonnet-think-exp',
+            realName: 'claude-3.5-sonnet-think-exp',
+            inputPrice: {
+                original: 3.00,
+                discounted: 1.5
+            },
+            outputPrice: {
+                original: 15.00,
+                discounted: 7.5
+            }
+        },
+        {
+            apiName: 'anthropic:3.5-haiku',
+            realName: 'claude-3.5-haiku',
+            inputPrice: {
+                original: 1.00,
+                discounted: 0.5
+            },
+            outputPrice: {
+                original: 5.00,
+                discounted: 2.5
             }
         }
     ],
-    "Google": [
+    "OpenAI Models": [
         {
-            apiName: "gemini-1.5-pro",
-            realName: "Gemini 1.5 Pro",
+            apiName: 'openai:o4-mini',
+            realName: 'OpenAI o4 mini',
             inputPrice: {
-                original: 7.0,
-                discounted: 3.5
+                original: 1.10,
+                discounted: 0.55
             },
             outputPrice: {
-                original: 21.0,
-                discounted: 10.5
+                original: 4.40,
+                discounted: 2.20
             }
         },
         {
-            apiName: "gemini-1.0-pro",
-            realName: "Gemini 1.0 Pro",
+            apiName: 'openai:gpt-4.1',
+            realName: 'OpenAI 4.1',
             inputPrice: {
-                original: 3.5,
-                discounted: 1.75
+                original: 2.00,
+                discounted: 1.00
             },
             outputPrice: {
-                original: 10.5,
-                discounted: 5.25
+                original: 8.00,
+                discounted: 8.00
+            }
+        },
+        {
+            apiName: 'openai:o1',
+            realName: 'OpenAI o1',
+            inputPrice: {
+                original: 15.00,
+                discounted: 7.50
+            },
+            outputPrice: {
+                original: 60.00,
+                discounted: 30.00
+            }
+        },
+        {
+            apiName: 'openai:o3-mini',
+            realName: 'OpenAI o3-mini',
+            inputPrice: {
+                original: 2.20,
+                discounted: 1.10
+            },
+            outputPrice: {
+                original: 8.80,
+                discounted: 4.40
+            }
+        },
+        {
+            apiName: 'openai:o3-mini-think-exp',
+            realName: 'OpenAI o3-mini',
+            inputPrice: {
+                original: 2.20,
+                discounted: 1.10
+            },
+            outputPrice: {
+                original: 8.80,
+                discounted: 4.40
+            }
+        },
+        {
+            apiName: 'openai:gpt-4o',
+            realName: 'OpenAI 4o',
+            inputPrice: {
+                original: 2.50,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            }
+        },
+        {
+            apiName: 'openai:gpt-4o-search',
+            realName: 'OpenAI 4o search',
+            inputPrice: {
+                original: 2.50,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            }
+        },
+        {
+            apiName: 'openai:gpt-4o-mini',
+            realName: 'OpenAI 4o-mini',
+            inputPrice: {
+                original: 0.15,
+                discounted: 0.075
+            },
+            outputPrice: {
+                original: 0.60,
+                discounted: 0.3
+            }
+        },
+        {
+            apiName: 'openai:gpt-4o-2024-08-06',
+            realName: 'OpenAI 4o-2024-08-06',
+            inputPrice: {
+                original: 2.50,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            }
+        },
+        {
+            apiName: 'openai:o1-mini',
+            realName: 'OpenAI o1-mini',
+            inputPrice: {
+                original: 3.00,
+                discounted: 1.5
+            },
+            outputPrice: {
+                original: 12.00,
+                discounted: 6.00
+            }
+        },
+        {
+            apiName: 'openai:gpt-4',
+            realName: 'OpenAI gpt-4',
+            inputPrice: {
+                original: 30.00,
+                discounted: 15.00
+            },
+            outputPrice: {
+                original: 60.00,
+                discounted: 30.00
+            }
+        },
+        {
+            apiName: 'openai:gpt-4-turbo-2024-04-09',
+            realName: 'OpenAI gpt-4-turbo-2024-04-09',
+            inputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            },
+            outputPrice: {
+                original: 30.00,
+                discounted: 15.00
             }
         }
     ],
-    "Mistral AI": [
+    "DeepSeek Models": [
+        // {
+        //   apiName: 'deepseek:deepseek-v3-0324',
+        //   realName: 'Deepseek v3 03-2024',
+        //   inputPrice: { original: 0.5, discounted: 0.25 },
+        //   outputPrice: { original: 1.5, discounted: 0.75 }
+        // },
         {
-            apiName: "mistral-large",
-            realName: "Mistral Large",
+            apiName: 'deepseek:deepseek-r1-search',
+            realName: 'Deepseek R1 search',
             inputPrice: {
-                original: 8.0,
-                discounted: 4.0
+                original: 0.80,
+                discounted: 0.40
             },
             outputPrice: {
-                original: 24.0,
-                discounted: 12.0
+                original: 2.40,
+                discounted: 1.20
             }
         },
         {
-            apiName: "mistral-medium",
-            realName: "Mistral Medium",
+            apiName: 'deepseek:deepseek-r1',
+            realName: 'Deepseek Reasoner',
             inputPrice: {
-                original: 2.7,
-                discounted: 1.35
+                original: 0.80,
+                discounted: 0.40
             },
             outputPrice: {
-                original: 8.1,
-                discounted: 4.05
+                original: 2.40,
+                discounted: 1.20
+            }
+        }
+    ],
+    "Grok Models": [
+        {
+            apiName: 'grok:grok-3',
+            realName: 'Grok v3',
+            inputPrice: {
+                original: 3.00,
+                discounted: 1.50
+            },
+            outputPrice: {
+                original: 15.00,
+                discounted: 7.50
             }
         },
         {
-            apiName: "mistral-small",
-            realName: "Mistral Small",
+            apiName: 'grok-3-deepsearch',
+            realName: 'Grok v3 Deep search',
             inputPrice: {
-                original: 2.0,
-                discounted: 1.0
+                original: 1.50,
+                discounted: 0.75
             },
             outputPrice: {
-                original: 6.0,
-                discounted: 3.0
+                original: 7.50,
+                discounted: 3.75
+            }
+        }
+    ],
+    "Gemini Models": [
+        {
+            apiName: 'gemini:gemini-2.5-pro-preview-06-05',
+            realName: 'Gemini 2.5 Pro Preview 06-05',
+            inputPrice: {
+                original: 2.5,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            },
+            isNew: true
+        },
+        {
+            apiName: 'gemini:gemini-2.5-pro-preview-05-06',
+            realName: 'Gemini 2.5 Pro Preview 05-06',
+            inputPrice: {
+                original: 2.5,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            }
+        },
+        {
+            apiName: 'gemini:gemini-2.5-pro-exp-03-25',
+            realName: 'Gemini 2.5 Pro',
+            inputPrice: {
+                original: 2.5,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            }
+        },
+        {
+            apiName: 'gemini:gemini-2.5-pro-exp-03-25-search',
+            realName: 'Gemini 2.5 Pro Search',
+            inputPrice: {
+                original: 2.5,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            }
+        },
+        // {
+        //   apiName: 'gemini:gemini-2.0-pro-exp',
+        //   realName: 'Gemini 2.0',
+        //   inputPrice: { original: 2.5, discounted: 1.25 },
+        //   outputPrice: { original: 10.00, discounted: 5.00 }
+        // },
+        {
+            apiName: 'gemini:gemini-2.0-pro-exp-search',
+            realName: 'Gemini 2.0 Pro Search',
+            inputPrice: {
+                original: 2.5,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
+            }
+        },
+        {
+            apiName: 'gemini:gemini-2.0-pro-exp-think-exp',
+            realName: 'Gemini 2.0 Deep Think',
+            inputPrice: {
+                original: 2.5,
+                discounted: 1.25
+            },
+            outputPrice: {
+                original: 10.00,
+                discounted: 5.00
             }
         }
     ]
@@ -2401,10 +2682,27 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                     className: "flex items-center gap-2 group",
                                                                     children: [
-                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                                                                            className: "text-blue-400 dark:text-blue-200 text-sm font-mono break-all",
-                                                                            children: model.apiName
-                                                                        }, void 0, false, {
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            className: "flex items-center gap-2",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                                                                    className: "text-blue-400 dark:text-blue-200 text-sm font-mono break-all",
+                                                                                    children: model.apiName
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                    lineNumber: 110,
+                                                                                    columnNumber: 33
+                                                                                }, this),
+                                                                                model.isNew && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse",
+                                                                                    children: t('newBadge')
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                    lineNumber: 114,
+                                                                                    columnNumber: 35
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
                                                                             lineNumber: 109,
                                                                             columnNumber: 31
@@ -2417,12 +2715,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 className: "text-blue-400 dark:text-blue-200 hover:text-blue-300"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 117,
+                                                                                lineNumber: 124,
                                                                                 columnNumber: 33
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 112,
+                                                                            lineNumber: 119,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
@@ -2441,7 +2739,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                 children: model.realName
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 121,
+                                                                lineNumber: 128,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2457,7 +2755,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 126,
+                                                                            lineNumber: 133,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2468,18 +2766,18 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 129,
+                                                                            lineNumber: 136,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                    lineNumber: 125,
+                                                                    lineNumber: 132,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 124,
+                                                                lineNumber: 131,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -2495,7 +2793,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 136,
+                                                                            lineNumber: 143,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2506,18 +2804,18 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 139,
+                                                                            lineNumber: 146,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                    lineNumber: 135,
+                                                                    lineNumber: 142,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 134,
+                                                                lineNumber: 141,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
@@ -2553,36 +2851,53 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         className: "mb-3",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-center gap-2 mb-1",
+                                                                className: "flex items-start gap-2 mb-1",
                                                                 children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
-                                                                        className: "text-blue-400 dark:text-blue-200 text-sm font-mono break-all line-clamp-1",
-                                                                        children: model.apiName
-                                                                    }, void 0, false, {
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex-1 min-w-0",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                                                                className: "text-blue-400 dark:text-blue-200 text-sm font-mono break-all line-clamp-1",
+                                                                                children: model.apiName
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                lineNumber: 168,
+                                                                                columnNumber: 31
+                                                                            }, this),
+                                                                            model.isNew && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "inline-flex items-center px-2 py-1 mt-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse",
+                                                                                children: t('newBadge')
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                lineNumber: 172,
+                                                                                columnNumber: 35
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 160,
+                                                                        lineNumber: 167,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                                         onClick: ()=>handleCopyCode(model.apiName),
-                                                                        className: "flex-shrink-0",
+                                                                        className: "flex-shrink-0 mt-1",
                                                                         title: "Copy API Name",
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$react$2d$icons$40$5$2e$4$2e$0_react$40$19$2e$0$2e$0$2f$node_modules$2f$react$2d$icons$2f$fa$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["FaCopy"], {
                                                                             className: "text-blue-400 dark:text-blue-200 hover:text-blue-300 w-4 h-4"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 168,
+                                                                            lineNumber: 182,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 163,
+                                                                        lineNumber: 177,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 159,
+                                                                lineNumber: 166,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2590,13 +2905,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                 children: model.realName
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 171,
+                                                                lineNumber: 185,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 158,
+                                                        lineNumber: 165,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2610,7 +2925,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                         children: t('inputPrice')
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 178,
+                                                                        lineNumber: 192,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2624,7 +2939,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 180,
+                                                                                lineNumber: 194,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2635,19 +2950,19 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 183,
+                                                                                lineNumber: 197,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 179,
+                                                                        lineNumber: 193,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 177,
+                                                                lineNumber: 191,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2658,7 +2973,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                         children: t('outputPrice')
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 190,
+                                                                        lineNumber: 204,
                                                                         columnNumber: 29
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2672,7 +2987,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 192,
+                                                                                lineNumber: 206,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2683,41 +2998,41 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 195,
+                                                                                lineNumber: 209,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 191,
+                                                                        lineNumber: 205,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 189,
+                                                                lineNumber: 203,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 176,
+                                                        lineNumber: 190,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, index, true, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 154,
+                                                lineNumber: 161,
                                                 columnNumber: 23
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 152,
+                                        lineNumber: 159,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 151,
+                                    lineNumber: 158,
                                     columnNumber: 17
                                 }, this),
                                 hasMoreModels && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2740,23 +3055,23 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                     d: "M19 9l-7 7-7-7"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 221,
+                                                    lineNumber: 235,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 214,
+                                                lineNumber: 228,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 209,
+                                        lineNumber: 223,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 208,
+                                    lineNumber: 222,
                                     columnNumber: 19
                                 }, this)
                             ]

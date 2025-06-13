@@ -10,6 +10,7 @@ export interface ModelInfo {
   realName: string;
   inputPrice: PriceInfo;
   outputPrice: PriceInfo;
+  isNew?: boolean;
 }
 
 export interface ModelPricing {
@@ -223,7 +224,8 @@ const modelPricing = {
       apiName: 'gemini:gemini-2.5-pro-preview-06-05',
       realName: 'Gemini 2.5 Pro Preview 06-05',
       inputPrice: { original: 2.5, discounted: 1.25 },
-      outputPrice: { original: 10.00, discounted: 5.00 }
+      outputPrice: { original: 10.00, discounted: 5.00 },
+      isNew: true
     },
     {
       apiName: 'gemini:gemini-2.5-pro-preview-05-06',
