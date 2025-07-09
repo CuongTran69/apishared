@@ -210,6 +210,13 @@ const modelPricing = {
       realName: 'Grok v3 Deep search',
       inputPrice: { original: 1.50, discounted: 0.75 },
       outputPrice: { original: 7.50, discounted: 3.75 }
+    },
+    {
+      apiName: 'grok:grok-3-mini',
+      realName: 'Grok v3 Mini',
+      inputPrice: { original: 0.60, discounted: 0.30 },
+      outputPrice: { original: 4.00, discounted: 2.00 },
+      isNew: true
     }
     // ,
     // {

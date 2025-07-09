@@ -207,6 +207,136 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
         </div>
       </div>
 
+      {/* New Models Announcement Section */}
+      {(() => {
+        const newModels = Object.entries(modelPricing).reduce((acc, [category, models]) => {
+          const newInCategory = (models as ModelInfo[]).filter(model => model.isNew === true);
+          if (newInCategory.length > 0) {
+            acc.push(...newInCategory.map(model => ({ ...model, category })));
+          }
+          return acc;
+        }, [] as (ModelInfo & { category: string })[]);
+
+        if (newModels.length === 0) return null;
+
+        return (
+          <div className="max-w-6xl mx-auto mb-8">
+            <div className="bg-gradient-to-r from-red-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-6 border border-red-500/20 relative overflow-hidden">
+              {/* Animated background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 via-pink-500/5 to-purple-500/5 animate-pulse"></div>
+              
+              <div className="relative z-10">
+                <div className="text-center mb-6">
+                  <div className="flex items-center justify-center gap-3 mb-3">
+                    <div className="animate-bounce">🎉</div>
+                    <h3 className="text-2xl font-bold text-white">New Models Available!</h3>
+                    <div className="animate-bounce">✨</div>
+                  </div>
+                  <p className="text-gray-300">Check out our latest AI models with competitive pricing</p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {newModels.map((model, index) => (
+                    <div 
+                      key={index}
+                      className="bg-white/5 rounded-xl p-4 border border-white/10 hover:border-red-500/30 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse">
+                              NEW
+                            </span>
+                            <span className="text-xs text-gray-400 bg-gray-700/50 px-2 py-1 rounded">
+                              {model.category}
+                            </span>
+                          </div>
+                          <h4 className="font-semibold text-white text-sm mb-1 line-clamp-1">
+                            {model.realName}
+                          </h4>
+                          <code className="text-blue-400 text-xs font-mono break-all line-clamp-1">
+                            {model.apiName}
+                          </code>
+                        </div>
+                        <button
+                          onClick={() => showModelDetails(model)}
+                          className="flex-shrink-0 ml-2 p-2 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 transition-colors opacity-0 group-hover:opacity-100"
+                          title="View details"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </button>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-green-500/10 rounded-lg p-3 border border-green-500/20">
+                          <div className="text-xs text-green-400 mb-1">Input</div>
+                          <div className="flex flex-col">
+                            <span className="text-gray-400 line-through text-xs">
+                              ${model.inputPrice.original.toFixed(2)}
+                            </span>
+                            <span className="text-green-400 font-bold text-sm">
+                              ${model.inputPrice.discounted.toFixed(2)}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-blue-500/10 rounded-lg p-3 border border-blue-500/20">
+                          <div className="text-xs text-blue-400 mb-1">Output</div>
+                          <div className="flex flex-col">
+                            <span className="text-gray-400 line-through text-xs">
+                              ${model.outputPrice.original.toFixed(2)}
+                            </span>
+                            <span className="text-blue-400 font-bold text-sm">
+                              ${model.outputPrice.discounted.toFixed(2)}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-3 pt-3 border-t border-white/10">
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => toggleSaveModel(model.apiName)}
+                            className={`flex-1 py-2 px-3 rounded-lg text-xs font-medium transition-all duration-200 ${
+                              savedModels.includes(model.apiName)
+                                ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
+                                : 'bg-gray-600/20 hover:bg-yellow-500/20 text-gray-400 hover:text-yellow-400 border border-gray-500/30 hover:border-yellow-500/30'
+                            }`}
+                          >
+                            {savedModels.includes(model.apiName) ? '❤️ Saved' : '🤍 Save'}
+                          </button>
+                          <button
+                            onClick={() => handleCopyCode(model.apiName)}
+                            className="flex-1 py-2 px-3 rounded-lg text-xs font-medium bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 transition-all duration-200"
+                          >
+                            📋 Copy
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="text-center mt-6">
+                  <button
+                    onClick={() => window.open('https://api.llm.ai.vn', '_blank')}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                  >
+                    <span>🚀</span>
+                    Try New Models Now
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {/* How to Get Started Section */}
       <div className="max-w-4xl mx-auto mb-8 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl p-6 border border-blue-500/20">
         <div className="text-center mb-6">

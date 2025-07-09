@@ -2427,6 +2427,19 @@ const modelPricing = {
                 original: 7.50,
                 discounted: 3.75
             }
+        },
+        {
+            apiName: 'grok:grok-3-mini',
+            realName: 'Grok v3 Mini',
+            inputPrice: {
+                original: 0.60,
+                discounted: 0.30
+            },
+            outputPrice: {
+                original: 4.00,
+                discounted: 2.00
+            },
+            isNew: true
         }
     ],
     "Gemini Models": [
@@ -2928,6 +2941,389 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                 lineNumber: 174,
                 columnNumber: 7
             }, this),
+            (()=>{
+                const newModels = Object.entries(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$2f$modelPricing$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]).reduce((acc, [category, models])=>{
+                    const newInCategory = models.filter((model)=>model.isNew === true);
+                    if (newInCategory.length > 0) {
+                        acc.push(...newInCategory.map((model)=>({
+                                ...model,
+                                category
+                            })));
+                    }
+                    return acc;
+                }, []);
+                if (newModels.length === 0) return null;
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "max-w-6xl mx-auto mb-8",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-gradient-to-r from-red-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-6 border border-red-500/20 relative overflow-hidden",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "absolute inset-0 bg-gradient-to-r from-red-500/5 via-pink-500/5 to-purple-500/5 animate-pulse"
+                            }, void 0, false, {
+                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                lineNumber: 226,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "relative z-10",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-center mb-6",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center justify-center gap-3 mb-3",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "animate-bounce",
+                                                        children: "🎉"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                        lineNumber: 231,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                        className: "text-2xl font-bold text-white",
+                                                        children: "New Models Available!"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                        lineNumber: 232,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "animate-bounce",
+                                                        children: "✨"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                        lineNumber: 233,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                lineNumber: 230,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-gray-300",
+                                                children: "Check out our latest AI models with competitive pricing"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                lineNumber: 235,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                        lineNumber: 229,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
+                                        children: newModels.map((model, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "bg-white/5 rounded-xl p-4 border border-white/10 hover:border-red-500/30 transition-all duration-300 hover:scale-105 hover:shadow-lg group",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-start justify-between mb-3",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "flex-1 min-w-0",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex items-center gap-2 mb-1",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse",
+                                                                                children: "NEW"
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                lineNumber: 247,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-xs text-gray-400 bg-gray-700/50 px-2 py-1 rounded",
+                                                                                children: model.category
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                lineNumber: 250,
+                                                                                columnNumber: 29
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                        lineNumber: 246,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                        className: "font-semibold text-white text-sm mb-1 line-clamp-1",
+                                                                        children: model.realName
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                        lineNumber: 254,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
+                                                                        className: "text-blue-400 text-xs font-mono break-all line-clamp-1",
+                                                                        children: model.apiName
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                        lineNumber: 257,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                lineNumber: 245,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                onClick: ()=>showModelDetails(model),
+                                                                className: "flex-shrink-0 ml-2 p-2 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 transition-colors opacity-0 group-hover:opacity-100",
+                                                                title: "View details",
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                                    className: "w-4 h-4",
+                                                                    fill: "none",
+                                                                    stroke: "currentColor",
+                                                                    viewBox: "0 0 24 24",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                                        strokeLinecap: "round",
+                                                                        strokeLinejoin: "round",
+                                                                        strokeWidth: 2,
+                                                                        d: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                        lineNumber: 267,
+                                                                        columnNumber: 29
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                    lineNumber: 266,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                lineNumber: 261,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                        lineNumber: 244,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "grid grid-cols-2 gap-3",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "bg-green-500/10 rounded-lg p-3 border border-green-500/20",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-xs text-green-400 mb-1",
+                                                                        children: "Input"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                        lineNumber: 274,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex flex-col",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-gray-400 line-through text-xs",
+                                                                                children: [
+                                                                                    "$",
+                                                                                    model.inputPrice.original.toFixed(2)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                lineNumber: 276,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-green-400 font-bold text-sm",
+                                                                                children: [
+                                                                                    "$",
+                                                                                    model.inputPrice.discounted.toFixed(2)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                lineNumber: 279,
+                                                                                columnNumber: 29
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                        lineNumber: 275,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                lineNumber: 273,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "bg-blue-500/10 rounded-lg p-3 border border-blue-500/20",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "text-xs text-blue-400 mb-1",
+                                                                        children: "Output"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                        lineNumber: 286,
+                                                                        columnNumber: 27
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                        className: "flex flex-col",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-gray-400 line-through text-xs",
+                                                                                children: [
+                                                                                    "$",
+                                                                                    model.outputPrice.original.toFixed(2)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                lineNumber: 288,
+                                                                                columnNumber: 29
+                                                                            }, this),
+                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                className: "text-blue-400 font-bold text-sm",
+                                                                                children: [
+                                                                                    "$",
+                                                                                    model.outputPrice.discounted.toFixed(2)
+                                                                                ]
+                                                                            }, void 0, true, {
+                                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                                lineNumber: 291,
+                                                                                columnNumber: 29
+                                                                            }, this)
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                        lineNumber: 287,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                lineNumber: 285,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                        lineNumber: 272,
+                                                        columnNumber: 23
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "mt-3 pt-3 border-t border-white/10",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-center gap-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                    onClick: ()=>toggleSaveModel(model.apiName),
+                                                                    className: `flex-1 py-2 px-3 rounded-lg text-xs font-medium transition-all duration-200 ${savedModels.includes(model.apiName) ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' : 'bg-gray-600/20 hover:bg-yellow-500/20 text-gray-400 hover:text-yellow-400 border border-gray-500/30 hover:border-yellow-500/30'}`,
+                                                                    children: savedModels.includes(model.apiName) ? '❤️ Saved' : '🤍 Save'
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                    lineNumber: 300,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                                    onClick: ()=>handleCopyCode(model.apiName),
+                                                                    className: "flex-1 py-2 px-3 rounded-lg text-xs font-medium bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 transition-all duration-200",
+                                                                    children: "📋 Copy"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                                    lineNumber: 310,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                            lineNumber: 299,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                        lineNumber: 298,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, index, true, {
+                                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                lineNumber: 240,
+                                                columnNumber: 21
+                                            }, this))
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                        lineNumber: 238,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-center mt-6",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                            onClick: ()=>window.open('https://api.llm.ai.vn', '_blank'),
+                                            className: "inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    children: "🚀"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                    lineNumber: 327,
+                                                    columnNumber: 21
+                                                }, this),
+                                                "Try New Models Now",
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                                    className: "w-4 h-4",
+                                                    fill: "none",
+                                                    stroke: "currentColor",
+                                                    viewBox: "0 0 24 24",
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                                        strokeLinecap: "round",
+                                                        strokeLinejoin: "round",
+                                                        strokeWidth: 2,
+                                                        d: "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                        lineNumber: 330,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                                    lineNumber: 329,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                            lineNumber: 323,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                        lineNumber: 322,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/components/ModelPricingSection.tsx",
+                                lineNumber: 228,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/components/ModelPricingSection.tsx",
+                        lineNumber: 224,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/components/ModelPricingSection.tsx",
+                    lineNumber: 223,
+                    columnNumber: 11
+                }, this);
+            })(),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "max-w-4xl mx-auto mb-8 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl p-6 border border-blue-500/20",
                 children: [
@@ -2939,7 +3335,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                 children: "🚀 How to Get Started"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 213,
+                                lineNumber: 343,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2947,13 +3343,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                 children: "Follow these simple steps to start using AI models at discounted prices"
                             }, void 0, false, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 214,
+                                lineNumber: 344,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                        lineNumber: 212,
+                        lineNumber: 342,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2969,12 +3365,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             children: "1"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 221,
+                                            lineNumber: 351,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 220,
+                                        lineNumber: 350,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -2982,7 +3378,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         children: "Choose Your Model"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 353,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2990,13 +3386,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         children: "Browse and compare AI models. Click on model names for detailed pricing info."
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 224,
+                                        lineNumber: 354,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 219,
+                                lineNumber: 349,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3009,12 +3405,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             children: "2"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 230,
+                                            lineNumber: 360,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 229,
+                                        lineNumber: 359,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -3022,7 +3418,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         children: "Contact Us"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 232,
+                                        lineNumber: 362,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3030,13 +3426,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         children: "Join our Telegram/Discord community or contact us directly to get your API key."
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 233,
+                                        lineNumber: 363,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 228,
+                                lineNumber: 358,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3049,12 +3445,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             children: "3"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 239,
+                                            lineNumber: 369,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 238,
+                                        lineNumber: 368,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -3062,7 +3458,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         children: "Start Using"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 241,
+                                        lineNumber: 371,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3070,19 +3466,19 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         children: "Use our API endpoint with your preferred programming language and start building!"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 242,
+                                        lineNumber: 372,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 237,
+                                lineNumber: 367,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                        lineNumber: 217,
+                        lineNumber: 347,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3104,19 +3500,19 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             d: "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 253,
+                                            lineNumber: 383,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 252,
+                                        lineNumber: 382,
                                         columnNumber: 13
                                     }, this),
                                     "Visit API Portal"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 248,
+                                lineNumber: 378,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3137,31 +3533,31 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             d: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-2.126-.325c-1.652-.5-3.274-1.326-4.874-2.492L0 20l2.126-6.287c-.652-1.6-1.478-3.222-1.978-4.874-.25-.677-.298-1.376-.298-2.039C0 3.372 3.582-.25 8-.25s8 3.622 8 12.25z"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 263,
+                                            lineNumber: 393,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 262,
+                                        lineNumber: 392,
                                         columnNumber: 13
                                     }, this),
                                     "Join Community"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 258,
+                                lineNumber: 388,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                        lineNumber: 247,
+                        lineNumber: 377,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                lineNumber: 211,
+                lineNumber: 341,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3180,7 +3576,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         className: "w-full px-4 py-3 pl-12 bg-white/5 dark:bg-gray-800 rounded-xl  border border-white/10 dark:border-gray-700 text-white dark:text-gray-200  placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all duration-300 group-hover:border-white/20"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 274,
+                                        lineNumber: 404,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3189,7 +3585,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             className: "animate-spin h-5 w-5 border-2 border-blue-400 border-t-transparent rounded-full"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 287,
+                                            lineNumber: 417,
                                             columnNumber: 17
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                             xmlns: "http://www.w3.org/2000/svg",
@@ -3204,17 +3600,17 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                 d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 290,
+                                                lineNumber: 420,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 289,
+                                            lineNumber: 419,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 285,
+                                        lineNumber: 415,
                                         columnNumber: 13
                                     }, this),
                                     filterText && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3237,23 +3633,23 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                 d: "M6 18L18 6M6 6l12 12"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 304,
+                                                lineNumber: 434,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 303,
+                                            lineNumber: 433,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 295,
+                                        lineNumber: 425,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 273,
+                                lineNumber: 403,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3273,12 +3669,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             d: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 320,
+                                            lineNumber: 450,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 319,
+                                        lineNumber: 449,
                                         columnNumber: 13
                                     }, this),
                                     "Saved (",
@@ -3287,13 +3683,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 311,
+                                lineNumber: 441,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                        lineNumber: 272,
+                        lineNumber: 402,
                         columnNumber: 9
                     }, this),
                     showComparePanel && savedModels.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3311,7 +3707,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 332,
+                                        lineNumber: 462,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3320,13 +3716,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         children: "Clear All"
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 333,
+                                        lineNumber: 463,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 331,
+                                lineNumber: 461,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3342,7 +3738,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         children: model.apiName
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 344,
+                                                        lineNumber: 474,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3361,23 +3757,23 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                 d: "M6 18L18 6M6 6l12 12"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 350,
+                                                                lineNumber: 480,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 349,
+                                                            lineNumber: 479,
                                                             columnNumber: 23
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 345,
+                                                        lineNumber: 475,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 343,
+                                                lineNumber: 473,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3385,7 +3781,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                 children: model.realName
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 354,
+                                                lineNumber: 484,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3399,7 +3795,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 356,
+                                                        lineNumber: 486,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3410,36 +3806,36 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 357,
+                                                        lineNumber: 487,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 355,
+                                                lineNumber: 485,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, index, true, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 342,
+                                        lineNumber: 472,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 340,
+                                lineNumber: 470,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                        lineNumber: 330,
+                        lineNumber: 460,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                lineNumber: 271,
+                lineNumber: 401,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3448,7 +3844,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                     className: "min-w-0 md:min-w-[800px] space-y-8",
                     children: isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TableSkeleton, {}, void 0, false, {
                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                        lineNumber: 369,
+                        lineNumber: 499,
                         columnNumber: 13
                     }, this) : Object.entries(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$data$2f$modelPricing$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"]).map(([category, models])=>{
                         const filteredModels = (0, __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$utils$2f$helpers$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["filterModels"])(models, filterText);
@@ -3472,7 +3868,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 385,
+                                            lineNumber: 515,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -3488,18 +3884,18 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                 d: "M19 9l-7 7-7-7"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 393,
+                                                lineNumber: 523,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 386,
+                                            lineNumber: 516,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 381,
+                                    lineNumber: 511,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3516,7 +3912,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: t('modelName')
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 402,
+                                                            lineNumber: 532,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3524,7 +3920,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: t('realModelName')
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 405,
+                                                            lineNumber: 535,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3532,7 +3928,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: t('inputPrice')
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 408,
+                                                            lineNumber: 538,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -3540,18 +3936,18 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: t('outputPrice')
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 411,
+                                                            lineNumber: 541,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 401,
+                                                    lineNumber: 531,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 400,
+                                                lineNumber: 530,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -3571,7 +3967,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                     children: model.apiName
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                    lineNumber: 425,
+                                                                                    lineNumber: 555,
                                                                                     columnNumber: 35
                                                                                 }, this),
                                                                                 model.isNew && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3579,13 +3975,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                     children: t('newBadge')
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                    lineNumber: 429,
+                                                                                    lineNumber: 559,
                                                                                     columnNumber: 37
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 424,
+                                                                            lineNumber: 554,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3608,17 +4004,17 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                             d: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                                                                                         }, void 0, false, {
                                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                            lineNumber: 445,
+                                                                                            lineNumber: 575,
                                                                                             columnNumber: 39
                                                                                         }, this)
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                        lineNumber: 444,
+                                                                                        lineNumber: 574,
                                                                                         columnNumber: 37
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                    lineNumber: 435,
+                                                                                    lineNumber: 565,
                                                                                     columnNumber: 35
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3629,29 +4025,29 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                         className: "text-blue-400 dark:text-blue-200 hover:text-blue-300"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                        lineNumber: 453,
+                                                                                        lineNumber: 583,
                                                                                         columnNumber: 37
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                    lineNumber: 448,
+                                                                                    lineNumber: 578,
                                                                                     columnNumber: 35
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 434,
+                                                                            lineNumber: 564,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                    lineNumber: 423,
+                                                                    lineNumber: 553,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 422,
+                                                                lineNumber: 552,
                                                                 columnNumber: 29
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3663,12 +4059,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                     children: model.realName
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                    lineNumber: 459,
+                                                                    lineNumber: 589,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 458,
+                                                                lineNumber: 588,
                                                                 columnNumber: 55
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3684,7 +4080,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 469,
+                                                                            lineNumber: 599,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3695,18 +4091,18 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 472,
+                                                                            lineNumber: 602,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                    lineNumber: 468,
+                                                                    lineNumber: 598,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 467,
+                                                                lineNumber: 597,
                                                                 columnNumber: 29
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -3722,7 +4118,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 479,
+                                                                            lineNumber: 609,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3733,40 +4129,40 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                            lineNumber: 482,
+                                                                            lineNumber: 612,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                    lineNumber: 478,
+                                                                    lineNumber: 608,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 477,
+                                                                lineNumber: 607,
                                                                 columnNumber: 29
                                                             }, this)
                                                         ]
                                                     }, index, true, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 418,
+                                                        lineNumber: 548,
                                                         columnNumber: 27
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 416,
+                                                lineNumber: 546,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 399,
+                                        lineNumber: 529,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 398,
+                                    lineNumber: 528,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3790,7 +4186,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 children: model.apiName
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 504,
+                                                                                lineNumber: 634,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             model.isNew && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3798,13 +4194,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 children: t('newBadge')
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 508,
+                                                                                lineNumber: 638,
                                                                                 columnNumber: 35
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 503,
+                                                                        lineNumber: 633,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3827,17 +4223,17 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                         d: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                                                                                     }, void 0, false, {
                                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                        lineNumber: 524,
+                                                                                        lineNumber: 654,
                                                                                         columnNumber: 37
                                                                                     }, this)
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                    lineNumber: 523,
+                                                                                    lineNumber: 653,
                                                                                     columnNumber: 35
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 514,
+                                                                                lineNumber: 644,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3848,24 +4244,24 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                     className: "text-blue-400 dark:text-blue-200 hover:text-blue-300 w-4 h-4"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                    lineNumber: 532,
+                                                                                    lineNumber: 662,
                                                                                     columnNumber: 35
                                                                                 }, this)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 527,
+                                                                                lineNumber: 657,
                                                                                 columnNumber: 33
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 513,
+                                                                        lineNumber: 643,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 502,
+                                                                lineNumber: 632,
                                                                 columnNumber: 29
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3875,13 +4271,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                 children: model.realName
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 536,
+                                                                lineNumber: 666,
                                                                 columnNumber: 29
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 501,
+                                                        lineNumber: 631,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3895,7 +4291,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                         children: t('inputPrice')
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 547,
+                                                                        lineNumber: 677,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3909,7 +4305,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 549,
+                                                                                lineNumber: 679,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3920,19 +4316,19 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 552,
+                                                                                lineNumber: 682,
                                                                                 columnNumber: 33
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 548,
+                                                                        lineNumber: 678,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 546,
+                                                                lineNumber: 676,
                                                                 columnNumber: 29
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3943,7 +4339,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                         children: t('outputPrice')
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 559,
+                                                                        lineNumber: 689,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3957,7 +4353,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 561,
+                                                                                lineNumber: 691,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3968,41 +4364,41 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                                 ]
                                                                             }, void 0, true, {
                                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                                lineNumber: 564,
+                                                                                lineNumber: 694,
                                                                                 columnNumber: 33
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                        lineNumber: 560,
+                                                                        lineNumber: 690,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 558,
+                                                                lineNumber: 688,
                                                                 columnNumber: 29
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 545,
+                                                        lineNumber: 675,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, index, true, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 497,
+                                                lineNumber: 627,
                                                 columnNumber: 25
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 495,
+                                        lineNumber: 625,
                                         columnNumber: 21
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 494,
+                                    lineNumber: 624,
                                     columnNumber: 19
                                 }, this),
                                 hasMoreModels && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4025,40 +4421,40 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                     d: "M19 9l-7 7-7-7"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 590,
+                                                    lineNumber: 720,
                                                     columnNumber: 27
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 583,
+                                                lineNumber: 713,
                                                 columnNumber: 25
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 578,
+                                        lineNumber: 708,
                                         columnNumber: 23
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 577,
+                                    lineNumber: 707,
                                     columnNumber: 21
                                 }, this)
                             ]
                         }, category, true, {
                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                            lineNumber: 380,
+                            lineNumber: 510,
                             columnNumber: 17
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                    lineNumber: 367,
+                    lineNumber: 497,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                lineNumber: 366,
+                lineNumber: 496,
                 columnNumber: 7
             }, this),
             showModelPopup && selectedModel && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4082,7 +4478,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         children: selectedModel.realName
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 611,
+                                                        lineNumber: 741,
                                                         columnNumber: 21
                                                     }, this),
                                                     selectedModel.isNew && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4090,13 +4486,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         children: t('newBadge')
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 613,
+                                                        lineNumber: 743,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 610,
+                                                lineNumber: 740,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("code", {
@@ -4104,13 +4500,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                 children: selectedModel.apiName
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 618,
+                                                lineNumber: 748,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 609,
+                                        lineNumber: 739,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4128,28 +4524,28 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                 d: "M6 18L18 6M6 6l12 12"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 627,
+                                                lineNumber: 757,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 626,
+                                            lineNumber: 756,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 622,
+                                        lineNumber: 752,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                lineNumber: 608,
+                                lineNumber: 738,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                            lineNumber: 607,
+                            lineNumber: 737,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4176,12 +4572,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                 d: "M7 16l-4-4m0 0l4-4m-4 4h18"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 640,
+                                                                lineNumber: 770,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 639,
+                                                            lineNumber: 769,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -4189,13 +4585,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: t('inputPrice')
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 642,
+                                                            lineNumber: 772,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 638,
+                                                    lineNumber: 768,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4209,7 +4605,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 645,
+                                                            lineNumber: 775,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4220,7 +4616,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 648,
+                                                            lineNumber: 778,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4228,19 +4624,19 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: "per 1M tokens"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 651,
+                                                            lineNumber: 781,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 644,
+                                                    lineNumber: 774,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 637,
+                                            lineNumber: 767,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4261,12 +4657,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                                 d: "M17 8l4 4m0 0l-4 4m4-4H3"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                                lineNumber: 658,
+                                                                lineNumber: 788,
                                                                 columnNumber: 23
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 657,
+                                                            lineNumber: 787,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -4274,13 +4670,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: t('outputPrice')
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 660,
+                                                            lineNumber: 790,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 656,
+                                                    lineNumber: 786,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4294,7 +4690,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 663,
+                                                            lineNumber: 793,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4305,7 +4701,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 666,
+                                                            lineNumber: 796,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4313,25 +4709,25 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: "per 1M tokens"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 669,
+                                                            lineNumber: 799,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 662,
+                                                    lineNumber: 792,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 655,
+                                            lineNumber: 785,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 636,
+                                    lineNumber: 766,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4352,12 +4748,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         d: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 678,
+                                                        lineNumber: 808,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 677,
+                                                    lineNumber: 807,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -4365,13 +4761,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                     children: "Your Savings"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 680,
+                                                    lineNumber: 810,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 676,
+                                            lineNumber: 806,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4387,7 +4783,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 684,
+                                                            lineNumber: 814,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4395,13 +4791,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: "Input Discount"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 687,
+                                                            lineNumber: 817,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 683,
+                                                    lineNumber: 813,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4414,7 +4810,7 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 690,
+                                                            lineNumber: 820,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4422,25 +4818,25 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                             children: "Output Discount"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                            lineNumber: 693,
+                                                            lineNumber: 823,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 689,
+                                                    lineNumber: 819,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 682,
+                                            lineNumber: 812,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 675,
+                                    lineNumber: 805,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4461,12 +4857,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         d: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 702,
+                                                        lineNumber: 832,
                                                         columnNumber: 22
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 701,
+                                                    lineNumber: 831,
                                                     columnNumber: 20
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -4474,13 +4870,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                     children: "Usage Example"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 704,
+                                                    lineNumber: 834,
                                                     columnNumber: 20
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 700,
+                                            lineNumber: 830,
                                             columnNumber: 18
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4498,12 +4894,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
   }'`
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 707,
+                                                lineNumber: 837,
                                                 columnNumber: 20
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 706,
+                                            lineNumber: 836,
                                             columnNumber: 18
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4511,13 +4907,13 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                             children: "💡 Replace YOUR_API_KEY with your actual API key from our portal"
                                         }, void 0, false, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 719,
+                                            lineNumber: 849,
                                             columnNumber: 18
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 699,
+                                    lineNumber: 829,
                                     columnNumber: 16
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4541,12 +4937,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                     d: "M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-3a1 1 0 011-1h2.586l6.243-6.243C12.968 9.313 13.83 9 14.5 9z"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 734,
+                                                    lineNumber: 864,
                                                     columnNumber: 22
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                lineNumber: 733,
+                                                lineNumber: 863,
                                                 columnNumber: 20
                                             }, this),
                                             "Get API Key & Start Using ",
@@ -4554,12 +4950,12 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                        lineNumber: 726,
+                                        lineNumber: 856,
                                         columnNumber: 18
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 725,
+                                    lineNumber: 855,
                                     columnNumber: 16
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4573,14 +4969,14 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                     className: "w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 746,
+                                                    lineNumber: 876,
                                                     columnNumber: 20
                                                 }, this),
                                                 "Copy API"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 742,
+                                            lineNumber: 872,
                                             columnNumber: 18
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4591,14 +4987,14 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                     className: "w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 754,
+                                                    lineNumber: 884,
                                                     columnNumber: 20
                                                 }, this),
                                                 "Copy Name"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 750,
+                                            lineNumber: 880,
                                             columnNumber: 18
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$1$2e$3_react$2d$dom$40$19$2e$0$2e$0_react$40$19$2e$0$2e$0_$5f$react$40$19$2e$0$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -4617,42 +5013,42 @@ const ModelPricingSection = ({ t, modelSectionRef, expandedCategories, toggleCat
                                                         d: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                        lineNumber: 767,
+                                                        lineNumber: 897,
                                                         columnNumber: 22
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                                    lineNumber: 766,
+                                                    lineNumber: 896,
                                                     columnNumber: 20
                                                 }, this),
                                                 savedModels.includes(selectedModel.apiName) ? 'Saved' : 'Save'
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                            lineNumber: 758,
+                                            lineNumber: 888,
                                             columnNumber: 18
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                                    lineNumber: 741,
+                                    lineNumber: 871,
                                     columnNumber: 16
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/components/ModelPricingSection.tsx",
-                            lineNumber: 634,
+                            lineNumber: 764,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/components/ModelPricingSection.tsx",
-                    lineNumber: 605,
+                    lineNumber: 735,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/components/ModelPricingSection.tsx",
-                lineNumber: 604,
+                lineNumber: 734,
                 columnNumber: 9
             }, this)
         ]
