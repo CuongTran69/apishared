@@ -23,13 +23,15 @@ const modelPricing = {
       apiName: 'anthropic:opus-4-1-20250805',
       realName: 'Claude 4.1 Opus',
       inputPrice: { original: 15.00, discounted: 7.50 },
-      outputPrice: { original: 75.00, discounted: 37.50 }
+      outputPrice: { original: 75.00, discounted: 37.50 },
+      isNew: true
     },
     {
       apiName: 'anthropic:opus-4-1-20250805-thinking',
       realName: 'Claude 4.1 Opus',
       inputPrice: { original: 15.00, discounted: 7.50 },
-      outputPrice: { original: 75.00, discounted: 37.50 }
+      outputPrice: { original: 75.00, discounted: 37.50 },
+      isNew: true
     },
     {
       apiName: 'anthropic:opus-4-20250514',
@@ -75,6 +77,13 @@ const modelPricing = {
     },
   ],
   "OpenAI Models": [
+    {
+      apiName: 'openai:gpt-5',
+      realName: 'GPT 5',
+      inputPrice: { original: 1.20, discounted: 0.60 },
+      outputPrice: { original: 10.00, discounted: 5.00 },
+      isNew: true
+    },
     {
       apiName: 'openai:gpt-4.1',
       realName: 'OpenAI 4.1',
@@ -139,8 +148,7 @@ const modelPricing = {
       apiName: 'gemini:gemini-2.5-pro-preview-0605',
       realName: 'Gemini 2.5 Pro Preview 06-05',
       inputPrice: { original: 2.5, discounted: 1.25 },
-      outputPrice: { original: 10.00, discounted: 5.00 },
-      isNew: true
+      outputPrice: { original: 10.00, discounted: 5.00 }
     },
     {
       apiName: 'gemini:gemini-2.5-pro',
