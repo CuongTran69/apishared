@@ -175,17 +175,20 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
 
   // Filter models based on search and provider
   const getFilteredModels = () => {
-    let filtered = { ...modelPricing };
+    let filtered: Record<string, ModelInfo[]> = { ...modelPricing };
 
     // Filter by provider
-    if (selectedProvider) {
-      filtered = { [selectedProvider]: modelPricing[selectedProvider] };
+    if (selectedProvider && selectedProvider in modelPricing) {
+      const providerKey = selectedProvider as keyof typeof modelPricing;
+      filtered = { [selectedProvider]: modelPricing[providerKey] };
     }
 
     // Filter by search text
     if (filterText) {
       Object.keys(filtered).forEach(category => {
-        filtered[category] = filterModels(filtered[category], filterText);
+        if (filtered[category]) {
+          filtered[category] = filterModels(filtered[category], filterText);
+        }
       });
     }
 
@@ -520,7 +523,7 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
                                   <code className="text-blue-400 dark:text-blue-200 text-sm font-mono break-all">
                                     {model.apiName}
                                   </code>
-                                  {model.isNew && (
+                                  {(model as any).isNew && (
                                     <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse">
                                       {t('newBadge')}
                                     </span>
@@ -599,7 +602,7 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
                                 <code className="text-blue-400 dark:text-blue-200 text-sm font-mono break-all line-clamp-1">
                                   {model.apiName}
                                 </code>
-                                {model.isNew && (
+                                {(model as any).isNew && (
                                   <span className="inline-flex items-center px-2 py-1 mt-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse">
                                     {t('newBadge')}
                                   </span>
