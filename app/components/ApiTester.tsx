@@ -96,26 +96,75 @@ const ApiTester: React.FC<ApiTesterProps> = ({ isOpen, onClose, language }) => {
     return translations[language][key];
   };
 
-  const testApi = () => {
+  const validateInputs = () => {
+    if (!apiKey.trim()) {
+      return { isValid: false, message: language === 'vi' ? 'API key không được để trống' : 'API key cannot be empty' };
+    }
+    if (!baseUrl.trim()) {
+      return { isValid: false, message: language === 'vi' ? 'Base URL không được để trống' : 'Base URL cannot be empty' };
+    }
+    if (!baseUrl.startsWith('http://') && !baseUrl.startsWith('https://')) {
+      return { isValid: false, message: language === 'vi' ? 'Base URL phải bắt đầu với http:// hoặc https://' : 'Base URL must start with http:// or https://' };
+    }
+    return { isValid: true, message: '' };
+  };
+
+  const testApi = async () => {
+    const validation = validateInputs();
+    if (!validation.isValid) {
+      setTestResult({
+        success: false,
+        message: validation.message
+      });
+      return;
+    }
+
     setIsTesting(true);
     setTestResult(null);
-    
-    // Simulate API testing - in a real-world scenario, you'd make an actual API call
-    setTimeout(() => {
-      setIsTesting(false);
-      // Just a simulation - in a real app you would make the actual API call
-      if (apiKey) {
+
+    try {
+      // Real API testing
+      const testModel = modelName.trim() || 'anthropic:3.7-sonnet';
+      const response = await fetch(`${baseUrl}/chat/completions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: testModel,
+          messages: [{ role: 'user', content: 'Hello, this is a test message.' }],
+          max_tokens: 10
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
         setTestResult({
           success: true,
-          message: 'API key valid! Connection successful.'
+          message: language === 'vi'
+            ? `✅ API hoạt động tốt! Model: ${testModel}`
+            : `✅ API working perfectly! Model: ${testModel}`
         });
       } else {
+        const errorData = await response.json().catch(() => ({}));
         setTestResult({
           success: false,
-          message: 'API key cannot be empty.'
+          message: language === 'vi'
+            ? `❌ API lỗi: ${response.status} - ${errorData.error?.message || 'Unknown error'}`
+            : `❌ API Error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`
         });
       }
-    }, 1500);
+    } catch (error) {
+      setTestResult({
+        success: false,
+        message: language === 'vi'
+          ? `❌ Lỗi kết nối: ${error instanceof Error ? error.message : 'Network error'}`
+          : `❌ Connection Error: ${error instanceof Error ? error.message : 'Network error'}`
+      });
+    } finally {
+      setIsTesting(false);
+    }
   };
 
   const handleCopyCode = () => {
@@ -184,15 +233,22 @@ const ApiTester: React.FC<ApiTesterProps> = ({ isOpen, onClose, language }) => {
           <div className="flex space-x-4 mb-6">
             <button
               onClick={testApi}
-              disabled={isTesting}
-              className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isTesting || !apiKey.trim() || !baseUrl.trim()}
+              className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
+              {isTesting && (
+                <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+              )}
               {isTesting ? t('testingMessage') : t('testButton')}
             </button>
-            
+
             <button
               onClick={onClose}
-              className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-lg transition-colors"
+              disabled={isTesting}
+              className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-2 px-4 rounded-lg transition-colors disabled:opacity-50"
             >
               {t('closeButton')}
             </button>

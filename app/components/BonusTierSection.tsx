@@ -16,7 +16,18 @@ const BonusTierSection: React.FC<BonusTierSectionProps> = ({
   bonusSectionRef
 }) => {
   return (
-    <section ref={bonusSectionRef} className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-16">
+    <section ref={bonusSectionRef} className="max-w-6xl mx-auto mt-16">
+      {/* Section Header */}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          💰 Special Pricing Offers
+        </h2>
+        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          Get more value with our bonus credit system. The more you invest, the more you save!
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
       {/* Trial Tier */}
       <div className="bg-gradient-to-br from-green-900/40 to-green-800/20 backdrop-blur-lg rounded-3xl p-8 
         border border-green-500/20 shadow-xl transform transition-all duration-300 hover:scale-102 
@@ -119,6 +130,7 @@ const BonusTierSection: React.FC<BonusTierSectionProps> = ({
         >
           {t('contactUsToPurchase')}
         </button>
+      </div>
       </div>
     </section>
   );

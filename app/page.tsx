@@ -7,10 +7,12 @@ import ApiTester from './components/ApiTester'
 import useTranslation from './utils/useTranslation'
 import { copyToClipboard } from './utils/helpers'
 import Header from './components/Header'
+import HeroSection from './components/HeroSection'
 import VideoSection from './components/VideoSection'
 import BonusTierSection from './components/BonusTierSection'
 import Footer from './components/Footer'
 import ModelPricingSection from './components/ModelPricingSection'
+import ScrollToTop from './components/ScrollToTop'
 
 export default function Home() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
@@ -150,7 +152,7 @@ export default function Home() {
 
       <main className="container mx-auto px-4 relative dark:bg-white">
         {/* Header */}
-        <Header 
+        <Header
           language={language}
           t={t}
           toggleLanguage={toggleLanguage}
@@ -160,6 +162,14 @@ export default function Home() {
           footerSectionRef={footerSectionRef}
           modelSectionRef={modelSectionRef}
           bonusSectionRef={bonusSectionRef}
+        />
+
+        {/* Hero Section */}
+        <HeroSection
+          t={t}
+          setIsApiTesterOpen={setIsApiTesterOpen}
+          modelSectionRef={modelSectionRef}
+          footerSectionRef={footerSectionRef}
         />
 
         {/* Video Section */}
@@ -183,44 +193,50 @@ export default function Home() {
         />
 
         {/* Footer */}
-        <Footer 
+        <Footer
           t={t}
           footerSectionRef={footerSectionRef}
         />
       </main>
 
-      {/* Floating Action Button - Mobile Only */}
+      {/* Scroll to Top Button */}
+      <ScrollToTop />
+
+      {/* Enhanced Floating Action Buttons - Mobile Only */}
       <div className="fixed bottom-6 right-6 z-50 md:hidden">
         <div className="flex flex-col gap-3">
-          {/* Contact/Join Button */}
-          <button
-            onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-14 h-14 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group animate-pulse"
-            title="Get API Key"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-3a1 1 0 011-1h2.586l6.243-6.243C12.968 9.313 13.83 9 14.5 9z" />
-            </svg>
-          </button>
+          {/* Contact/Join Button with Pulse Effect */}
+          <div className="relative">
+            <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20"></div>
+            <button
+              onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+              className="relative w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white rounded-full shadow-2xl hover:shadow-green-500/50 transition-all duration-300 flex items-center justify-center group"
+              title="Get API Key"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-3a1 1 0 011-1h2.586l6.243-6.243C12.968 9.313 13.83 9 14.5 9z" />
+              </svg>
+            </button>
+          </div>
 
           {/* API Tester Button */}
           <button
             onClick={() => setIsApiTesterOpen(true)}
-            className="w-14 h-14 bg-purple-600 hover:bg-purple-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+            className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white rounded-full shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center group hover:scale-110"
             title="Test API"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </button>
-          
+
           {/* Scroll to Models Button */}
           <button
             onClick={() => modelSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            className="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+            className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center group hover:scale-110"
             title="View Models"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
             </svg>
           </button>

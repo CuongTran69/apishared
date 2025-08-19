@@ -24,8 +24,10 @@ const Footer: React.FC<FooterProps> = ({ t, footerSectionRef }) => {
             href="https://t.me/rapidapisupporter"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#27A7E5]/10 hover:bg-[#27A7E5]/20 border border-[#27A7E5]/30 rounded-xl p-5 transition-all duration-300 transform hover:scale-105 flex flex-col items-center group"
+            className="relative overflow-hidden bg-gradient-to-br from-[#27A7E5]/15 to-[#27A7E5]/5 hover:from-[#27A7E5]/25 hover:to-[#27A7E5]/10 border border-[#27A7E5]/30 hover:border-[#27A7E5]/50 rounded-2xl p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-[#27A7E5]/20 flex flex-col items-center group"
           >
+            {/* Shine effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             <div className="w-16 h-16 rounded-full bg-[#27A7E5]/20 flex items-center justify-center mb-4">
               <FaTelegram className="w-8 h-8 text-[#27A7E5]" />
             </div>

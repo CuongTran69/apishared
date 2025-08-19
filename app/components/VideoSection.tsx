@@ -48,6 +48,16 @@ const VideoSection: React.FC = () => {
   return (
     <section className="mt-16 md:mt-20 relative z-10 px-4 dark:bg-white">
       <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            🎥 Learn How to Use Our API
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Watch our comprehensive tutorials to get started with AI APIs in minutes
+          </p>
+        </div>
+
         {/* Video Player Container */}
         <div className="grid gap-8 md:grid-cols-12">
           {/* Main Video Player */}

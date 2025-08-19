@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FaCopy } from 'react-icons/fa';
+import { FaCopy, FaSearch, FaTimes, FaStar, FaFire } from 'react-icons/fa';
 import modelPricing, { ModelInfo } from '@/app/data/modelPricing';
 import { filterModels } from '@/app/utils/helpers';
 
@@ -46,6 +46,7 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
   footerSectionRef
 }) => {
   const [filterText, setFilterText] = useState('');
+  const [selectedProvider, setSelectedProvider] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [savedModels, setSavedModels] = useState<string[]>([]);
   const [showComparePanel, setShowComparePanel] = useState(false);
@@ -169,13 +170,239 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
 
 
 
+  // Get all providers for filter
+  const allProviders = Object.keys(modelPricing);
+
+  // Filter models based on search and provider
+  const getFilteredModels = () => {
+    let filtered = { ...modelPricing };
+
+    // Filter by provider
+    if (selectedProvider) {
+      filtered = { [selectedProvider]: modelPricing[selectedProvider] };
+    }
+
+    // Filter by search text
+    if (filterText) {
+      Object.keys(filtered).forEach(category => {
+        filtered[category] = filterModels(filtered[category], filterText);
+      });
+    }
+
+    return filtered;
+  };
+
+  const filteredModels = getFilteredModels();
+
   return (
     <section ref={modelSectionRef} className="mt-12 md:mt-20 relative z-10 px-4">
       <div className="text-center mb-8 md:mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-white dark:text-black mb-6">
           {t('modelPricing')}
         </h2>
-        
+
+        {/* Enhanced Search & Filter Section */}
+        <div className="max-w-4xl mx-auto mb-8">
+          {/* Search Bar */}
+          <div className="relative mb-6">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <FaSearch className="h-5 w-5 text-gray-400" />
+            </div>
+            <input
+              type="text"
+              onChange={handleFilterChange}
+              className="block w-full pl-12 pr-12 py-4 bg-white/5 border border-gray-600 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-lg"
+              placeholder={`${t('placeholder')} (Ctrl+K)`}
+            />
+            {filterText && (
+              <button
+                onClick={() => {
+                  setFilterText('');
+                  const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+                  if (input) input.value = '';
+                }}
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white transition-colors"
+              >
+                <FaTimes className="h-5 w-5" />
+              </button>
+            )}
+          </div>
+
+          {/* Provider Filter Pills */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            <button
+              onClick={() => setSelectedProvider('')}
+              className={`px-4 py-2 rounded-full transition-all ${
+                !selectedProvider
+                  ? 'bg-blue-500 text-white shadow-lg'
+                  : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-gray-600'
+              }`}
+            >
+              All Providers
+            </button>
+            {allProviders.map((provider) => (
+              <button
+                key={provider}
+                onClick={() => setSelectedProvider(selectedProvider === provider ? '' : provider)}
+                className={`px-4 py-2 rounded-full transition-all ${
+                  selectedProvider === provider
+                    ? 'bg-blue-500 text-white shadow-lg'
+                    : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-gray-600'
+                }`}
+              >
+                {provider.replace(' Models', '')}
+              </button>
+            ))}
+          </div>
+
+          {/* Search Results Summary */}
+          {(filterText || selectedProvider) && (
+            <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 mb-6">
+              <div className="flex items-center justify-center gap-2 text-blue-400">
+                <FaSearch className="h-4 w-4" />
+                <span>
+                  Found {Object.values(filteredModels).reduce((acc, models) => acc + models.length, 0)} models
+                  {filterText && ` matching "${filterText}"`}
+                  {selectedProvider && ` from ${selectedProvider.replace(' Models', '')}`}
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* New Models Spotlight - Moved to top for better visibility */}
+        {(() => {
+          const newModels = Object.entries(modelPricing).reduce((acc, [category, models]) => {
+            const newInCategory = (models as ModelInfo[]).filter(model => model.isNew === true);
+            if (newInCategory.length > 0) {
+              acc.push(...newInCategory.map(model => ({ ...model, category })));
+            }
+            return acc;
+          }, [] as (ModelInfo & { category: string })[]);
+
+          if (newModels.length === 0) return null;
+
+          return (
+            <div className="max-w-6xl mx-auto mb-8">
+              <div className="bg-gradient-to-r from-red-500/15 via-pink-500/15 to-purple-500/15 rounded-3xl p-8 border border-red-500/30 relative overflow-hidden shadow-2xl">
+                {/* Animated background effects */}
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 via-pink-500/5 to-purple-500/5 animate-pulse"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 animate-pulse"></div>
+
+                <div className="relative z-10">
+                  <div className="text-center mb-8">
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                      <div className="animate-bounce">🔥</div>
+                      <h3 className="text-3xl font-bold text-white bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                        HOT! New Models Just Dropped
+                      </h3>
+                      <div className="animate-bounce">⚡</div>
+                    </div>
+                    <p className="text-gray-300 text-lg">
+                      Latest AI models with <span className="text-green-400 font-semibold">50% discount</span> - Limited time offer!
+                    </p>
+                    <div className="mt-3 inline-flex items-center gap-2 bg-red-500/20 border border-red-500/50 rounded-full px-4 py-2">
+                      <FaFire className="text-red-400 animate-pulse" />
+                      <span className="text-red-400 font-medium">{newModels.length} New Models Available</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {newModels.slice(0, 6).map((model, index) => (
+                      <div
+                        key={index}
+                        className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:border-red-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl group relative overflow-hidden"
+                      >
+                        {/* Shine effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                        <div className="relative z-10">
+                          <div className="flex items-start justify-between mb-4">
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-2">
+                                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse shadow-lg">
+                                  <FaStar className="mr-1" />
+                                  NEW
+                                </span>
+                                <span className="text-xs text-gray-400 bg-gray-700/50 px-2 py-1 rounded-lg">
+                                  {model.category.replace(' Models', '')}
+                                </span>
+                              </div>
+                              <h4 className="font-bold text-white text-lg mb-2 line-clamp-1">
+                                {model.realName}
+                              </h4>
+                              <code className="text-blue-400 text-sm font-mono bg-blue-500/10 px-2 py-1 rounded break-all line-clamp-1">
+                                {model.apiName}
+                              </code>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div className="bg-green-500/15 rounded-xl p-4 border border-green-500/30">
+                              <div className="text-xs text-green-400 mb-2 font-medium">Input Price</div>
+                              <div className="flex flex-col">
+                                <span className="text-gray-400 line-through text-sm">
+                                  ${model.inputPrice.original.toFixed(2)}
+                                </span>
+                                <span className="text-green-400 font-bold text-lg">
+                                  ${model.inputPrice.discounted.toFixed(2)}
+                                </span>
+                                <span className="text-xs text-gray-500">per 1M tokens</span>
+                              </div>
+                            </div>
+
+                            <div className="bg-blue-500/15 rounded-xl p-4 border border-blue-500/30">
+                              <div className="text-xs text-blue-400 mb-2 font-medium">Output Price</div>
+                              <div className="flex flex-col">
+                                <span className="text-gray-400 line-through text-sm">
+                                  ${model.outputPrice.original.toFixed(2)}
+                                </span>
+                                <span className="text-blue-400 font-bold text-lg">
+                                  ${model.outputPrice.discounted.toFixed(2)}
+                                </span>
+                                <span className="text-xs text-gray-500">per 1M tokens</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => handleCopyCode(model.apiName)}
+                              className="flex-1 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 font-medium shadow-lg hover:shadow-xl"
+                            >
+                              <FaCopy className="text-sm" />
+                              Copy Code
+                            </button>
+                            {footerSectionRef && (
+                              <button
+                                onClick={() => footerSectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-xl transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
+                              >
+                                Try Now
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {newModels.length > 6 && (
+                    <div className="text-center mt-6">
+                      <button
+                        onClick={() => setFilterText('')}
+                        className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white py-3 px-8 rounded-full transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
+                      >
+                        View All {newModels.length} New Models
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
         {/* Statistics Panel */}
         <div className="max-w-6xl mx-auto mb-8">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -207,304 +434,42 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
         </div>
       </div>
 
-      {/* New Models Announcement Section */}
-      {(() => {
-        const newModels = Object.entries(modelPricing).reduce((acc, [category, models]) => {
-          const newInCategory = (models as ModelInfo[]).filter(model => model.isNew === true);
-          if (newInCategory.length > 0) {
-            acc.push(...newInCategory.map(model => ({ ...model, category })));
-          }
-          return acc;
-        }, [] as (ModelInfo & { category: string })[]);
-
-        if (newModels.length === 0) return null;
-
-        return (
-          <div className="max-w-6xl mx-auto mb-8">
-            <div className="bg-gradient-to-r from-red-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-6 border border-red-500/20 relative overflow-hidden">
-              {/* Animated background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-red-500/5 via-pink-500/5 to-purple-500/5 animate-pulse"></div>
-              
-              <div className="relative z-10">
-                <div className="text-center mb-6">
-                  <div className="flex items-center justify-center gap-3 mb-3">
-                    <div className="animate-bounce">🎉</div>
-                    <h3 className="text-2xl font-bold text-white">New Models Available!</h3>
-                    <div className="animate-bounce">✨</div>
-                  </div>
-                  <p className="text-gray-300">Check out our latest AI models with competitive pricing</p>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {newModels.map((model, index) => (
-                    <div 
-                      key={index}
-                      className="bg-white/5 rounded-xl p-4 border border-white/10 hover:border-red-500/30 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-                    >
-                      <div className="flex items-start justify-between mb-3">
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-red-500 to-pink-500 text-white animate-pulse">
-                              NEW
-                            </span>
-                            <span className="text-xs text-gray-400 bg-gray-700/50 px-2 py-1 rounded">
-                              {model.category}
-                            </span>
-                          </div>
-                          <h4 className="font-semibold text-white text-sm mb-1 line-clamp-1">
-                            {model.realName}
-                          </h4>
-                          <code className="text-blue-400 text-xs font-mono break-all line-clamp-1">
-                            {model.apiName}
-                          </code>
-                        </div>
-                        <button
-                          onClick={() => showModelDetails(model)}
-                          className="flex-shrink-0 ml-2 p-2 rounded-lg bg-blue-500/20 hover:bg-blue-500/30 text-blue-400 transition-colors opacity-0 group-hover:opacity-100"
-                          title="View details"
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        </button>
-                      </div>
-                      
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="bg-green-500/10 rounded-lg p-3 border border-green-500/20">
-                          <div className="text-xs text-green-400 mb-1">Input</div>
-                          <div className="flex flex-col">
-                            <span className="text-gray-400 line-through text-xs">
-                              ${model.inputPrice.original.toFixed(2)}
-                            </span>
-                            <span className="text-green-400 font-bold text-sm">
-                              ${model.inputPrice.discounted.toFixed(2)}
-                            </span>
-                          </div>
-                        </div>
-                        
-                        <div className="bg-blue-500/10 rounded-lg p-3 border border-blue-500/20">
-                          <div className="text-xs text-blue-400 mb-1">Output</div>
-                          <div className="flex flex-col">
-                            <span className="text-gray-400 line-through text-xs">
-                              ${model.outputPrice.original.toFixed(2)}
-                            </span>
-                            <span className="text-blue-400 font-bold text-sm">
-                              ${model.outputPrice.discounted.toFixed(2)}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="mt-3 pt-3 border-t border-white/10">
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={() => toggleSaveModel(model.apiName)}
-                            className={`flex-1 py-2 px-3 rounded-lg text-xs font-medium transition-all duration-200 ${
-                              savedModels.includes(model.apiName)
-                                ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
-                                : 'bg-gray-600/20 hover:bg-yellow-500/20 text-gray-400 hover:text-yellow-400 border border-gray-500/30 hover:border-yellow-500/30'
-                            }`}
-                          >
-                            {savedModels.includes(model.apiName) ? '❤️ Saved' : '🤍 Save'}
-                          </button>
-                          <button
-                            onClick={() => handleCopyCode(model.apiName)}
-                            className="flex-1 py-2 px-3 rounded-lg text-xs font-medium bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 transition-all duration-200"
-                          >
-                            📋 Copy
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="text-center mt-6">
-                  <button
-                    onClick={() => window.open('https://api.llm.ai.vn', '_blank')}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
-                  >
-                    <span>🚀</span>
-                    Try New Models Now
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })()}
-
-      {/* How to Get Started Section */}
-      <div className="max-w-4xl mx-auto mb-8 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-2xl p-6 border border-blue-500/20">
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-bold text-white mb-2">🚀 How to Get Started</h3>
-          <p className="text-gray-300">Follow these simple steps to start using AI models at discounted prices</p>
-        </div>
-        
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Step 1 */}
-          <div className="text-center">
-            <div className="bg-blue-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
-              <span className="text-2xl font-bold text-blue-400">1</span>
-            </div>
-            <h4 className="font-semibold text-white mb-2">Choose Your Model</h4>
-            <p className="text-gray-400 text-sm">Browse and compare AI models. Click on model names for detailed pricing info.</p>
-          </div>
-          
-          {/* Step 2 */}
-          <div className="text-center">
-            <div className="bg-green-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/30">
-              <span className="text-2xl font-bold text-green-400">2</span>
-            </div>
-            <h4 className="font-semibold text-white mb-2">Contact Us</h4>
-            <p className="text-gray-400 text-sm">Join our Telegram/Discord community or contact us directly to get your API key.</p>
-          </div>
-          
-          {/* Step 3 */}
-          <div className="text-center">
-            <div className="bg-purple-500/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
-              <span className="text-2xl font-bold text-purple-400">3</span>
-            </div>
-            <h4 className="font-semibold text-white mb-2">Start Using</h4>
-            <p className="text-gray-400 text-sm">Use our API endpoint with your preferred programming language and start building!</p>
-          </div>
-        </div>
-        
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-          <button
-            onClick={() => window.open('https://api.llm.ai.vn', '_blank')}
-            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 shadow-lg"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-            Visit API Portal
-          </button>
-          
-          <button
-            onClick={() => footerSectionRef?.current?.scrollIntoView({ behavior: 'smooth' })}
-            className="px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 shadow-lg"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-2.126-.325c-1.652-.5-3.274-1.326-4.874-2.492L0 20l2.126-6.287c-.652-1.6-1.478-3.222-1.978-4.874-.25-.677-.298-1.376-.298-2.039C0 3.372 3.582-.25 8-.25s8 3.622 8 12.25z" />
-            </svg>
-            Join Community
-          </button>
-        </div>
-      </div>
-
-      {/* Enhanced Search Filter & Controls */}
-      <div className="max-w-4xl mx-auto mb-8 space-y-4">
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="relative group flex-1">
-            <input
-              type="text"
-              onChange={handleFilterChange}
-              placeholder={`${t('placeholder')} (Ctrl+K)`}
-              className="w-full px-4 py-3 pl-12 bg-white/5 dark:bg-gray-800 rounded-xl 
-                border border-white/10 dark:border-gray-700
-                text-white dark:text-gray-200 
-                placeholder-gray-400 dark:placeholder-gray-500
-                focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50
-                transition-all duration-300 group-hover:border-white/20"
-            />
-            <div className="absolute left-3 top-1/2 -translate-y-1/2">
-              {isLoading ? (
-                <div className="animate-spin h-5 w-5 border-2 border-blue-400 border-t-transparent rounded-full"></div>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              )}
-            </div>
-            {filterText && (
-              <button
-                onClick={() => {
-                  setFilterText('');
-                  const input = document.querySelector('input[type="text"]') as HTMLInputElement;
-                  if (input) input.value = '';
-                }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            )}
-          </div>
-          
-          {/* Saved Models Button */}
-          <button
-            onClick={() => setShowComparePanel(!showComparePanel)}
-            className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 ${
-              savedModels.length > 0 
-                ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 hover:bg-yellow-500/30' 
-                : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10'
-            }`}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-            </svg>
-                         Saved ({savedModels.length})
-           </button>
-         </div>
-
-
-
-         {/* Compare Panel */}
-        {showComparePanel && savedModels.length > 0 && (
-          <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-white">Saved Models ({savedModels.length})</h3>
-              <button
-                onClick={() => setSavedModels([])}
-                className="text-red-400 hover:text-red-300 text-sm transition-colors"
-              >
-                Clear All
-              </button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-h-60 overflow-y-auto">
-              {getSavedModelDetails().map((model, index) => (
-                <div key={index} className="bg-white/5 rounded-lg p-3 border border-white/10">
-                  <div className="flex items-center justify-between mb-2">
-                    <code className="text-blue-400 text-xs">{model.apiName}</code>
-                    <button
-                      onClick={() => toggleSaveModel(model.apiName)}
-                      className="text-red-400 hover:text-red-300 transition-colors"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                  </div>
-                  <div className="text-xs text-gray-300">{model.realName}</div>
-                  <div className="flex justify-between text-xs mt-2">
-                    <span className="text-green-400">${model.inputPrice.discounted}</span>
-                    <span className="text-green-400">${model.outputPrice.discounted}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-
       <div className="overflow-x-auto md:overflow-visible rounded-xl shadow-xl">
         <div className="min-w-0 md:min-w-[800px] space-y-8">
           {isLoading ? (
             <TableSkeleton />
+          ) : Object.values(filteredModels).every(models => models.length === 0) ? (
+            // No results found
+            <div className="text-center py-16">
+              <div className="bg-white/5 rounded-2xl p-8 max-w-md mx-auto">
+                <div className="text-6xl mb-4">🔍</div>
+                <h3 className="text-xl font-bold text-white mb-2">No models found</h3>
+                <p className="text-gray-400 mb-6">
+                  {filterText
+                    ? `No models match "${filterText}"${selectedProvider ? ` in ${selectedProvider.replace(' Models', '')}` : ''}`
+                    : `No models available${selectedProvider ? ` in ${selectedProvider.replace(' Models', '')}` : ''}`
+                  }
+                </p>
+                <button
+                  onClick={() => {
+                    setFilterText('');
+                    setSelectedProvider('');
+                    const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+                    if (input) input.value = '';
+                  }}
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors"
+                >
+                  Clear Filters
+                </button>
+              </div>
+            </div>
           ) : (
-            Object.entries(modelPricing).map(([category, models]) => {
-              const filteredModels = filterModels(models, filterText);
-              if (filteredModels.length === 0) return null;
+            Object.entries(filteredModels).map(([category, models]) => {
+              if (models.length === 0) return null;
 
               const isExpanded = expandedCategories.includes(category);
-              const displayedModels = isExpanded ? filteredModels : filteredModels.slice(0, 5);
-              const hasMoreModels = filteredModels.length > 5;
+              const displayedModels = isExpanded ? models : models.slice(0, 5);
+              const hasMoreModels = models.length > 5;
 
               return (
                 <div key={category} className="bg-white/5 dark:bg-gray-800 backdrop-blur-lg rounded-xl overflow-hidden transition-all duration-300 hover:bg-white/7">
@@ -512,7 +477,7 @@ const ModelPricingSection: React.FC<ModelPricingSectionProps> = ({
                     className="text-xl font-bold text-white dark:text-red-300 bg-red-500/20 p-4 border-b border-white/10 cursor-pointer flex justify-between items-center hover:bg-red-500/30 transition-colors"
                     onClick={() => toggleCategory(category)}
                   >
-                    <span>{category} ({filteredModels.length} models)</span>
+                    <span>{category} ({models.length} models)</span>
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       className={`h-5 w-5 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}

@@ -21,17 +21,16 @@ const modelPricing = {
   "Anthropic Models": [
     {
       apiName: 'anthropic:opus-4-1-20250805',
-      realName: 'Claude 4.1 Opus',
+      realName: 'Claude 4.1 Opus Lastest',
       inputPrice: { original: 15.00, discounted: 7.50 },
       outputPrice: { original: 75.00, discounted: 37.50 },
       isNew: true
     },
     {
       apiName: 'anthropic:opus-4-1-20250805-thinking',
-      realName: 'Claude 4.1 Opus',
+      realName: 'Claude 4.1 Opus Lastest',
       inputPrice: { original: 15.00, discounted: 7.50 },
-      outputPrice: { original: 75.00, discounted: 37.50 },
-      isNew: true
+      outputPrice: { original: 75.00, discounted: 37.50 }
     },
     {
       apiName: 'anthropic:opus-4-20250514',
@@ -95,6 +94,12 @@ const modelPricing = {
       realName: 'OpenAI 4.1 Mini',
       inputPrice: { original: 2.00, discounted: 1.00 },
       outputPrice: { original: 8.00, discounted: 8.00 }
+    },
+    {
+      apiName: 'openai:gpt-oss-20b',
+      realName: 'OpenAI OSS 20B',
+      inputPrice: { original: 0.05, discounted: 0.025 },
+      outputPrice: { original: 0.20, discounted: 0.10 }
     },
     {
       apiName: 'openai:o4-mini',
@@ -162,6 +167,15 @@ const modelPricing = {
       inputPrice: { original: 0.3, discounted: 0.15 },
       outputPrice: { original: 1.2, discounted: 0.6 }
     },
+  ],
+  "Z.AI Models": [
+    {
+      apiName: 'z.ai:glm-4.5',
+      realName: 'Z.AI GLM 4.5',
+      inputPrice: { original: 0.60, discounted: 0.30 },
+      outputPrice: { original: 2.20, discounted: 1.10 },
+      isNew: true
+    }
   ]
 };
 
